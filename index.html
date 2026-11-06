@@ -61,7 +61,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .nm{font-weight:700;min-width:0;display:flex;align-items:center;gap:9px}
 .nm .nt{min-width:0}
 .prof{margin-left:8px;font:inherit;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;border:1px solid var(--accent);background:none;color:var(--accent);cursor:pointer;vertical-align:2px;white-space:nowrap}
-.prof:hover{background:var(--accent);color:#fff}
+.prof:hover,.prof.on{background:var(--accent);color:#fff}
 .av{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:hsl(var(--h) 55% 45%);color:#fff;font-size:15px;font-weight:700;line-height:1}
 .gdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:hsl(var(--h) 55% 45%);margin-right:6px;vertical-align:-1px}
 .nm small{display:block;font-weight:400;font-size:11.5px;color:var(--muted)}
@@ -417,7 +417,7 @@ function render(reset){
  document.getElementById("ledger").innerHTML=shown.map(m=>{const on=oshi.includes(m.n);return `<div class="row">
   <div class="rowgrid" role="button" tabindex="0" data-i="${m.i}" aria-expanded="${open.has(m.i)}">
    <button type="button" class="star ${on?"on":""}" data-star="${m.i}" aria-pressed="${on}" aria-label="${esc(m.n)}を推しにする">${on?"★":"☆"}</button>
-   <span class="nm"><span class="av" style="--h:${ghue(m.g)}" aria-hidden="true">${esc([...m.n][0])}</span><span class="nt">${esc(m.n)}${m.p?`<button type="button" class="prof" data-prof="${m.i}" aria-label="${esc(m.n)}の公式プロフィールを小窓で開く">公式 ↗</button>`:""}<small>${period(m)}${m.c.length?` ・ センター${m.c.length}回`:""}</small></span></span>
+   <span class="nm"><span class="av" style="--h:${ghue(m.g)}" aria-hidden="true">${esc([...m.n][0])}</span><span class="nt">${esc(m.n)}${m.p?profBtn(m):""}<small>${period(m)}${m.c.length?` ・ センター${m.c.length}回`:""}</small></span></span>
    <span class="gen"><span class="gdot" style="--h:${ghue(m.g)}"></span>${esc(m.g)}${m.cur?(m.r?'<span class="tag">研究生</span>':""):(m.r?'<span class="tag">昇格せず</span>':"")}</span>
    <span class="cnt ${m.s.length?"":"zero"}">${m.s.length||"—"}</span>
    <span class="bar">${bar(m)}</span>
@@ -443,11 +443,19 @@ led.addEventListener("mouseleave",()=>{tip.hidden=true});
 addEventListener("scroll",()=>{tip.hidden=true},{passive:true});
 led.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".rowgrid")){e.preventDefault();e.target.click()}});
 // 公式サイトのプロフィールを小窓で開く(写真は公式サイト上で見る。スマホでは新しいタブになる)
+// もう一度押すと閉じる。別の人を押すと小窓の中身が切り替わる
+let profWin=null, profFor=-1, profTimer=0;
+function profBtn(m){const on=profFor===m.i;return `<button type="button" class="prof ${on?"on":""}" data-prof="${m.i}" aria-pressed="${on}" aria-label="${esc(m.n)}の公式プロフィールを${on?"閉じる":"小窓で開く"}">${on?"閉じる ×":"公式 ↗"}</button>`}
+function syncProf(){document.querySelectorAll("[data-prof]").forEach(b=>{const m=M[+b.dataset.prof];b.outerHTML=profBtn(m)})}
 function openProf(m){
+ if(profFor===m.i&&profWin&&!profWin.closed){profWin.close();profWin=null;profFor=-1;syncProf();return}
  const url=`https://www.akb48.co.jp/about/members/detail/mid-${m.p}/`;
  const w=Math.min(520,screen.availWidth-40),h=Math.min(860,screen.availHeight-60);
  const win=window.open(url,"akb48prof",`popup,width=${w},height=${h},left=${Math.max(0,screen.availWidth-w-30)},top=40`);
- if(win)win.opener=null;else window.open(url,"_blank","noopener");
+ if(!win){window.open(url,"_blank","noopener");return}
+ win.opener=null;profWin=win;profFor=m.i;syncProf();
+ // 小窓を自分で閉じたときも、ボタンを元に戻す
+ clearInterval(profTimer);profTimer=setInterval(()=>{if(!profWin||profWin.closed){clearInterval(profTimer);profWin=null;profFor=-1;syncProf()}},800);
 }
 function toggleOshi(n){oshi=oshi.includes(n)?oshi.filter(x=>x!==n):[...oshi,n];saveOshi();render();renderSingles();renderShows();}
 ["q","status","gen","exp","sort","scale"].forEach(id=>document.getElementById(id).addEventListener("input",()=>render(true)));
