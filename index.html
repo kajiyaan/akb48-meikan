@@ -453,7 +453,8 @@ function openProf(m){
  const w=Math.min(520,screen.availWidth-40),h=Math.min(860,screen.availHeight-60);
  const win=window.open(url,"akb48prof",`popup,width=${w},height=${h},left=${Math.max(0,screen.availWidth-w-30)},top=40`);
  if(!win){window.open(url,"_blank","noopener");return}
- win.opener=null;profWin=win;profFor=m.i;syncProf();
+ // opener を切ると、Chromeが小窓とのつながりを切ってしまい閉じられなくなるので、切らない
+ profWin=win;profFor=m.i;syncProf();
  // 小窓を自分で閉じたときも、ボタンを元に戻す
  clearInterval(profTimer);profTimer=setInterval(()=>{if(!profWin||profWin.closed){clearInterval(profTimer);profWin=null;profFor=-1;syncProf()}},800);
 }
