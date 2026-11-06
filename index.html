@@ -37,7 +37,8 @@ h2{font-family:var(--f-display);font-weight:400;font-size:22px;margin:28px 0 10p
 .stat{display:grid}
 .stat b{font-family:var(--f-data);font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
 .stat span{font-size:12px;color:var(--muted);letter-spacing:.06em}
-nav.tabs{display:flex;gap:2px;border-bottom:2px solid var(--line);margin:20px 0 16px;overflow-x:auto}
+nav.tabs{display:flex;gap:2px;border-bottom:2px solid var(--line);margin:20px 0 16px;overflow-x:auto;position:sticky;top:0;z-index:20;background:var(--bg)}
+nav.tabs .sm{display:none}
 nav.tabs a{padding:10px 13px;text-decoration:none;color:var(--muted);font-weight:700;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
 nav.tabs a[aria-current="page"]{color:var(--fg);border-color:var(--accent)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -152,6 +153,32 @@ tr:last-child td{border-bottom:0}
 .prose a{color:var(--accent)}
 footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 @media (prefers-reduced-motion:no-preference){.rowgrid,.sg>button{transition:background .15s}}
+/* スマホ */
+@media (max-width:680px){
+  .wrap{padding-block:16px 48px}
+  .lede{font-size:14px}
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .stat b{font-size:20px}
+  .stat span{font-size:10.5px;letter-spacing:0;line-height:1.35}
+  #gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  nav.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:14px -16px 14px;padding:0 6px;overflow:visible}
+  nav.tabs a{padding:12px 2px 10px;text-align:center;font-size:14px}
+  nav.tabs .lg{display:none}
+  nav.tabs .sm{display:inline}
+  .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .controls input[type=search]{grid-column:1/-1}
+  .controls select,.controls input[type=search]{width:100%;font-size:16px;padding:9px 10px}
+  .controls.one{grid-template-columns:1fr}
+  .legend{gap:4px 12px;font-size:11.5px}
+  .chart svg{min-width:0}
+  #gtable th:nth-child(2),#gtable td:nth-child(2),#gtable th:nth-child(5),#gtable td:nth-child(5),#gtable th:nth-child(6),#gtable td:nth-child(6){display:none}
+  .star{min-width:32px;min-height:32px}
+  .more{width:100%;padding:12px}
+  th,td{padding:7px 6px}
+  .rate{gap:4px}.rate i{max-width:28px}.rate b{min-width:2.6em;font-size:12px}
+  #gtable{font-size:13px}#gtable th{font-size:11px;letter-spacing:0;white-space:normal}
+  #ttable td:nth-child(3){white-space:normal;min-width:9em;font-size:12.5px}
+}
 </style>
 
 <div class="wrap">
@@ -165,9 +192,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
   <nav class="tabs" aria-label="表示の切り替え">
     <a href="#members" data-view="members">メンバー</a>
     <a href="#singles" data-view="singles">シングル</a>
-    <a href="#gens" data-view="gens">期別分析</a>
-    <a href="#theater" data-view="theater">劇場公演</a>
-    <a href="#about" data-view="about">データについて</a>
+    <a href="#gens" data-view="gens">期別<span class="lg">分析</span></a>
+    <a href="#theater" data-view="theater">劇場<span class="lg">公演</span></a>
+    <a href="#about" data-view="about"><span class="lg">データについて</span><span class="sm">説明</span></a>
   </nav>
 
   <section id="v-members">
@@ -191,7 +218,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
         <option value="first">初選抜の早い順</option>
       </select>
       <select id="scale" aria-label="横軸の範囲">
-        <option value="auto">横軸: 表示中の人に合わせる</option>
+        <option value="auto">横軸: 自動で合わせる</option>
         <option value="full">横軸: 全71作</option>
       </select>
     </div>
@@ -214,7 +241,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <p class="count-line">オリコン週間の初週売上(枚)です。灰色は数字が取れていない作品です。</p>
     <div class="chart" id="chart"></div>
     <div class="controls">
-      <input type="search" id="sq" placeholder="メンバー名で探す(その人が選抜の作品だけ表示)" aria-label="メンバー名で探す">
+      <input type="search" id="sq" placeholder="メンバー名で絞り込む" aria-label="メンバー名で探す">
       <select id="ssort" aria-label="並べ替え">
         <option value="new">新しい順</option>
         <option value="old">古い順</option>
@@ -235,7 +262,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
   <section id="v-theater" hidden>
     <h2>2026年11月の出演表</h2>
     <p class="count-line">公式スケジュールの2026年11月6日時点の情報です。出演は変わることがあるので、最新は公式サイトで確かめてください。</p>
-    <div class="controls">
+    <div class="controls one">
       <select id="tm" aria-label="メンバーで絞り込む"></select>
     </div>
     <p class="count-line" id="tCount"></p>
@@ -243,7 +270,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <h2>11月の出演回数</h2>
     <div class="tbl"><table id="ttable"></table></div>
     <h2>劇場公演の歴史</h2>
-    <div class="controls">
+    <div class="controls one">
       <select id="stf" aria-label="公演の絞り込み">
         <option value="all">すべての公演</option>
         <option value="on">上演中の公演</option>
@@ -404,6 +431,8 @@ led.addEventListener("click",e=>{
 led.addEventListener("mouseover",showTip);
 const chartEl=document.getElementById("chart");
 chartEl.addEventListener("mousemove",showChartTip);
+chartEl.addEventListener("click",showChartTip);
+document.addEventListener("touchstart",e=>{if(!e.target.closest("#chart"))tip.hidden=true},{passive:true});
 chartEl.addEventListener("mouseleave",()=>{tip.hidden=true});
 chartEl.addEventListener("scroll",()=>{tip.hidden=true},{passive:true});
 led.addEventListener("mouseleave",()=>{tip.hidden=true});
@@ -415,7 +444,8 @@ document.getElementById("more").addEventListener("click",()=>{limit+=120;render(
 
 // ---------- シングル ----------
 function chart(){
- const W=900,H=220,pl=46,pr=8,pt=10,pb=26,max=1600000;
+ // 実際の表示幅で描いて、スマホでも文字が小さくなりすぎないようにする
+ const W=Math.max(320,Math.min(900,document.getElementById("chart").clientWidth||900)),H=W<600?190:220,pl=W<600?40:46,pr=8,pt=10,pb=26,max=1600000;
  const bw=(W-pl-pr)/N;const y=v=>pt+(H-pt-pb)*(1-v/max);
  let g="";
  for(let v=0;v<=max;v+=400000){g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+3}" text-anchor="end">${v?v/10000+"万":"0"}</text>`}
@@ -484,7 +514,9 @@ document.getElementById("stf").addEventListener("input",renderStages);
 const VIEWS=["members","singles","gens","theater","about"];
 function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"members";
  VIEWS.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v});
- document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.view===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});}
-window.addEventListener("hashchange",route);
+ document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.view===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+ if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}}
+window.addEventListener("hashchange",()=>{route();const hd=document.querySelector("header.top"),y=hd.offsetTop+hd.offsetHeight;if(scrollY>y)scrollTo({top:y});});
+let cw=0;addEventListener("resize",()=>{const w=document.getElementById("chart").clientWidth;if(w&&Math.abs(w-cw)>40){cw=w;chart()}});
 render(true);chart();renderSingles();renderGens();renderShows();renderStages();route();
 </script>
