@@ -80,3 +80,8 @@ table.rank tr.top td{font-weight:700}
 ul.tl li.e::before{background:#7c4dff}
 .kpi4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:560px){.kpi4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cmpsel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 16px}
+.cmpsel input{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);flex:1 1 180px;min-width:0}
+table.cmp th{width:30%}
+table.cmp td.win{font-weight:700;color:var(--accent)}
+.chips a em{font-style:normal;font-size:11px;color:var(--muted);margin-left:4px}
