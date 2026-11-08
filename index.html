@@ -347,7 +347,7 @@ const saveOshi=()=>{try{localStorage.setItem("akb-oshi",JSON.stringify(oshi))}ca
 
 // 見出しの数字
 const everyone=M.length, cur=M.filter(m=>m.cur).length;
-document.getElementById("stats").innerHTML=[[everyone,"歴代メンバー"],[cur,"在籍メンバー"],[N,"シングル"],[STG.length,"劇場公演の上演"]]
+document.getElementById("stats").innerHTML=[[everyone,"歴代メンバー"],[cur,"在籍メンバー"],[N,"シングル"]]
  .map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
 
 // ---------- メンバー ----------
