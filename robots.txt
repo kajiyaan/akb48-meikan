@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://kajiyaan.github.io/akb48-meikan/sitemap.xml
+Sitemap: https://akb48-meikan.pages.dev/sitemap.xml
