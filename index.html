@@ -223,6 +223,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
         <option value="cur">在籍メンバー</option>
         <option value="former">卒業・辞退した人</option>
         <option value="all">歴代の全員</option>
+        <option value="promoted">正規メンバーに昇格した人</option>
       </select>
       <select id="gen" aria-label="期"></select>
       <select id="exp" aria-label="選抜経験">
@@ -428,7 +429,7 @@ function render(reset){
  if(reset)limit=80;
  const q=document.getElementById("q").value.trim(), st=document.getElementById("status").value, g=gsel.value,
   ex=document.getElementById("exp").value, sort=document.getElementById("sort").value;
- let list=M.filter(m=>(!q||m.n.includes(q))&&(st==="all"||(st==="cur")===!!m.cur)&&(g==="all"||m.g===g)&&(ex==="all"||(ex==="yes")===(m.s.length>0)));
+ let list=M.filter(m=>(!q||m.n.includes(q))&&(st==="all"||(st==="promoted"?!m.r:(st==="cur")===!!m.cur))&&(g==="all"||m.g===g)&&(ex==="all"||(ex==="yes")===(m.s.length>0)));
  const tie=(a,b)=>a.go-b.go||(a.j||"").localeCompare(b.j||"")||a.i-b.i;
  list.sort((a,b)=>sort==="count"?(b.s.length-a.s.length||b.c.length-a.c.length||tie(a,b)):sort==="center"?(b.c.length-a.c.length||b.s.length-a.s.length||tie(a,b)):sort==="first"?(a.first-b.first||tie(a,b)):(sort==="young"||sort==="old")?((!a.b)-(!b.b)||(a.b&&b.b&&a.b!==b.b?((sort==="young")===(a.b<b.b)?1:-1):0)||tie(a,b)):tie(a,b));
  setScale(list);
