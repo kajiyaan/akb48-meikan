@@ -411,7 +411,8 @@ function placeTip(c,html){
  let y=r.top-h-8; if(y<8)y=r.bottom+8;
  tip.style.left=x+"px";tip.style.top=y+"px";
 }
-function period(m){return m.cur?`${m.j?yr(m.j)+"年〜":""}在籍`:`${yr(m.j)||"?"}〜${yr(m.l)||"?"}年`}
+function age(b){if(!b)return"";const t=new Date(),[y,mo,d]=b.split("-").map(Number);return t.getFullYear()-y-((t.getMonth()+1<mo||(t.getMonth()+1===mo&&t.getDate()<d))?1:0)}
+function period(m){const a=age(m.b);return (m.cur?`${m.j?yr(m.j)+"年〜":""}在籍`:`${yr(m.j)||"?"}〜${yr(m.l)||"?"}年`)+(a!==""?` ・ ${a}歳`:"")}
 function detail(m){
  const pills=(m.s.length?m.s.map(i=>`<span class="pill ${m.c.includes(i)?"c":""}">${lab(S[i].k)}</span>`).join(""):"<span>表題曲の選抜に入ったことはありません</span>")+(m.ot?m.ot.map(i=>`<span class="pill ot">${lab(S[i].k)} ${esc(m.otg.join("・"))}</span>`).join(""):"")+(m.og?m.og.map(i=>`<span class="pill og">${lab(S[i].k)} OG</span>`).join(""):"");
  const li=[];
