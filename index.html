@@ -61,7 +61,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .star.on{color:var(--accent)}
 .nm{font-weight:700;min-width:0;display:flex;align-items:center;gap:9px}
 .nm .nt{min-width:0}
-.kn{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:400;color:var(--muted);letter-spacing:.02em;white-space:nowrap}.kn em{font-style:normal;margin-left:4px;color:var(--accent)}
+.kn{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:400;color:var(--muted);letter-spacing:.02em;white-space:nowrap}.kn em{font-style:normal;margin-left:8px;color:var(--accent)}
 .rowgrid{grid-template-columns:26px minmax(0,1.6fr) minmax(0,.7fr) 44px minmax(0,2.4fr)}
 @media (max-width:680px){.rowgrid{grid-template-columns:24px minmax(0,1fr) 40px}.kn{margin-left:6px}}
 .sublinks{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 0;font-size:14px;font-weight:700}.sublinks a{color:var(--accent)}
@@ -431,7 +431,7 @@ function render(reset){
  document.getElementById("ledger").innerHTML=shown.map(m=>{const on=oshi.includes(m.n);return `<div class="row">
   <div class="rowgrid" role="button" tabindex="0" data-i="${m.i}" aria-expanded="${open.has(m.i)}">
    <button type="button" class="star ${on?"on":""}" data-star="${m.i}" aria-pressed="${on}" aria-label="${esc(m.n)}を推しにする">${on?"★":"☆"}</button>
-   <span class="nm"><span class="av" style="--h:${ghue(m.g)}" aria-hidden="true">${esc([...m.n][0])}</span><span class="nt">${esc(m.n)}${m.k||m.nk?`<span class="kn">${m.k?esc(m.k):""}${m.nk?`<em>「${esc(m.nk)}」</em>`:""}</span>`:""}${m.p?profBtn(m):""}<small>${period(m)}${m.c.length?` ・ センター${m.c.length}回`:""}</small></span></span>
+   <span class="nm"><span class="av" style="--h:${ghue(m.g)}" aria-hidden="true">${esc([...m.n][0])}</span><span class="nt">${esc(m.n)}${m.k||m.nk?`<span class="kn">${m.k?esc(m.k):""}${m.nk?`<em>${esc(m.nk)}</em>`:""}</span>`:""}${m.p?profBtn(m):""}<small>${period(m)}${m.c.length?` ・ センター${m.c.length}回`:""}</small></span></span>
    <span class="gen"><span class="gdot" style="--h:${ghue(m.g)}"></span>${esc(m.g)}${m.cur?(m.r?'<span class="tag">研究生</span>':""):(m.r?'<span class="tag">昇格せず</span>':"")}</span>
    <span class="cnt ${m.s.length?"":"zero"}">${m.s.length||"—"}</span>
    <span class="bar">${bar(m)}</span>
