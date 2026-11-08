@@ -83,6 +83,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .bar i.x{background:var(--accent);opacity:.4}
 .bar i.o{background:transparent;box-shadow:inset 0 0 0 1.5px var(--accent)}
 .bar i[data-x]:hover{outline:2px solid var(--fg);outline-offset:0}
+dialog.about{max-width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;padding:24px 28px;border:1px solid var(--line,#888);border-radius:12px;background:var(--bg);color:var(--fg);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+dialog.about::backdrop{background:rgba(0,0,0,.55)}
+dialog.about h2:first-of-type{margin-top:0}
+.aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
+@media(max-width:600px){dialog.about{padding:18px 16px}}
 .tip{position:fixed;z-index:50;pointer-events:none;max-width:280px;padding:6px 10px;border-radius:6px;background:var(--fg);color:var(--bg);font-size:13px;line-height:1.5;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .tip small{display:block;opacity:.75;font-family:var(--f-data);font-size:11px}
 .bar i.s{background:var(--accent)}
@@ -209,7 +214,6 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <a href="#singles" data-view="singles">シングル</a>
     <a href="#gens" data-view="gens">期別<span class="lg">分析</span></a>
     <a href="#theater" data-view="theater">劇場<span class="lg">公演</span></a>
-    <a href="#about" data-view="about"><span class="lg">データについて</span><span class="sm">説明</span></a>
   </nav>
 
   <section id="v-members">
@@ -295,8 +299,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <div id="stages"></div>
   </section>
 
-  <section id="v-about" class="prose" hidden>
-    <h2>このページについて</h2>
+<dialog id="about" class="prose about" aria-labelledby="aboutH">
+    <button type="button" class="aboutX" aria-label="閉じる">×</button>
+    <h2 id="aboutH">このページについて</h2>
     <p>AKB48ファンが個人で作った非公式のデータベースです。公式サイトや運営会社とは関係ありません。</p>
     <h2>データの決め方</h2>
     <ul>
@@ -319,10 +324,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
       <li><a href="https://www.akb48.co.jp/about/members">AKB48公式: メンバー一覧</a> / <a href="https://www.akb48.co.jp/about/schedule">AKB48公式: スケジュール</a></li>
       <li><a href="https://entameclip.com/news/490599/">エンタメクリップ: 69thシングル選抜</a></li>
     </ul>
-    
-  </section>
+  </dialog>
 
-  <footer>最終更新: 2026年11月6日<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの出典は「このページについて」に載せています。</footer>
+  <footer>最終更新: 2026年11月6日<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの出典は<a href="#about" id="aboutOpen">こちら</a></footer>
 </div>
 
 <script>
@@ -549,7 +553,14 @@ function renderStages(){
 document.getElementById("stf").addEventListener("input",renderStages);
 
 // ---------- 表示の切り替え ----------
-const VIEWS=["members","singles","gens","theater","about"];
+const VIEWS=["members","singles","gens","theater"];
+// 「データについて」はポップアップ(dialog)で開く
+const ABOUT=document.getElementById("about");
+function openAbout(){if(!ABOUT.open){ABOUT.showModal();ABOUT.scrollTop=0}}
+document.getElementById("aboutOpen").addEventListener("click",e=>{e.preventDefault();openAbout()});
+ABOUT.querySelector(".aboutX").addEventListener("click",()=>ABOUT.close());
+ABOUT.addEventListener("click",e=>{if(e.target===ABOUT)ABOUT.close()});
+if(location.hash==="#about"){history.replaceState(null,"",location.pathname+location.search);setTimeout(openAbout,0)}
 function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"members";
  VIEWS.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v});
  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.view===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
