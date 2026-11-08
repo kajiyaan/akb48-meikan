@@ -289,7 +289,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
   <section id="v-gens" hidden>
     <div class="stats" id="gstats"></div>
     <h2>先輩・後輩と年齢</h2>
-    <p class="count-line">1人が1つの点です。右へ行くほど後から加入した後輩、上へ行くほど年下です。名前を入れるか点を押すと、その人を中心に4つに分けて数えます。</p>
+    <p class="count-line">1人が1つの点です。右へ行くほど後から加入した後輩、上へ行くほど年上です。名前を入れるか点を押すと、その人を中心に4つに分けて数えます。</p>
     <div class="controls">
       <input type="search" id="saWho" list="saList" placeholder="中心にする人(例: 山内瑞葵)" aria-label="中心にする人">
       <datalist id="saList"></datalist>
@@ -553,11 +553,11 @@ function renderSA(){
  const t=d=>{const[y,mo,dd]=d.split("-").map(Number);return y+(mo-1)/12+(dd-1)/365};
  const xs=P.map(p=>t(p.j)),ys=P.map(p=>t(p.b));
  const x0=Math.floor(Math.min(...xs)),x1=Math.ceil(Math.max(...xs)+.01),y0=Math.floor(Math.min(...ys)),y1=Math.ceil(Math.max(...ys)+.01);
- const X=v=>pl+(W-pl-pr)*(v-x0)/(x1-x0),Y=v=>pt+(H-pt-pb)*(1-(v-y0)/(y1-y0));
+ const X=v=>pl+(W-pl-pr)*(v-x0)/(x1-x0),Y=v=>pt+(H-pt-pb)*(v-y0)/(y1-y0);
  let g="";const sx=Math.max(1,Math.ceil((x1-x0)/(W<600?4:8))),sy=Math.max(1,Math.ceil((y1-y0)/6));
  for(let v=x0;v<=x1;v+=sx)g+=`<line class="gl" x1="${X(v)}" x2="${X(v)}" y1="${pt}" y2="${H-pb}"/><text class="ax" x="${X(v)}" y="${H-pb+16}" text-anchor="middle">${v}</text>`;
  for(let v=y0;v<=y1;v+=sy)g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}"/><text class="ax" x="${pl-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;
- g+=`<text class="ax" x="${W-pr}" y="${H-4}" text-anchor="end">加入した年 → 後輩</text><text class="ax" x="${pl}" y="${pt-2}" text-anchor="start">↑ 年下(生まれた年)</text>`;
+ g+=`<text class="ax" x="${W-pr}" y="${H-4}" text-anchor="end">加入した年 → 後輩</text><text class="ax" x="${pl}" y="${pt-2}" text-anchor="start">↑ 年上(生まれた年)</text>`;
  const q={tl:0,tr:0,bl:0,br:0,eq:0};
  const cls=p=>{if(!me)return"";if(p.n===me.n)return"me";const sen=p.j<me.j,jun=p.j>me.j,yg=p.b>me.b,old=p.b<me.b;
   if(sen&&yg){q.tl++;return"rev"} if(jun&&old){q.br++;return"rev"} if(sen&&old){q.bl++;return"dim"} if(jun&&yg){q.tr++;return"dim"} q.eq++;return"dim"};
@@ -566,7 +566,7 @@ function renderSA(){
  saPts.filter(p=>p.c!=="me").forEach((p,i)=>{g+=`<circle class="dot ${p.c}" data-i="${saPts.indexOf(p)}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${W<600?4:5}"${p.c?"":` style="fill:hsl(${ghue(p.g)} 60% 58%)"`}/>`});
  if(me){const p=saPts.find(p=>p.c==="me");g+=`<circle class="dot me" data-i="${saPts.indexOf(p)}" cx="${p.x}" cy="${p.y}" r="7"/><text class="me-l" x="${p.x+(p.x>W*.75?-10:10)}" y="${p.y-10}" text-anchor="${p.x>W*.75?"end":"start"}">${esc(me.n)}</text>`;
   const lab=(x,y,a,t1,n)=>`<text class="qd" x="${x}" y="${y}" text-anchor="${a}">${t1}<tspan class="n"> ${n}人</tspan></text>`;
-  g+=lab(pl+6,pt+14,"start","先輩だけど年下",q.tl)+lab(W-pr-6,pt+14,"end","後輩で年下",q.tr)+lab(pl+6,H-pb-8,"start","先輩で年上",q.bl)+lab(W-pr-6,H-pb-8,"end","後輩だけど年上",q.br);}
+  g+=lab(pl+6,pt+14,"start","先輩で年上",q.bl)+lab(W-pr-6,pt+14,"end","後輩だけど年上",q.br)+lab(pl+6,H-pb-8,"start","先輩だけど年下",q.tl)+lab(W-pr-6,H-pb-8,"end","後輩で年下",q.tr);}
  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="加入した年と生まれた年の散布図">${g}</svg>`;
  const sum=document.getElementById("saSum");
  sum.innerHTML=me?`${esc(me.n)}(${esc(me.g)} ・ ${me.j.slice(0,4)}年加入 ・ ${age(me.b)}歳)から見て: 先輩だけど年下 <b>${q.tl}人</b> ・ 後輩だけど年上 <b>${q.br}人</b> ・ 先輩で年上 ${q.bl}人 ・ 後輩で年下 ${q.tr}人${q.eq?` ・ 加入日が同じ(または生年月日が同じ) ${q.eq}人`:""}。ピンクの点が、先輩後輩と年齢が逆になっている人です。${PAGES?` <a href="members/${encodeURIComponent(me.n)}/">${esc(me.n)}のページ</a>`:""}`
