@@ -274,14 +274,12 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
 
   <section id="v-theater" hidden>
     <h2 id="thH">今月の出演表</h2>
-    <p class="count-line" id="thNote"></p>
     <div class="controls one">
       <select id="tm" aria-label="メンバーで絞り込む"></select>
     </div>
     <p class="count-line" id="tCount"></p>
     <div class="shows" id="shows"></div>
     <h2 id="thH2">出演回数</h2>
-    <p class="count-line" id="thNote2"></p>
     <div class="tbl"><table id="ttable"></table></div>
     <h2>劇場公演の歴史</h2>
     <div class="controls one">
@@ -526,9 +524,7 @@ const WD="日月火水木金土";
 function renderShows(){
  const mo=+TH.ym.slice(5), sy=+TH.since.slice(0,4), sm=+TH.since.slice(5);
  document.getElementById("thH").textContent=`${TH.ym.slice(0,4)}年${mo}月の出演表`;
- document.getElementById("thNote").textContent=`公式スケジュールと公式ブログの出演変更を1日4回取り込んでいます(最終取り込み ${TH.today})。出演は変わることがあるので、最新は公式サイトで確かめてください。`;
  document.getElementById("thH2").textContent="出演回数";
- document.getElementById("thNote2").textContent=`「通算」は${sy}年${sm}月から今日までに出演した公演の数です(公式データがある期間、全${TH.total}公演)。`;
  const who=tm.value;
  const list=SH.filter(s=>!who||s.m.includes(who));
  document.getElementById("tCount").textContent=who?`${who}の出演: ${list.length}公演(${+TH.ym.slice(5)}月の全${SH.length}公演中)`:`全${SH.length}公演 ・ ピンクの枠は推しです`;
