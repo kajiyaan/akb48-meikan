@@ -317,6 +317,12 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <h2 id="thH">今月の出演表</h2>
     <div class="controls one">
       <select id="tm" aria-label="メンバーで絞り込む"></select>
+      <select id="tw" aria-label="公演の状態で絞り込む">
+        <option value="">すべての日程</option>
+        <option value="future">本日以降</option>
+        <option value="seat">座席を申し込める</option>
+        <option value="any">申し込める(ロビー観覧のみも含む)</option>
+      </select>
     </div>
     <p class="count-line" id="tCount"></p>
     <div class="shows" id="shows"></div>
@@ -609,6 +615,13 @@ const curList=M.filter(m=>m.cur);
 tm.innerHTML='<option value="">メンバーで絞り込む: すべての公演</option>'+curList.map(m=>`<option value="${esc(m.n)}">${esc(m.n)}</option>`).join("");
 const WD="日月火水木金土";
 // 申し込み: 公式スケジュールにある AKB48チケットセンターのページへ。受付中のときだけリンクを出す(時刻は日本時間)
+// 公演の申し込み状態: past=終了 / tbd=後日発表 / seat=座席を申込可 / lobby=ロビー観覧のみ / closed=受付終了
+function tkState(s){const now=Date.now(), jst=x=>new Date(x+":00+09:00").getTime();
+ if(jst(s.d+"T"+s.t)<now)return "past";
+ if(!s.tk)return "tbd";
+ if(!s.tk.dl.length)return "seat";
+ const nx=s.tk.dl.find(x=>jst(x[1])>now);
+ return !nx?"closed":nx[0]==="ロビー観覧"?"lobby":"seat";}
 function tkHtml(s){const now=Date.now(), jst=x=>new Date(x+":00+09:00").getTime(), start=jst(s.d+"T"+s.t);
  if(start<now)return "";
  if(!s.tk)return `<p class="tk"><span class="muted">申し込みは後日発表</span></p>`;
@@ -624,8 +637,12 @@ function renderShows(){
  document.getElementById("thH").textContent=`${TH.ym.slice(0,4)}年${mo}月の出演表`;
  document.getElementById("thH2").textContent="出演回数";
  const who=tm.value;
- const list=SH.filter(s=>!who||s.m.includes(who));
- document.getElementById("tCount").textContent=who?`${who}の出演: ${list.length}公演(${+TH.ym.slice(5)}月の全${SH.length}公演中)`:`全${SH.length}公演 ・ ピンクの枠は推しです`;
+ const tw=document.getElementById("tw").value;
+ const okW=s=>{if(!tw)return true;const k=tkState(s);return tw==="future"?(k!=="past"||s.d===new Date(Date.now()+9*36e5).toISOString().slice(0,10)):tw==="seat"?k==="seat":(k==="seat"||k==="lobby");};
+ const list=SH.filter(s=>(!who||s.m.includes(who))&&okW(s));
+ const TWL={future:"本日以降の",seat:"座席を申し込める",any:"申し込める"};
+ document.getElementById("tCount").textContent=who?`${who}の出演${tw?`(${TWL[tw].replace(/の$/,"")})`:""}: ${list.length}公演(${+TH.ym.slice(5)}月の全${SH.length}公演中)`:tw?`${TWL[tw]}公演: ${list.length}件(全${SH.length}公演中) ・ ピンクの枠は推しです`:`全${SH.length}公演 ・ ピンクの枠は推しです`;
+ if(!list.length)document.getElementById("tCount").textContent+=" ― 該当する公演はありません";
  document.getElementById("shows").innerHTML=list.map(s=>{const d=new Date(s.d+"T00:00:00");
   return `<div class="show"><div class="dt"><b>${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})</b>${s.t}開演</div><div><div class="st">「${esc(s.st)}」公演</div>
   <div class="ms">${s.m.map(n=>`<span class="${n===who?"h":""} ${oshi.includes(n)?"o":""}">${esc(n)}</span>`).join("")}</div>${(s.chg||[]).map(c=>`<p class="chg">出演変更: ${c.out.map(esc).join("・")||"—"} 休演 → ${c.in.map(esc).join("・")||"—"} 出演 <a href="${esc(c.url)}" target="_blank" rel="noopener">公式ブログ ↗</a></p>`).join("")}${tkHtml(s)}</div></div>`}).join("");
@@ -633,6 +650,7 @@ function renderShows(){
  document.getElementById("ttable").innerHTML=`<thead><tr><th>メンバー</th><th>${+TH.ym.slice(5)}月</th><th>通算</th><th>${+TH.ym.slice(5)}月に出る公演</th></tr></thead><tbody>`+cnt.map(r=>`<tr><td>${oshi.includes(r.n)?"★ ":""}${esc(r.n)}</td><td class="n">${r.c||"—"}</td><td class="n">${r.t||"—"}</td><td>${esc(r.st.join("、"))}</td></tr>`).join("")+"</tbody>";
 }
 tm.addEventListener("input",renderShows);
+document.getElementById("tw").addEventListener("input",renderShows);
 function renderStages(){
  const f=document.getElementById("stf").value;
  const live=s=>!s.b&&s.a&&s.a>="2024-01-01";
