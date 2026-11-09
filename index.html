@@ -89,6 +89,8 @@ dialog.about{max-width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 48p
 .slb{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}.slb small{margin-left:8px;font-size:11.5px;font-weight:400;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px;vertical-align:2px}.slb:hover small{background:var(--accent);color:#fff}
 .slb.mini{font-size:11.5px;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px;margin-left:6px}.slb.mini:hover{background:var(--accent);color:#fff}
 dialog.setl{max-width:min(520px,calc(100vw - 32px))}ol.setlist{list-style:none;padding:0;margin:12px 0}ol.setlist li{display:flex;gap:12px;padding:5px 0;border-bottom:1px solid var(--line);align-items:baseline}ol.setlist li.sec{border:0;padding:12px 0 2px;font-weight:700;color:var(--muted);font-size:12.5px}ol.setlist .no{min-width:62px;color:var(--muted);font-family:var(--f-data);font-size:12.5px}ol.setlist em{margin-left:auto;font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap}.slwarn{color:var(--accent);font-size:13px;font-weight:700}p.small{font-size:12px}
+#churn .ck{fill:var(--cell-in,#9a8f95)}#churn .cb{fill:#8fd3f4}#churn .cf{fill:var(--accent)}#churn .co{fill:var(--muted);opacity:.45}
+.glegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--muted);margin:6px 0 18px}.glegend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -287,6 +289,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <h2>累計売上の推移</h2>
     <p class="count-line">オリコンの累計売上(枚)です。年間ランキング時点の数字の作品は、その後の売上を含みません。灰色は数字が取れていない作品です。</p>
     <div class="chart" id="chart2"></div>
+    <h2>選抜の入れ替わり</h2>
+    <p class="count-line">前の作品の選抜と比べた人数です。上は今回の選抜(灰=続けて選抜、水色=久しぶりに復帰、ピンク=初めての選抜)、下は前回から外れた人数です。棒に触れると名前が出ます。</p>
+    <div class="chart" id="churn"></div>
     <div class="controls">
       <input type="search" id="sq" placeholder="メンバー名で絞り込む" aria-label="メンバー名で探す">
       <select id="ssort" aria-label="並べ替え">
@@ -314,6 +319,10 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     </div>
     <div class="chart sa" id="sachart"></div>
     <p class="count-line" id="saSum"></p>
+    <h2>選抜に占める期の割合</h2>
+    <p class="count-line">表題曲の選抜を、加入した期で色分けした割合です。左の赤っぽい色ほど古い期、右の紫っぽい色ほど新しい期。灰色は他グループのメンバーなどです。帯に触れると内訳が出ます。</p>
+    <div class="chart" id="gshare"></div>
+    <div class="glegend" id="gshareLeg"></div>
     <h2>期ごとの集計</h2>
     <p class="count-line">「選抜経験」は表題曲の選抜に1回以上入った人数です。「昇格せず」は、正規メンバーにならずに辞めた人数です。</p>
     <div class="tbl"><table id="gtable"></table></div>
@@ -499,7 +508,7 @@ led.addEventListener("click",e=>{
  const r=e.target.closest("[data-i]");if(!r)return;const i=+r.dataset.i;open.has(i)?open.delete(i):open.add(i);render();
 });
 led.addEventListener("mouseover",showTip);
-document.addEventListener("touchstart",e=>{if(!e.target.closest("#chart,#chart2"))tip.hidden=true},{passive:true});
+document.addEventListener("touchstart",e=>{if(!e.target.closest("#chart,#chart2,#churn,#gshare"))tip.hidden=true},{passive:true});
 for(const chartEl of [document.getElementById("chart"),document.getElementById("chart2")]){
 chartEl.addEventListener("mousemove",showChartTip);
 chartEl.addEventListener("click",showChartTip);
@@ -529,7 +538,51 @@ function toggleOshi(n){oshi=oshi.includes(n)?oshi.filter(x=>x!==n):[...oshi,n];s
 document.getElementById("more").addEventListener("click",()=>{limit+=120;render()});
 
 // ---------- シングル ----------
-function chart(){drawBars("chart","fw","初週売上");drawBars("chart2","tot","累計売上")}
+function chart(){drawBars("chart","fw","初週売上");drawBars("chart2","tot","累計売上");drawChurn();drawGShare()}
+// 選抜の名前(他グループは「名前|グループ」)
+const selNames=i=>(S[i].L||[]).map(x=>x.split("|")[0]);
+// 作品 i の時点でのその人の期(AKB48在籍中の区間から)。AKB48メンバーでなければ null
+const MBYN=new Map();M.forEach(m=>{if(!MBYN.has(m.n))MBYN.set(m.n,[]);MBYN.get(m.n).push(m)});
+function genAt(name,i){const ms=MBYN.get(name);if(!ms)return null;const d=S[i].d||"9999";
+ for(const m of ms){if(!(m.s||[]).includes(i))continue;for(const st of (m.st||[])){if(st[0]&&st[0]<=d&&(!st[1]||st[1]>=d))return st[2]||m.g}return m.g}return null}
+let CH=[],GS=[];
+function drawChurn(){
+ const el=document.getElementById("churn"),W=Math.max(320,Math.min(900,el.clientWidth||900)),H=W<600?220:250,pl=W<600?40:46,pr=8,pt=10,pb=26;
+ const seen=new Set();CH=S.map((s,i)=>{const cur=selNames(i),prev=i?selNames(i-1):[],ps=new Set(prev),cs=new Set(cur);
+  const r={keep:cur.filter(n=>ps.has(n)),back:cur.filter(n=>!ps.has(n)&&seen.has(n)),first:cur.filter(n=>!ps.has(n)&&!seen.has(n)),out:prev.filter(n=>!cs.has(n))};
+  cur.forEach(n=>seen.add(n));if(!i){r.first=cur;r.keep=[];r.back=[]}return r});
+ const up=Math.ceil(Math.max(...CH.map(r=>r.keep.length+r.back.length+r.first.length))/8)*8,dn=Math.ceil(Math.max(...CH.map(r=>r.out.length))/8)*8;
+ const bw=(W-pl-pr)/N,z=pt+(H-pt-pb)*up/(up+dn),k=(H-pt-pb)/(up+dn);let g="";
+ for(let v=-dn;v<=up;v+=8)g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${z-v*k}" y2="${z-v*k}"/><text x="${pl-6}" y="${z-v*k+3}" text-anchor="end">${Math.abs(v)}人</text>`;
+ CH.forEach((r,i)=>{const x=pl+i*bw+1,w=Math.max(1,bw-2);let y=z;
+  [["keep","ck"],["back","cb"],["first","cf"]].forEach(([key,c])=>{const h=r[key].length*k;if(h){y-=h;g+=`<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}"/>`}});
+  if(r.out.length)g+=`<rect class="co" x="${x}" y="${z}" width="${w}" height="${r.out.length*k}"/>`;
+  g+=`<rect class="hit" data-c="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`});
+ g+=`<line x1="${pl}" x2="${W-pr}" y1="${z}" y2="${z}" stroke="currentColor" stroke-opacity=".5"/>`;
+ tickAt.filter(([k])=>k!=="i1").forEach(([kk,t])=>{const i=S.findIndex(s=>s.k===kk);g+=`<text x="${pl+(i+.5)*bw}" y="${H-8}" text-anchor="middle">${t}</text>`});
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="作品ごとの選抜の入れ替わり人数">${g}</svg>`;
+}
+const GSO=GO.filter(g=>M.some(m=>m.g===g||(m.st||[]).some(x=>x[2]===g)));
+const ghue2=g=>{const i=GSO.indexOf(g);return i<0?null:Math.round(i/(Math.max(1,GSO.length-1))*280)};
+function drawGShare(){
+ const el=document.getElementById("gshare"),W=Math.max(320,Math.min(900,el.clientWidth||900)),H=W<600?200:230,pl=W<600?40:46,pr=8,pt=10,pb=26;
+ GS=S.map((s,i)=>{const c={};selNames(i).forEach(n=>{const g=genAt(n,i)||"他グループなど";(c[g]=c[g]||[]).push(n)});return c});
+ const bw=(W-pl-pr)/N,y=v=>pt+(H-pt-pb)*(1-v);let g="";
+ [0,.25,.5,.75,1].forEach(v=>g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+3}" text-anchor="end">${v*100}%</text>`);
+ GS.forEach((c,i)=>{const tot=Object.values(c).reduce((a,b)=>a+b.length,0);if(!tot)return;let acc=0;const x=pl+i*bw+.5,w=Math.max(1,bw-1);
+  Object.keys(c).sort((a,b)=>(GSO.indexOf(a)<0?999:GSO.indexOf(a))-(GSO.indexOf(b)<0?999:GSO.indexOf(b))).forEach(gn=>{const h=c[gn].length/tot;const hu=ghue2(gn);
+   g+=`<rect x="${x}" y="${y(acc+h)}" width="${w}" height="${(H-pt-pb)*h}" style="fill:${hu==null?"var(--cell-in,#999)":`hsl(${hu} 62% 55%)`}"/>`;acc+=h});
+  g+=`<rect class="hit" data-g="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`});
+ tickAt.filter(([k])=>k!=="i1").forEach(([kk,t])=>{const i=S.findIndex(s=>s.k===kk);g+=`<text x="${pl+(i+.5)*bw}" y="${H-8}" text-anchor="middle">${t}</text>`});
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="作品ごとの選抜に占める期の割合">${g}</svg>`;
+ const used=GSO.filter(gn=>GS.some(c=>c[gn]));
+ document.getElementById("gshareLeg").innerHTML=used.map(gn=>`<span><i style="background:hsl(${ghue2(gn)} 62% 55%)"></i>${esc(gn)}</span>`).join("")+`<span><i style="background:var(--cell-in,#999)"></i>他グループなど</span>`;
+}
+function churnTip(e){const c=e.target.closest(".hit");if(!c){tip.hidden=true;return}const r=c.getBoundingClientRect(),box={getBoundingClientRect:()=>({left:r.left,width:r.width,top:e.clientY-6,bottom:e.clientY+16})};
+ if(c.dataset.c!=null){const i=+c.dataset.c,x=CH[i],s=S[i],L=(t,a)=>a.length?`<br><b>${t} ${a.length}人</b> ${a.map(esc).join("・")}`:"";
+  placeTip(box,`${lab(s.k)}『${esc(s.t)}』 選抜${x.keep.length+x.back.length+x.first.length}人${L("初めて",x.first)}${L("復帰",x.back)}${L("外れた",x.out)}<small>続けて選抜 ${x.keep.length}人</small>`)}
+ else{const i=+c.dataset.g,s=S[i],cc=GS[i];placeTip(box,`${lab(s.k)}『${esc(s.t)}』`+Object.keys(cc).sort((a,b)=>cc[b].length-cc[a].length).map(gn=>`<br><b>${esc(gn)} ${cc[gn].length}人</b>`).join(""))}}
+for(const id of ["churn","gshare"]){const el=document.getElementById(id);el.addEventListener("mousemove",churnTip);el.addEventListener("click",churnTip);el.addEventListener("mouseleave",()=>{tip.hidden=true})}
 function drawBars(id,key,label){
  // 実際の表示幅で描いて、スマホでも文字が小さくなりすぎないようにする
  const W=Math.max(320,Math.min(900,document.getElementById(id).clientWidth||900)),H=W<600?190:220,pl=W<600?40:46,pr=8,pt=10,pb=26,max=Math.ceil(Math.max(...S.map(s=>s[key]||0))/400000)*400000;
@@ -696,8 +749,9 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
  VIEWS.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v});
  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.view===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
  if(v==="gens")renderSA();
- if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}}
+ if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}
+ if(v==="gens"){const w=document.getElementById("gshare").clientWidth;if(w&&w!==gw){gw=w;drawGShare()}}}
 window.addEventListener("hashchange",()=>{route();const hd=document.querySelector("header.top"),y=hd.offsetTop+hd.offsetHeight;if(scrollY>y)scrollTo({top:y});});
-let cw=0;addEventListener("resize",()=>{const w=document.getElementById("chart").clientWidth;if(w&&Math.abs(w-cw)>40){cw=w;chart()}});
+let gw=0;let cw=0;addEventListener("resize",()=>{const w=document.getElementById("chart").clientWidth;if(w&&Math.abs(w-cw)>40){cw=w;chart()}});
 render(true);chart();renderSingles();renderGens();renderShows();renderStages();route();
 </script>
