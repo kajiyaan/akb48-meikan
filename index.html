@@ -145,11 +145,11 @@ dialog.about h2:first-of-type{margin-top:0}
 .mem{display:flex;flex-wrap:wrap;gap:4px 6px;font-size:13px;padding:0 4px 14px 80px}
 .mem span{padding:0 7px;border-radius:4px;background:var(--cell)}
 .mem span.cu{font-weight:700}
-.mem span.c{background:var(--center);color:#fff}
-.mem span.f{box-shadow:inset 0 -3px 0 var(--center)}
-.mem span.o{outline:2px solid var(--accent);outline-offset:-2px}
+.mem span.c{background:var(--center);color:#000}
+.mem span.f{background:#8fd3f4;color:#000}
+.mem span.o{outline:2px solid var(--accent);outline-offset:1px}
 .mem span em{font-style:normal;font-size:11px;color:var(--muted);margin-left:3px}
-.mem span.c em{color:#fff}
+.mem span.c em,.mem span.f em{color:#333}
 .mem p{flex-basis:100%;margin:4px 0 0;font-size:12.5px;color:var(--muted)}
 @media (max-width:680px){.mem{padding-left:8px}}
 
@@ -535,7 +535,7 @@ function renderSingles(){
  if(so==="new")idx.reverse(); if(so==="fw")idx.sort((a,b)=>(S[b].fw??-1)-(S[a].fw??-1));
  document.getElementById("sCount").textContent=q?`「${q}」が選抜の作品: ${idx.length}作`:`${idx.length}作 ・ 作品を押すと選抜メンバーが開きます`;
  document.getElementById("singles").innerHTML=idx.map(i=>{const s=S[i];const o=sOpen.has(i)||!!q;
-  const mem=o?`<div class="mem">${s.L.map(x=>{const [n,grp]=x.split("|");return `<span class="${s.c.includes(n)?"c":(s.fr||[]).includes(n)?"f":""} ${curNames.has(n)?"cu":""} ${oshi.includes(n)?"o":""}">${esc(n)}${grp?`<em>${esc(grp)}</em>`:""}</span>`}).join("")}${s.fr?`<p>黄色はセンター、下に黄色の線はフロント(1列目)。</p>`:""}${s.note?`<p>${esc(s.note)}</p>`:""}${PAGES?`<p><a class="plink" href="singles/${s.k}/">${lab(s.k)}の個別ページを開く →</a></p>`:""}</div>`:"";
+  const mem=o?`<div class="mem">${s.L.map(x=>{const [n,grp]=x.split("|");return `<span class="${s.c.includes(n)?"c":(s.fr||[]).includes(n)?"f":""} ${curNames.has(n)?"cu":""} ${oshi.includes(n)?"o":""}">${esc(n)}${grp?`<em>${esc(grp)}</em>`:""}</span>`}).join("")}${s.fr?`<p>黄色はセンター、水色はフロント(1列目)、ピンクの枠は推し。</p>`:""}${s.note?`<p>${esc(s.note)}</p>`:""}${PAGES?`<p><a class="plink" href="singles/${s.k}/">${lab(s.k)}の個別ページを開く →</a></p>`:""}</div>`:"";
   return `<div class="sg"><button type="button" data-s="${i}" aria-expanded="${o}"><span class="no">${lab(s.k).replace("インディーズ","i")}</span><span class="ttl">${esc(s.t)}</span><span class="sales">${s.fw!=null?fmt(s.fw)+"枚":""}</span>
    <span class="meta">${s.d||"発売日不明"} ・ センター ${s.c.length?esc(s.c.join("・")):"—"} ・ 選抜 ${s.L.length}人${s.tot!=null?` ・ 累計 ${fmt(s.tot)}枚`:""}</span></button>${mem}</div>`}).join("");
 }
