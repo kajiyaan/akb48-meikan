@@ -146,6 +146,7 @@ dialog.about h2:first-of-type{margin-top:0}
 .mem span{padding:0 7px;border-radius:4px;background:var(--cell)}
 .mem span.cu{font-weight:700}
 .mem span.c{background:var(--center);color:#fff}
+.mem span.f{box-shadow:inset 0 -3px 0 var(--center)}
 .mem span.o{outline:2px solid var(--accent);outline-offset:-2px}
 .mem span em{font-style:normal;font-size:11px;color:var(--muted);margin-left:3px}
 .mem span.c em{color:#fff}
@@ -534,7 +535,7 @@ function renderSingles(){
  if(so==="new")idx.reverse(); if(so==="fw")idx.sort((a,b)=>(S[b].fw??-1)-(S[a].fw??-1));
  document.getElementById("sCount").textContent=q?`「${q}」が選抜の作品: ${idx.length}作`:`${idx.length}作 ・ 作品を押すと選抜メンバーが開きます`;
  document.getElementById("singles").innerHTML=idx.map(i=>{const s=S[i];const o=sOpen.has(i)||!!q;
-  const mem=o?`<div class="mem">${s.L.map(x=>{const [n,grp]=x.split("|");return `<span class="${s.c.includes(n)?"c":""} ${curNames.has(n)?"cu":""} ${oshi.includes(n)?"o":""}">${esc(n)}${grp?`<em>${esc(grp)}</em>`:""}</span>`}).join("")}${s.note?`<p>${esc(s.note)}</p>`:""}${PAGES?`<p><a class="plink" href="singles/${s.k}/">${lab(s.k)}の個別ページを開く →</a></p>`:""}</div>`:"";
+  const mem=o?`<div class="mem">${s.L.map(x=>{const [n,grp]=x.split("|");return `<span class="${s.c.includes(n)?"c":(s.fr||[]).includes(n)?"f":""} ${curNames.has(n)?"cu":""} ${oshi.includes(n)?"o":""}">${esc(n)}${grp?`<em>${esc(grp)}</em>`:""}</span>`}).join("")}${s.fr?`<p>黄色はセンター、下に黄色の線はフロント(1列目)。</p>`:""}${s.note?`<p>${esc(s.note)}</p>`:""}${PAGES?`<p><a class="plink" href="singles/${s.k}/">${lab(s.k)}の個別ページを開く →</a></p>`:""}</div>`:"";
   return `<div class="sg"><button type="button" data-s="${i}" aria-expanded="${o}"><span class="no">${lab(s.k).replace("インディーズ","i")}</span><span class="ttl">${esc(s.t)}</span><span class="sales">${s.fw!=null?fmt(s.fw)+"枚":""}</span>
    <span class="meta">${s.d||"発売日不明"} ・ センター ${s.c.length?esc(s.c.join("・")):"—"} ・ 選抜 ${s.L.length}人${s.tot!=null?` ・ 累計 ${fmt(s.tot)}枚`:""}</span></button>${mem}</div>`}).join("");
 }
