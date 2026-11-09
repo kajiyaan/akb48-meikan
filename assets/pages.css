@@ -101,3 +101,9 @@ h3{font-size:15px;margin:16px 0 6px}
 ul.plain li span{margin-left:8px;font-size:12.5px;color:var(--muted)}
 ul.epi{margin:0;padding-left:1.2em}ul.epi li{margin:6px 0;line-height:1.7}
 a.srcl{font-size:12px;color:var(--muted)}
+
+.tkl .tk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0 2px;font-size:12.5px}
+.tkl .tk a{display:inline-block;padding:2px 11px;border:1.5px solid var(--accent);border-radius:999px;color:var(--accent);font-weight:700;text-decoration:none}
+.tkl .tk a:hover{background:var(--accent);color:#fff}
+.tkl .tk a.lobby{border-style:dashed;border-color:var(--muted);color:var(--muted)}
+.tkl .tk em{font-style:normal;color:var(--muted)}
