@@ -284,6 +284,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <h2>初週売上の推移</h2>
     <p class="count-line">オリコン週間の初週売上(枚)です。灰色は数字が取れていない作品です。</p>
     <div class="chart" id="chart"></div>
+    <h2>累計売上の推移</h2>
+    <p class="count-line">オリコンの累計売上(枚)です。年間ランキング時点の数字の作品は、その後の売上を含みません。灰色は数字が取れていない作品です。</p>
+    <div class="chart" id="chart2"></div>
     <div class="controls">
       <input type="search" id="sq" placeholder="メンバー名で絞り込む" aria-label="メンバー名で探す">
       <select id="ssort" aria-label="並べ替え">
@@ -496,12 +499,12 @@ led.addEventListener("click",e=>{
  const r=e.target.closest("[data-i]");if(!r)return;const i=+r.dataset.i;open.has(i)?open.delete(i):open.add(i);render();
 });
 led.addEventListener("mouseover",showTip);
-const chartEl=document.getElementById("chart");
+document.addEventListener("touchstart",e=>{if(!e.target.closest("#chart,#chart2"))tip.hidden=true},{passive:true});
+for(const chartEl of [document.getElementById("chart"),document.getElementById("chart2")]){
 chartEl.addEventListener("mousemove",showChartTip);
 chartEl.addEventListener("click",showChartTip);
-document.addEventListener("touchstart",e=>{if(!e.target.closest("#chart"))tip.hidden=true},{passive:true});
 chartEl.addEventListener("mouseleave",()=>{tip.hidden=true});
-chartEl.addEventListener("scroll",()=>{tip.hidden=true},{passive:true});
+chartEl.addEventListener("scroll",()=>{tip.hidden=true},{passive:true});}
 led.addEventListener("mouseleave",()=>{tip.hidden=true});
 addEventListener("scroll",()=>{tip.hidden=true},{passive:true});
 led.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".rowgrid")){e.preventDefault();e.target.click()}});
@@ -526,18 +529,19 @@ function toggleOshi(n){oshi=oshi.includes(n)?oshi.filter(x=>x!==n):[...oshi,n];s
 document.getElementById("more").addEventListener("click",()=>{limit+=120;render()});
 
 // ---------- シングル ----------
-function chart(){
+function chart(){drawBars("chart","fw","初週売上");drawBars("chart2","tot","累計売上")}
+function drawBars(id,key,label){
  // 実際の表示幅で描いて、スマホでも文字が小さくなりすぎないようにする
- const W=Math.max(320,Math.min(900,document.getElementById("chart").clientWidth||900)),H=W<600?190:220,pl=W<600?40:46,pr=8,pt=10,pb=26,max=1600000;
+ const W=Math.max(320,Math.min(900,document.getElementById(id).clientWidth||900)),H=W<600?190:220,pl=W<600?40:46,pr=8,pt=10,pb=26,max=Math.ceil(Math.max(...S.map(s=>s[key]||0))/400000)*400000;
  const bw=(W-pl-pr)/N;const y=v=>pt+(H-pt-pb)*(1-v/max);
  let g="";
  for(let v=0;v<=max;v+=400000){g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+3}" text-anchor="end">${v?v/10000+"万":"0"}</text>`}
  S.forEach((s,i)=>{const x=pl+i*bw+1;const w=Math.max(1,bw-2);
-  if(s.fw==null)g+=`<rect class="b na" x="${x}" y="${H-pb-3}" width="${w}" height="3"/>`;
-  else g+=`<rect class="b" x="${x}" y="${y(s.fw)}" width="${w}" height="${H-pb-y(s.fw)}"/>`;
+  if(s[key]==null)g+=`<rect class="b na" x="${x}" y="${H-pb-3}" width="${w}" height="3"/>`;
+  else g+=`<rect class="b" x="${x}" y="${y(s[key])}" width="${w}" height="${H-pb-y(s[key])}"/>`;
   g+=`<rect class="hit" data-x="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`;});
  tickAt.filter(([k])=>k!=="i1").forEach(([k,t])=>{const i=S.findIndex(s=>s.k===k);g+=`<text x="${pl+(i+.5)*bw}" y="${H-8}" text-anchor="middle">${t}</text>`});
- document.getElementById("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="シングルごとの初週売上の棒グラフ">${g}</svg>`;
+ document.getElementById(id).innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="シングルごとの${label}の棒グラフ">${g}</svg>`;
 }
 const sOpen=new Set();
 function renderSingles(){
