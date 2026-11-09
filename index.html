@@ -419,7 +419,9 @@ const curNames=new Set(M.filter(m=>m.cur).map(m=>m.n));
 // 推し
 let oshi;
 try{oshi=JSON.parse(localStorage.getItem("akb-oshi")||"null")}catch(e){oshi=null}
-if(!Array.isArray(oshi))oshi=["倉野尾成美","山内瑞葵"];
+if(!Array.isArray(oshi))oshi=null;
+// 推しの初期値: 公開版は「推しなし」、自分用(claude.ai版)だけ最初から登録
+if(!oshi)oshi=PAGES?[]:["倉野尾成美","山内瑞葵"];
 const saveOshi=()=>{try{localStorage.setItem("akb-oshi",JSON.stringify(oshi))}catch(e){}};
 
 // 見出しの数字
