@@ -29,6 +29,7 @@
       ["在籍期間", yrs(A.stay), yrs(B.stay)],
       ["表題曲の選抜", A.s.length + "回", B.s.length + "回"],
       ["センター", A.c.length + "回", B.c.length + "回"],
+      ["フロント(1列目・17作)", (A.f || []).length + "回", (B.f || []).length + "回"],
       ["初選抜", A.s.length ? lab(S[A.s[0]][0]) : "—", B.s.length ? lab(S[B.s[0]][0]) : "—"],
       ["初選抜の年齢", firstAge(A), firstAge(B)],
       ["最長の連続選抜", A.st ? A.st + "作" : "—", B.st ? B.st + "作" : "—"],
@@ -52,7 +53,7 @@
       return `<tr><th><a href="../elections/${no}/">第${no}回</a></th><td>${x ? x[1] + "位" : "—"}</td><td>${y ? y[1] + "位" : "—"}</td></tr>`;
     }).join("");
     // 選抜の帯(上がA、下がB)
-    const bar = m => `<div class="bar" style="--n:${S.length}">${S.map((s, i) => `<i class="${m.c.includes(i) ? "c" : m.s.includes(i) ? "s" : ""}" title="${esc(lab(s[0]) + " " + s[1])}"></i>`).join("")}</div>`;
+    const bar = m => `<div class="bar" style="--n:${S.length}">${S.map((s, i) => `<i class="${m.c.includes(i) ? "c" : (m.f || []).includes(i) ? "f" : m.s.includes(i) ? "s" : ""}" title="${esc(lab(s[0]) + " " + s[1])}"></i>`).join("")}</div>`;
     out.innerHTML = `<div class="tbl"><table class="cmp"><thead><tr><th></th><th>${link(a)}</th><th>${link(b)}</th></tr></thead><tbody>${tr}</tbody></table></div>
 <h2>選抜の記録</h2><p class="muted">上が${esc(a)}、下が${esc(b)}。1マスがシングル1作です。</p>${bar(A)}<div style="height:4px"></div>${bar(B)}
 <h2>2人そろって選抜に入ったシングル</h2><p class="muted">${bothS.length}作</p><p class="chips">${bothS.map(i => `<a href="../singles/${S[i][0]}/">${lab(S[i][0])} ${esc(S[i][1])}</a>`).join("") || ""}</p>
