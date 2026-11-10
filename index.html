@@ -4,15 +4,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="AKB48の歴代メンバー、全シングルの選抜記録、期別の集計、劇場公演をまとめた非公式のファンメイドデータベース">
 <link rel="canonical" href="https://akb48-meikan.pages.dev/">
-<meta property="og:title" content="AKB48 名鑑">
+<meta property="og:title" content="AKB48 名鑑（β版）">
 <meta property="og:description" content="AKB48の歴代メンバー、全シングルの選抜記録、期別の集計、劇場公演をまとめた非公式のファンメイドデータベース">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akb48-meikan.pages.dev/">
 <meta property="og:image" content="https://akb48-meikan.pages.dev/og/site.png">
-<meta property="og:site_name" content="AKB48 名鑑">
+<meta property="og:site_name" content="AKB48 名鑑（β版）">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
-<title>AKB48 名鑑</title>
+<title>AKB48 名鑑（β版）</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23c2185b%22/%3E%3Cg%20fill%3D%22%23fff%22%3E%3Crect%20x%3D%229%22%20y%3D%229%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22/%3E%3Crect%20x%3D%2226%22%20y%3D%229%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22%20opacity%3D%22.45%22/%3E%3Crect%20x%3D%2243%22%20y%3D%229%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22/%3E%3Crect%20x%3D%229%22%20y%3D%2226%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22%20opacity%3D%22.45%22/%3E%3Crect%20x%3D%2243%22%20y%3D%2226%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22/%3E%3Crect%20x%3D%229%22%20y%3D%2243%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22/%3E%3Crect%20x%3D%2226%22%20y%3D%2243%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22/%3E%3Crect%20x%3D%2243%22%20y%3D%2243%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22%20opacity%3D%22.45%22/%3E%3C/g%3E%3Crect%20x%3D%2226%22%20y%3D%2226%22%20width%3D%2212%22%20height%3D%2212%22%20rx%3D%222.5%22%20fill%3D%22%23ffc94a%22/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,6 +147,7 @@ ol.ntop{columns:2 220px;padding-left:1.6em}ol.ntop li{padding:3px 0}.chips2{disp
 section.bk{margin:26px 0 8px;padding:6px 16px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}section.bk h2{font-size:16px}.bkrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:8px 0}section.bk textarea{width:100%;box-sizing:border-box;font:inherit;font-size:12px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}label.pick1{cursor:pointer}
 dialog.cardd{max-width:min(760px,calc(100vw - 32px))}dialog.cardd img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:8px 0}.cardbtns{display:flex;gap:8px;flex-wrap:wrap}
 button.cardb{font:inherit;font-size:13px;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:999px;padding:2px 10px;cursor:pointer}
+h1 .beta{font-size:.42em;vertical-align:.55em;margin-left:.2em;letter-spacing:0;color:var(--accent);font-weight:700}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -279,7 +280,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
 <div class="wrap">
   <header class="top">
     <div class="eyebrow">FAN-MADE DATABASE ・ 非公式</div>
-    <h1><a href="#home" class="home" id="homeLink">AKB48 名鑑</a><br><span class="num">2005 → 2026</span></h1>
+    <h1><a href="#home" class="home" id="homeLink">AKB48 名鑑<small class="beta">（β版）</small></a><br><span class="num">2005 → 2026</span></h1>
     <p class="lede">AKB48の今のメンバー、これまでの全員、全シングルの記録、劇場公演の予定をまとめた、ファンが作ったサイトです。</p>
     <div class="stats" id="stats"></div>
   </header>
@@ -1203,7 +1204,7 @@ function drawCard(n){const ms=M.filter(m=>m.n===n);if(!ms.length)return null;con
  const F=(w,s)=>`${w} ${s}px "Zen Kaku Gothic New","Noto Sans JP",sans-serif`;
  g.fillStyle="#17121a";g.fillRect(0,0,W,H);g.fillStyle="#ff5c9a";g.fillRect(0,0,W,10);
  g.fillStyle="#ff5c9a";g.font=F(700,30);g.fillText("★ わたしの推し",60,70);
- g.fillStyle="#a898a3";g.font=F(400,22);g.textAlign="right";g.fillText("AKB48 名鑑 ・ akb48-meikan.pages.dev",W-60,70);g.textAlign="left";
+ g.fillStyle="#a898a3";g.font=F(400,22);g.textAlign="right";g.fillText("AKB48 名鑑（β版） ・ akb48-meikan.pages.dev",W-60,70);g.textAlign="left";
  let fs=104;g.font=F(700,fs);while(g.measureText(n).width>W-120&&fs>40){fs-=6;g.font=F(700,fs)}
  g.fillStyle="#f1e9ee";g.fillText(n,60,200);
  const sel=new Set(ms.flatMap(x=>x.s)),cen=new Set(ms.flatMap(x=>x.c)),fr=new Set(ms.flatMap(x=>x.f||[]));
@@ -1247,7 +1248,7 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.sec===sec)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
  const sub=(SUBS[sec]||[]).filter(x=>!x[2]||PAGES);
  document.getElementById("subnav").innerHTML=sub.length>1?sub.map(([t,h])=>`<a href="${h}"${h==="#"+v?' aria-current="page"':""}>${t}</a>`).join(""):"";
- document.title=(VTITLE[v]?VTITLE[v]+" | ":"")+"AKB48 名鑑";
+ document.title=(VTITLE[v]?VTITLE[v]+" | ":"")+"AKB48 名鑑（β版）";
  if(v==="home"){const h=document.getElementById("hello");h.classList.toggle("small",oshi.length>0)}
  if(v==="gens")renderSA();
  if(v==="guide")renderGuide();
