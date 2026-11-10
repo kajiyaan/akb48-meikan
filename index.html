@@ -156,6 +156,7 @@ h1 .beta{font-size:.42em;vertical-align:.55em;margin-left:.2em;letter-spacing:0;
 .hnote{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:4px 0 8px}.hf2{display:inline-block;width:0;height:0;border-left:7px solid var(--fg);border-top:5px solid transparent;border-bottom:5px solid transparent;opacity:.75}.hos2{display:inline-block;width:18px;height:5px;background:var(--center)}
 .hcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0 18px}.hcard{font:inherit;text-align:left;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--pc);border-radius:10px;padding:10px 14px;cursor:pointer;display:flex;flex-direction:column;gap:4px}.hcard:hover{border-color:var(--pc)}.hcard b{font-size:17px}.hcard small{color:var(--muted)}.hcard>span{font-size:13px;line-height:1.6}.hcard dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:4px 0;font-size:12.5px}.hcard dt{color:var(--muted)}.hcard dd{margin:0}.hcard em{font-style:normal;font-size:12px;color:var(--accent);margin-top:auto}
 .hsec{border-left:4px solid var(--pc);padding:2px 0 2px 14px;margin:14px 0}.hsec h3{margin:4px 0}
+table.ret td.rc{white-space:nowrap}.rbar{display:inline-block;width:70px;height:8px;background:var(--cell);border-radius:4px;vertical-align:middle;margin-right:6px;overflow:hidden}.rbar i{display:block;height:100%;background:var(--accent)}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -422,6 +423,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <p class="gsp"><button type="button" class="pick1 ghost" id="gsPlay">▶ 1stから順に再生</button> <span id="gsCap" class="muted"></span></p>
     <div class="chart" id="gshare"></div>
     <div class="glegend" id="gshareLeg"></div>
+    <h2>3年後・5年後に残っていた割合</h2>
+    <p class="count-line">期ごとに、加入(お披露目)から3年以内・5年以内にAKB48を離れた人の割合です。離れた理由(卒業・辞退・移籍など)は区別していません。2人以上いる期だけを出しています。加入から3年・5年たっていない人は数えていません。2回在籍した人は、それぞれの期で1人と数えています。</p>
+    <div class="tbl"><table id="retTbl" class="ret"></table></div>
     <h2>期ごとの集計</h2>
     <p class="count-line">「選抜経験」は表題曲の選抜に1回以上入った人数です。「昇格せず」は、正規メンバーにならずに辞めた人数です。</p>
     <div class="tbl"><table id="gtable"></table></div>
@@ -1310,6 +1314,15 @@ function renderHist(){const el=document.getElementById("histBody");if(!el)return
   if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const i=en.target.dataset.sec;document.querySelectorAll("#hchart .ph").forEach(r=>r.classList.toggle("act",r.dataset.ph===i))}})},{rootMargin:"-45% 0px -45% 0px"});document.querySelectorAll(".hsec").forEach(s=>io.observe(s))}
  }
  drawHist();}
+
+// ===== 期ごとの「3年以内・5年以内に離れた割合」 =====
+function renderRet(){const el=document.getElementById("retTbl");if(!el)return;const td=jstToday();
+ const addY=(d,y)=>(+d.slice(0,4)+y)+d.slice(4);
+ const rows=GO.map(g=>{const st=[];M.forEach(m=>(m.st||[]).forEach(x=>{if(x[2]===g&&x[0])st.push([x[0],x[1],m.n])}));if(st.length<2)return null;
+  const r=y=>{const e=st.filter(([a])=>addY(a,y)<=td);if(!e.length)return null;const l=e.filter(([a,b])=>b&&b<addY(a,y));return {l:l.length,n:e.length,p:Math.round(100*l.length/e.length)}};
+  return {g,n:st.length,a:st.map(x=>x[0]).sort()[0],y3:r(3),y5:r(5)}}).filter(Boolean);
+ const cell=x=>x?`<span class="rbar"><i style="width:${x.p}%"></i></span><b>${x.p}%</b> <small class="muted">${x.l}/${x.n}人</small>`:'<span class="muted small">まだ数えられない</span>';
+ el.innerHTML=`<thead><tr><th>期</th><th>人数</th><th>3年以内に離れた</th><th>5年以内に離れた</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span class="gdot" style="--h:${ghue(r.g)}"></span>${esc(r.g)} <small class="muted">${r.a.slice(0,4)}</small></td><td class="n">${r.n}</td><td class="rc">${cell(r.y3)}</td><td class="rc">${cell(r.y5)}</td></tr>`).join("")}</tbody>`;}
 const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday","notes","history"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
 const SEC={home:"home",guide:"home",news:"home",myday:"home",notes:"oshi",history:"records",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
@@ -1351,5 +1364,5 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
 window.addEventListener("hashchange",()=>{route();if(document.body.dataset.view==="home"){scrollTo({top:0});return}const nv=document.querySelector("nav.tabs"),y=nv.getBoundingClientRect().top+scrollY-2;scrollTo({top:Math.max(0,y)});});
 let gw=0;let cw=0;addEventListener("resize",()=>{const w=document.getElementById("chart").clientWidth;if(w&&Math.abs(w-cw)>40){cw=w;chart()}});
 document.getElementById("mlS").innerHTML=mlHtml();
-render(true);chart();renderSingles();renderGens();renderShows();renderStages();renderToday();route();
+render(true);chart();renderSingles();renderGens();renderRet();renderShows();renderStages();renderToday();route();
 </script>
