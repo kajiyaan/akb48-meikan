@@ -423,8 +423,8 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <p class="gsp"><button type="button" class="pick1 ghost" id="gsPlay">▶ 1stから順に再生</button> <span id="gsCap" class="muted"></span></p>
     <div class="chart" id="gshare"></div>
     <div class="glegend" id="gshareLeg"></div>
-    <h2>3年後・5年後に残っていた割合</h2>
-    <p class="count-line">期ごとに、加入(お披露目)から3年以内・5年以内にAKB48を離れた人の割合です。離れた理由(卒業・辞退・移籍など)は区別していません。2人以上いる期だけを出しています。加入から3年・5年たっていない人は数えていません。2回在籍した人は、それぞれの期で1人と数えています。</p>
+    <h2>3年後・5年後の離職率(卒業した割合)</h2>
+    <p class="count-line">期ごとに、加入(お披露目)から3年以内・5年以内に卒業した人の割合(離職率)です。ここでの「卒業」は、辞退・移籍などでAKB48を離れた場合も含みます。2人以上いる期だけを出しています。加入から3年・5年たっていない人は数えていません。2回在籍した人は、それぞれの期で1人と数えています。</p>
     <div class="tbl"><table id="retTbl" class="ret"></table></div>
     <h2>期ごとの集計</h2>
     <p class="count-line">「選抜経験」は表題曲の選抜に1回以上入った人数です。「昇格せず」は、正規メンバーにならずに辞めた人数です。</p>
@@ -1322,7 +1322,7 @@ function renderRet(){const el=document.getElementById("retTbl");if(!el)return;co
   const r=y=>{const e=st.filter(([a])=>addY(a,y)<=td);if(!e.length)return null;const l=e.filter(([a,b])=>b&&b<addY(a,y));return {l:l.length,n:e.length,p:Math.round(100*l.length/e.length)}};
   return {g,n:st.length,a:st.map(x=>x[0]).sort()[0],y3:r(3),y5:r(5)}}).filter(Boolean);
  const cell=x=>x?`<span class="rbar"><i style="width:${x.p}%"></i></span><b>${x.p}%</b> <small class="muted">${x.l}/${x.n}人</small>`:'<span class="muted small">まだ数えられない</span>';
- el.innerHTML=`<thead><tr><th>期</th><th>人数</th><th>3年以内に離れた</th><th>5年以内に離れた</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span class="gdot" style="--h:${ghue(r.g)}"></span>${esc(r.g)} <small class="muted">${r.a.slice(0,4)}</small></td><td class="n">${r.n}</td><td class="rc">${cell(r.y3)}</td><td class="rc">${cell(r.y5)}</td></tr>`).join("")}</tbody>`;}
+ el.innerHTML=`<thead><tr><th>期</th><th>人数</th><th>3年後の離職率</th><th>5年後の離職率</th></tr></thead><tbody>${rows.map(r=>`<tr><td><span class="gdot" style="--h:${ghue(r.g)}"></span>${esc(r.g)} <small class="muted">${r.a.slice(0,4)}</small></td><td class="n">${r.n}</td><td class="rc">${cell(r.y3)}</td><td class="rc">${cell(r.y5)}</td></tr>`).join("")}</tbody>`;}
 const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday","notes","history"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
 const SEC={home:"home",guide:"home",news:"home",myday:"home",notes:"oshi",history:"records",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
