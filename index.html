@@ -1170,7 +1170,7 @@ const B64=s=>btoa(String.fromCharCode(...new TextEncoder().encode(s))),UNB64=s=>
 function backupHtml(){return `<section class="bk"><h2>記録の引き継ぎ</h2>
  <p class="muted small">推しの登録と観覧ノートは、このブラウザにだけ保存されています。別のブラウザや端末に移すときに使ってください。</p>
  <div class="bkrow"><button type="button" class="pick1 ghost" id="bkLink">推しの引き継ぎ用リンクをコピー</button><span class="muted small">開くだけで、その端末に推しが登録されます</span></div>
- <div class="bkrow"><button type="button" class="pick1 ghost" id="bkOut">すべての記録を書き出す</button><button type="button" class="pick1 ghost" id="bkFile">ファイルに保存</button><span class="muted small">推し+観覧ノート</span></div>
+ <div class="bkrow"><button type="button" class="pick1 ghost" id="bkOut">すべての記録を書き出す</button>${PAGES?'<button type="button" class="pick1 ghost" id="bkFile">ファイルに保存</button>':""}<span class="muted small">推し+観覧ノート</span></div>
  <textarea id="bkText" rows="3" placeholder="書き出した文字列を、ここに貼り付けて「読み込む」"></textarea>
  <div class="bkrow"><button type="button" class="pick1 ghost" id="bkIn">読み込む</button><label class="pick1 ghost">ファイルから読み込む<input type="file" id="bkInFile" accept=".txt,.json" hidden></label><span class="muted small" id="bkMsg"></span></div></section>`}
 function bindBackup(){const $=id=>document.getElementById(id),msg=t=>{$("bkMsg").textContent=t};
@@ -1178,7 +1178,7 @@ function bindBackup(){const $=id=>document.getElementById(id),msg=t=>{$("bkMsg")
  const copy=(t,ok)=>{(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>msg(ok)).catch(()=>{$("bkText").value=t;msg("コピーできなかったので、上の欄に出しました。選んでコピーしてください")})};
  $("bkLink").onclick=()=>{if(!oshi.length){msg("推しがまだ登録されていません");return}copy(location.origin+location.pathname+"#oshi="+oshi.map(encodeURIComponent).join(","),"引き継ぎ用リンクをコピーしました。もう一方の端末で開いてください")};
  $("bkOut").onclick=()=>{const t=dump();$("bkText").value=t;copy(t,"書き出してコピーしました。もう一方の端末で貼り付けて「読み込む」を押してください")};
- $("bkFile").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([dump()],{type:"text/plain"}));a.download="akb48-meikan-kiroku.txt";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);msg("ファイルに保存しました")};
+ if($("bkFile"))$("bkFile").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([dump()],{type:"text/plain"}));a.download="akb48-meikan-kiroku.txt";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);msg("ファイルに保存しました")};
  const load=t=>{try{t=t.trim();if(!t.startsWith("AKB48MEIKAN1:"))throw 0;const o=JSON.parse(UNB64(t.slice(13)));
    const before=[oshi.length,Object.keys(NOTES).length];
    oshi=[...new Set([...oshi,...(o.oshi||[]).filter(n=>typeof n==="string")])];Object.assign(NOTES,o.notes||{});saveOshi();saveNotes();
