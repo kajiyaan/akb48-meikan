@@ -145,6 +145,8 @@ button.went{font:inherit;font-size:12px;margin:6px 0 0;padding:2px 10px;border:1
 .nstats{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.nstats div{border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--surface);min-width:110px}.nstats b{display:block;font-size:26px;font-family:var(--f-data)}.nstats span{font-size:12px;color:var(--muted)}
 ol.ntop{columns:2 220px;padding-left:1.6em}ol.ntop li{padding:3px 0}.chips2{display:flex;flex-wrap:wrap;gap:6px}.chips2 span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 section.bk{margin:26px 0 8px;padding:6px 16px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}section.bk h2{font-size:16px}.bkrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:8px 0}section.bk textarea{width:100%;box-sizing:border-box;font:inherit;font-size:12px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}label.pick1{cursor:pointer}
+dialog.cardd{max-width:min(760px,calc(100vw - 32px))}dialog.cardd img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block;margin:8px 0}.cardbtns{display:flex;gap:8px;flex-wrap:wrap}
+button.cardb{font:inherit;font-size:13px;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:999px;padding:2px 10px;cursor:pointer}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -440,6 +442,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <div id="stages"></div>
   </section>
 
+<dialog id="cardDlg" class="about cardd" aria-label="推しの記録カード"><button type="button" class="aboutX" onclick="this.closest('dialog').close()" aria-label="閉じる">×</button><h2>推しの記録カード</h2><img id="cardImg" alt="推しの記録カード"><p class="cardbtns"><button type="button" class="pick1" id="cardSave">画像を保存</button><button type="button" class="pick1 ghost" id="cardShare">共有する</button></p><p class="muted small">画像はこのブラウザの中で作っています。写真は使っていません。保存ボタンが無いときは、画像を長押し(右クリック)で保存できます。</p></dialog>
 <dialog id="sldlg" class="about setl" aria-labelledby="slH"><button type="button" class="aboutX" id="slX" aria-label="閉じる">×</button><div id="slBody"></div></dialog>
 <dialog id="about" class="prose about" aria-labelledby="aboutH">
     <button type="button" class="aboutX" aria-label="閉じる">×</button>
@@ -983,7 +986,7 @@ function renderOshi(){const el=document.getElementById("oshiBody");if(!el)return
   const D2=x=>{const d=new Date(x.d+"T00:00:00");return `${d.getMonth()+1}/${d.getDate()}(${"日月火水木金土"[d.getDay()]})`};
   return `<section class="oshi1"><div class="oh"><span class="av" style="--h:${ghue(m.g)}">${esc(m.n[0])}</span><div><h2>${esc(m.n)}</h2><div class="muted small">${esc(m.g)}${m.b?` ・ ${age(m.b)}歳`:""}${m.pf?" ・ "+esc(m.pf):""} ${plDots(m)}</div></div>
    <button type="button" class="star on" data-oshi="${esc(m.n)}" aria-label="${esc(m.n)}を推しから外す">★</button></div>
-   <div class="ochips">${m.b?`<span>🎂 ${dd===0?"今日が誕生日!":`誕生日まであと${dd}日(${+m.b.slice(5,7)}/${+m.b.slice(8)})`}</span>`:""}${sns?`<span>公式SNS ${sns}</span>`:""}${l?`<span><a href="${l}">個人ページ →</a></span>`:""}</div>
+   <div class="ochips">${m.b?`<span>🎂 ${dd===0?"今日が誕生日!":`誕生日まであと${dd}日(${+m.b.slice(5,7)}/${+m.b.slice(8)})`}</span>`:""}${sns?`<span>公式SNS ${sns}</span>`:""}${l?`<span><a href="${l}">個人ページ →</a></span>`:""}<span><button type="button" class="cardb" data-card="${esc(m.n)}">🖼 記録カードを作る</button></span></div>
    ${(()=>{const an=annivUpcoming(366,e=>e.n===m.n).slice(0,4);return an.length?`<h3>記念日</h3><ul class="olist">${an.map(x=>`<li><b>${+x.occ.slice(5,7)}/${+x.occ.slice(8)}</b> ${annivText(x.e,x.occ)} <small class="muted">${daysUntil(x.occ)===0?"今日!":`あと${daysUntil(x.occ)}日`}</small></li>`).join("")}</ul>`:""})()}
    <h3>劇場公演の出演予定 <small class="muted">${shows.length}公演</small></h3>
    ${shows.length?`<ul class="olist">${shows.map(x=>`<li><b>${D2(x)} ${x.t}</b> 「${esc(x.st)}」公演 ${x.sl!=null?`<button type="button" class="slb mini" data-sl="${x.sl}">セットリスト</button>`:""}${tkHtml(x)}</li>`).join("")}</ul>`:`<p class="muted small">公式スケジュールに出演予定はまだありません</p>`}
@@ -1193,6 +1196,33 @@ function bindBackup(){const $=id=>document.getElementById(id),msg=t=>{$("bkMsg")
  if(names.length&&confirm(`次の${names.length}人を、このブラウザの推しに登録します。\n${names.join("・")}`)){oshi=[...new Set([...oshi,...names])];saveOshi()}})();
 
 {const _ro=renderOshi;renderOshi=function(){_ro();const el=document.getElementById("oshiBody");if(!el)return;el.insertAdjacentHTML("beforeend",backupHtml());bindBackup()}}
+
+// ===== 推しの記録カード(画像はこのブラウザの中で作る。写真は使わない) =====
+function drawCard(n){const ms=M.filter(m=>m.n===n);if(!ms.length)return null;const m=ms.find(x=>x.cur)||ms[ms.length-1];
+ const W=1200,H=630,cv=document.createElement("canvas");cv.width=W;cv.height=H;const g=cv.getContext("2d");
+ const F=(w,s)=>`${w} ${s}px "Zen Kaku Gothic New","Noto Sans JP",sans-serif`;
+ g.fillStyle="#17121a";g.fillRect(0,0,W,H);g.fillStyle="#ff5c9a";g.fillRect(0,0,W,10);
+ g.fillStyle="#ff5c9a";g.font=F(700,30);g.fillText("★ わたしの推し",60,70);
+ g.fillStyle="#a898a3";g.font=F(400,22);g.textAlign="right";g.fillText("AKB48 名鑑 ・ akb48-meikan.pages.dev",W-60,70);g.textAlign="left";
+ let fs=104;g.font=F(700,fs);while(g.measureText(n).width>W-120&&fs>40){fs-=6;g.font=F(700,fs)}
+ g.fillStyle="#f1e9ee";g.fillText(n,60,200);
+ const sel=new Set(ms.flatMap(x=>x.s)),cen=new Set(ms.flatMap(x=>x.c)),fr=new Set(ms.flatMap(x=>x.f||[]));
+ const j=ms.map(x=>x.j).filter(Boolean).sort()[0];
+ g.fillStyle="#a898a3";g.font=F(400,32);g.fillText(`${m.g}${j?" ・ "+j.slice(0,4)+"年加入":""}${m.cur?" ・ 在籍中":""}${m.b&&m.cur?" ・ "+age(m.b)+"歳":""}`,62,260);
+ let x=60;[[sel.size,"回 選抜"],[cen.size,"回 センター"],[fr.size,"回 フロント"]].forEach(([v,l])=>{g.fillStyle="#f1e9ee";g.font=F(700,64);g.fillText(v,x,355);x+=g.measureText(String(v)).width+8;g.fillStyle="#a898a3";g.font=F(400,28);g.fillText(l,x,355);x+=g.measureText(l).width+48});
+ // 選抜のマス(1マス=シングル1作)
+ const inS=i=>ms.some(mm=>(mm.st||[]).some(st=>S[i].d&&st[0]<=S[i].d&&(!st[1]||S[i].d<=st[1])));
+ const cols=36,gap=4,cw=(W-120-gap*(cols-1))/cols,ch=Math.min(cw,30);
+ S.forEach((s,i)=>{const r=Math.floor(i/cols),q=i%cols,xx=60+q*(cw+gap),yy=410+r*(ch+gap);g.fillStyle=cen.has(i)?"#e2b22e":sel.has(i)?"#ff5c9a":inS(i)?"#3a2f3d":"#28202b";g.beginPath();g.roundRect?g.roundRect(xx,yy,cw,ch,4):g.rect(xx,yy,cw,ch);g.fill()});
+ g.fillStyle="#a898a3";g.font=F(400,20);g.fillText("表題曲の選抜(1マス=シングル1作、金=センター) ・ 非公式のファンサイト",60,H-40);
+ return cv;}
+function openCard(n){const cv=drawCard(n);if(!cv)return;const d=document.getElementById("cardDlg");
+ document.getElementById("cardImg").src=cv.toDataURL("image/png");
+ const sv=document.getElementById("cardSave"),sh=document.getElementById("cardShare");
+ sv.hidden=!PAGES;sv.onclick=()=>cv.toBlob(b=>{const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=`oshi-${n}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+ sh.hidden=!(navigator.canShare);sh.onclick=()=>cv.toBlob(b=>{const file=new File([b],`oshi.png`,{type:"image/png"});if(navigator.canShare&&navigator.canShare({files:[file]}))navigator.share({files:[file],text:`わたしの推し: ${n} #AKB48名鑑`}).catch(()=>{})});
+ d.showModal();}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-card]");if(b)openCard(b.dataset.card)});
 const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday","notes"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
 const SEC={home:"home",guide:"home",news:"home",myday:"home",notes:"oshi",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
