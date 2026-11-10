@@ -141,6 +141,10 @@ a.mydaybn{display:block;margin:12px 0 0;padding:14px 18px;border-radius:12px;bor
 .mdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:14px 0}.mdc{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--surface);display:flex;flex-direction:column;gap:4px;line-height:1.7}.mdc b{font-size:15px}.mdc em{font-style:normal;color:var(--accent);font-weight:700}.mdc small{color:var(--muted);margin-left:6px}.mdc.big{grid-column:1/-1;border-color:var(--accent)}.mdc.big b{font-size:19px}
 .oshigrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:0 14px;align-items:start}.oshigrid .oshi1{margin:7px 0}
 #gshare .gcol{transition:opacity .25s}#gshare.playing .gcol{opacity:.07}#gshare.playing .gcol.on{opacity:1}.gsp{margin:4px 0 6px;min-height:30px}#gsCap{font-size:13px}
+button.went{font:inherit;font-size:12px;margin:6px 0 0;padding:2px 10px;border:1px dashed var(--line);border-radius:999px;background:none;color:var(--muted);cursor:pointer}button.went.on{border:1px solid var(--ok,#3a9);color:var(--fg);font-weight:700}
+.nstats{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.nstats div{border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--surface);min-width:110px}.nstats b{display:block;font-size:26px;font-family:var(--f-data)}.nstats span{font-size:12px;color:var(--muted)}
+ol.ntop{columns:2 220px;padding-left:1.6em}ol.ntop li{padding:3px 0}.chips2{display:flex;flex-wrap:wrap;gap:6px}.chips2 span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+section.bk{margin:26px 0 8px;padding:6px 16px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}section.bk h2{font-size:16px}.bkrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:8px 0}section.bk textarea{width:100%;box-sizing:border-box;font:inherit;font-size:12px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}label.pick1{cursor:pointer}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -309,6 +313,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
   </section>
   <section id="v-myday" hidden><div class="prose" id="mydayBody"></div></section>
   <section id="v-news" hidden><div class="prose" id="newsBody"></div></section>
+  <section id="v-notes" hidden><div class="prose" id="notesBody"></div></section>
   <section id="v-oshi" hidden><div class="prose" id="oshiBody"></div></section>
   <section id="v-visit" hidden><div class="prose guide" id="visitBody"></div></section>
   <section id="v-guide" hidden>
@@ -791,7 +796,7 @@ function renderShows(){
  if(!list.length)document.getElementById("tCount").textContent+=" ― 該当する公演はありません";
  document.getElementById("shows").innerHTML=list.map(s=>{const d=new Date(s.d+"T00:00:00");
   return `<div class="show"><div class="dt"><b>${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})</b>${s.t}開演</div><div><div class="st">${s.sl!=null?`<button type="button" class="slb" data-sl="${s.sl}">「${esc(s.st)}」公演<small>セットリスト</small></button>`:`「${esc(s.st)}」公演`}</div>
-  <div class="ms">${s.m.map(n=>PAGES?`<a href="members/${encodeURIComponent(n)}/" class="${n===who?"h":""} ${oshi.includes(n)?"o":""}">${esc(n)}</a>`:`<span class="${n===who?"h":""} ${oshi.includes(n)?"o":""}">${esc(n)}</span>`).join("")}</div>${(s.chg||[]).map(c=>`<p class="chg">出演変更: ${c.out.map(esc).join("・")||"—"} 休演 → ${c.in.map(esc).join("・")||"—"} 出演 <a href="${esc(c.url)}" target="_blank" rel="noopener">公式ブログ ↗</a></p>`).join("")}${tkHtml(s)}</div></div>`}).join("");
+  <div class="ms">${s.m.map(n=>PAGES?`<a href="members/${encodeURIComponent(n)}/" class="${n===who?"h":""} ${oshi.includes(n)?"o":""}">${esc(n)}</a>`:`<span class="${n===who?"h":""} ${oshi.includes(n)?"o":""}">${esc(n)}</span>`).join("")}</div>${(s.chg||[]).map(c=>`<p class="chg">出演変更: ${c.out.map(esc).join("・")||"—"} 休演 → ${c.in.map(esc).join("・")||"—"} 出演 <a href="${esc(c.url)}" target="_blank" rel="noopener">公式ブログ ↗</a></p>`).join("")}${tkHtml(s)}${wentBtn(s)}</div></div>`}).join("");
  const cnt=curList.map(m=>({n:m.n,t:TH.count[m.n]||0,c:SH.filter(s=>s.m.includes(m.n)).length,st:[...new Set(SH.filter(s=>s.m.includes(m.n)).map(s=>s.st))]})).sort((a,b)=>b.c-a.c||b.t-a.t||a.n.localeCompare(b.n,"ja"));
  document.getElementById("ttable").innerHTML=`<thead><tr><th>メンバー</th><th>${+TH.ym.slice(5)}月</th><th>通算</th><th>${+TH.ym.slice(5)}月に出る公演</th></tr></thead><tbody>`+cnt.map(r=>`<tr><td>${oshi.includes(r.n)?"★ ":""}${esc(r.n)}</td><td class="n">${r.c||"—"}</td><td class="n">${r.t||"—"}</td><td>${esc(r.st.join("、"))}</td></tr>`).join("")+"</tbody>";
 }
@@ -1135,16 +1140,69 @@ document.getElementById("gsPlay").addEventListener("click",function(){const box=
  const t=setInterval(()=>{if(k>=cols.length){clearInterval(t);btn.disabled=false;setTimeout(()=>{box.classList.remove("playing");cap.textContent=""},1500);return}
   const c=cols[k++],i=+c.dataset.c,s=S[i],f=(CH[i]&&CH[i].first)||[];c.classList.add("on");
   cap.textContent=`${lab(s.k)}「${s.t||"タイトル未定"}」${s.d?" ("+s.d.slice(0,4)+")":""}${f.length?" ・ 初選抜: "+f.slice(0,6).join("・")+(f.length>6?` ほか${f.length-6}人`:""):""}`;},260);});
-const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday"];
+
+// ===== 観覧ノート(行った公演の記録。このブラウザにだけ保存) =====
+let NOTES={};try{NOTES=JSON.parse(localStorage.getItem("akb-notes")||"{}")||{}}catch(e){NOTES={}}
+const saveNotes=()=>{try{localStorage.setItem("akb-notes",JSON.stringify(NOTES))}catch(e){}};
+const showKey=s=>s.d+" "+s.t;
+function wentBtn(s){const now=Date.now(),st=new Date(s.d+"T"+s.t+":00+09:00").getTime();if(st>now+36e5*3)return "";
+ const on=!!NOTES[showKey(s)];return `<button type="button" class="went ${on?"on":""}" data-went="${esc(showKey(s))}" aria-pressed="${on}">${on?"✓ 行った":"＋ 行ったを記録"}</button>`}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-went]");if(!b)return;const k=b.dataset.went;
+ if(NOTES[k])delete NOTES[k];else{const s=(DATA.allshows||[]).find(x=>showKey(x)===k);if(s)NOTES[k]={d:s.d,t:s.t,st:s.st,m:s.m.slice()}}
+ saveNotes();renderShows();if(!document.getElementById("v-notes").hidden)renderNotes();});
+function renderNotes(){const el=document.getElementById("notesBody");if(!el)return;
+ const L=Object.values(NOTES).sort((a,b)=>(b.d+b.t).localeCompare(a.d+a.t));
+ if(!L.length){el.innerHTML=`<h1>観覧ノート</h1><p class="lead">劇場公演に行ったら、出演表の「＋ 行ったを記録」を押してください。観た回数、よく観たメンバー、観た演目がここにたまっていきます。</p>
+  <p class="muted small">記録はこのブラウザにだけ保存されます。別の端末へは、下の「記録の引き継ぎ」で移せます。</p><p><a class="pick1" href="#theater">出演表へ →</a></p>${backupHtml()}`;bindBackup();return}
+ const cnt={},stc={};L.forEach(x=>{x.m.forEach(n=>cnt[n]=(cnt[n]||0)+1);stc[x.st]=(stc[x.st]||0)+1});
+ const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"ja")).slice(0,10);
+ const oc=L.filter(x=>x.m.some(n=>oshi.includes(n))).length,first=L[L.length-1];
+ el.innerHTML=`<h1>観覧ノート</h1>
+ <div class="nstats"><div><b>${L.length}</b><span>観た公演</span></div><div><b>${Object.keys(stc).length}</b><span>観た演目</span></div><div><b>${Object.keys(cnt).length}</b><span>観たメンバー</span></div>${oshi.length?`<div><b>${oc}</b><span>推しが出ていた公演</span></div>`:""}<div><b>${dDiff(first.d,jstToday()).toLocaleString()}</b><span>日前に最初の観覧</span></div></div>
+ <h2>よく観たメンバー</h2><ol class="ntop">${top.map(([n,c])=>`<li>${oshi.includes(n)?"★ ":""}${PAGES?`<a href="members/${encodeURIComponent(n)}/">${esc(n)}</a>`:esc(n)} <small class="muted">${c}回</small></li>`).join("")}</ol>
+ <h2>観た演目</h2><p class="chips2">${Object.entries(stc).sort((a,b)=>b[1]-a[1]).map(([t,c])=>`<span>「${esc(t)}」 ${c}回</span>`).join("")}</p>
+ <h2>記録した公演</h2><ul class="olist">${L.map(x=>`<li><b>${md2(x.d)} ${x.t}</b> 「${esc(x.st)}」公演 <small class="muted">${x.m.map(n=>oshi.includes(n)?"★"+esc(n):esc(n)).join("・")}</small> <button type="button" class="went on" data-went="${esc(showKey(x))}">✓ 行った(押すと取り消し)</button></li>`).join("")}</ul>
+ <p class="muted small">出演メンバーは記録した時点の公式スケジュールのものです。記録はこのブラウザにだけ保存されます。</p>${backupHtml()}`;
+ bindBackup();}
+
+// ===== 記録の引き継ぎ(書き出し・読み込み、引き継ぎ用リンク) =====
+const B64=s=>btoa(String.fromCharCode(...new TextEncoder().encode(s))),UNB64=s=>new TextDecoder().decode(Uint8Array.from(atob(s),c=>c.charCodeAt(0)));
+function backupHtml(){return `<section class="bk"><h2>記録の引き継ぎ</h2>
+ <p class="muted small">推しの登録と観覧ノートは、このブラウザにだけ保存されています。別のブラウザや端末に移すときに使ってください。</p>
+ <div class="bkrow"><button type="button" class="pick1 ghost" id="bkLink">推しの引き継ぎ用リンクをコピー</button><span class="muted small">開くだけで、その端末に推しが登録されます</span></div>
+ <div class="bkrow"><button type="button" class="pick1 ghost" id="bkOut">すべての記録を書き出す</button><button type="button" class="pick1 ghost" id="bkFile">ファイルに保存</button><span class="muted small">推し+観覧ノート</span></div>
+ <textarea id="bkText" rows="3" placeholder="書き出した文字列を、ここに貼り付けて「読み込む」"></textarea>
+ <div class="bkrow"><button type="button" class="pick1 ghost" id="bkIn">読み込む</button><label class="pick1 ghost">ファイルから読み込む<input type="file" id="bkInFile" accept=".txt,.json" hidden></label><span class="muted small" id="bkMsg"></span></div></section>`}
+function bindBackup(){const $=id=>document.getElementById(id),msg=t=>{$("bkMsg").textContent=t};
+ const dump=()=>"AKB48MEIKAN1:"+B64(JSON.stringify({v:1,oshi,notes:NOTES}));
+ const copy=(t,ok)=>{(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>msg(ok)).catch(()=>{$("bkText").value=t;msg("コピーできなかったので、上の欄に出しました。選んでコピーしてください")})};
+ $("bkLink").onclick=()=>{if(!oshi.length){msg("推しがまだ登録されていません");return}copy(location.origin+location.pathname+"#oshi="+oshi.map(encodeURIComponent).join(","),"引き継ぎ用リンクをコピーしました。もう一方の端末で開いてください")};
+ $("bkOut").onclick=()=>{const t=dump();$("bkText").value=t;copy(t,"書き出してコピーしました。もう一方の端末で貼り付けて「読み込む」を押してください")};
+ $("bkFile").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([dump()],{type:"text/plain"}));a.download="akb48-meikan-kiroku.txt";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);msg("ファイルに保存しました")};
+ const load=t=>{try{t=t.trim();if(!t.startsWith("AKB48MEIKAN1:"))throw 0;const o=JSON.parse(UNB64(t.slice(13)));
+   const before=[oshi.length,Object.keys(NOTES).length];
+   oshi=[...new Set([...oshi,...(o.oshi||[]).filter(n=>typeof n==="string")])];Object.assign(NOTES,o.notes||{});saveOshi();saveNotes();
+   msg(`読み込みました(推し ${before[0]}→${oshi.length}人、観覧ノート ${before[1]}→${Object.keys(NOTES).length}公演。今ある記録に足しています)`);
+   render();renderShows();renderToday();setTimeout(()=>{if(!document.getElementById("v-notes").hidden)renderNotes();if(!document.getElementById("v-oshi").hidden)renderOshi()},1200)}catch(e){msg("読み込めませんでした。書き出した文字列をそのまま貼り付けてください")}};
+ $("bkIn").onclick=()=>load($("bkText").value);
+ $("bkInFile").onchange=e=>{const f=e.target.files[0];if(f)f.text().then(load)};}
+// 引き継ぎ用リンク(#oshi=名前,名前)で開かれたら、確認してから推しに足す
+(function(){const h=location.hash;if(!h.startsWith("#oshi="))return;
+ const names=h.slice(6).split(",").map(x=>{try{return decodeURIComponent(x)}catch(e){return ""}}).filter(n=>M.some(m=>m.n===n));
+ history.replaceState(null,"",location.pathname+location.search+"#oshi");
+ if(names.length&&confirm(`次の${names.length}人を、このブラウザの推しに登録します。\n${names.join("・")}`)){oshi=[...new Set([...oshi,...names])];saveOshi()}})();
+
+{const _ro=renderOshi;renderOshi=function(){_ro();const el=document.getElementById("oshiBody");if(!el)return;el.insertAdjacentHTML("beforeend",backupHtml());bindBackup()}}
+const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday","notes"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
-const SEC={home:"home",guide:"home",news:"home",myday:"home",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
+const SEC={home:"home",guide:"home",news:"home",myday:"home",notes:"oshi",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
 const SUBS={home:[["今日のAKB48","#home"],["ニュース","#news"],["あなたの日","#myday"],["はじめての方へ","#guide"]],
  members:[["記録で見る","#members"],["条件で探す","#find"],["名簿(個人ページ)","members/",1]],
  singles:[["売上・選抜のグラフ","#singles"],["シングル一覧","singles/",1],["全楽曲","songs/",1]],
  theater:[["出演表","#theater"],["初めての劇場ガイド","#visit"]],
  records:[["期ごとのデータ","#gens"],["記録集","records/",1],["比較","compare/",1],["選抜総選挙","elections/",1],["年表","timeline/",1]],
- oshi:[]};
-const VTITLE={home:"",members:"メンバー(記録で見る)",find:"メンバーを探す",singles:"曲・シングル",theater:"劇場公演の出演表",visit:"初めての劇場ガイド",gens:"期ごとのデータ",guide:"はじめての方へ",oshi:"推しのページ",news:"ニュース",myday:"あなたの日のAKB48"};
+ oshi:[["推しのページ","#oshi"],["観覧ノート","#notes"]]};
+const VTITLE={home:"",members:"メンバー(記録で見る)",find:"メンバーを探す",singles:"曲・シングル",theater:"劇場公演の出演表",visit:"初めての劇場ガイド",gens:"期ごとのデータ",guide:"はじめての方へ",oshi:"推しのページ",news:"ニュース",myday:"あなたの日のAKB48",notes:"観覧ノート"};
 document.getElementById("homeLink").addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#home")location.hash="home";setTimeout(()=>scrollTo({top:0}),0)});
 // 「データについて」はポップアップ(dialog)で開く
 const ABOUT=document.getElementById("about");
@@ -1168,6 +1226,7 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
  if(v==="visit")renderVisit();
  if(v==="news")renderNews();
  if(v==="myday")renderMyday();
+ if(v==="notes")renderNotes();
  if(v==="home")homeNews();
  if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}
  if(v==="gens"){const w=document.getElementById("gshare").clientWidth;if(w&&w!==gw){gw=w;drawGShare()}}}
