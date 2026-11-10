@@ -128,3 +128,8 @@ section.story p{line-height:1.95;margin:6px 0 10px}
 .playbar:disabled{opacity:.5;cursor:default}.playcap{margin-left:10px;font-size:13px}
 .bar>.dim{opacity:.12}.bar>.pop{animation:pop .5s ease-out}
 @keyframes pop{0%{transform:scaleY(1.6)}100%{transform:scaleY(1)}}
+
+.playrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:6px 0 8px;min-height:32px}
+.playcap{font-size:13.5px;font-weight:700;color:var(--accent)}
+a.playbar{display:inline-block;text-decoration:none}
+.bar>.dim{opacity:.08}
