@@ -147,3 +147,11 @@ a.playbar{display:inline-block;text-decoration:none}
 p.bday{margin:8px 0;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700}
 .hero .cf{position:absolute;top:-10px;width:7px;height:11px;border-radius:2px;animation:cf 2.6s ease-in forwards;pointer-events:none}
 @keyframes cf{to{transform:translateY(140px) rotate(540deg);opacity:0}}
+
+/* 記録集: 全部の表を4列にそろえ、広い画面では2列のカードに並べる */
+.wrap:has(.rgrid){max-width:1240px}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:4px 20px;align-items:start}
+.rcard h2{margin-top:22px}.rcard>p.muted{min-height:3.2em;font-size:13px}
+table.rec{table-layout:fixed}table.rec col.c1{width:3.2em}table.rec col.c2{width:8.5em}table.rec col.c3{width:7.5em}
+table.rec td,table.rec th{overflow-wrap:anywhere;vertical-align:top}table.rec td:nth-child(4){font-size:12.5px;color:var(--muted)}
+@media(max-width:600px){table.rec col.c2{width:6.5em}table.rec col.c3{width:5.5em}}
