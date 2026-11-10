@@ -120,3 +120,11 @@ nav.subnav2 a[aria-current="page"]{color:var(--fg);border-color:var(--accent);fo
 .oshibtn.on{background:var(--accent);color:#fff}
 .newbie{font-size:13px;color:var(--muted);margin:6px 0 10px}.newbie a{color:var(--accent);font-weight:700}
 footer a{color:var(--accent)}
+
+/* 軌跡ストーリー */
+section.story{border:1px solid var(--line);border-radius:12px;padding:6px 18px 14px;margin:10px 0 18px;background:var(--surface)}
+section.story p{line-height:1.95;margin:6px 0 10px}
+.playbar{font:inherit;font-size:13px;font-weight:700;color:var(--accent);background:none;border:1.5px solid var(--accent);border-radius:999px;padding:4px 14px;cursor:pointer}
+.playbar:disabled{opacity:.5;cursor:default}.playcap{margin-left:10px;font-size:13px}
+.bar>.dim{opacity:.12}.bar>.pop{animation:pop .5s ease-out}
+@keyframes pop{0%{transform:scaleY(1.6)}100%{transform:scaleY(1)}}

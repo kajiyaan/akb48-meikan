@@ -139,6 +139,8 @@ a.nml{color:inherit;text-decoration:underline;text-decoration-color:var(--line);
 .nwt .nk{display:inline-block;font-size:11px;padding:0 6px;border-radius:4px;background:var(--cell);color:var(--muted);margin-right:4px}a.srcl{font-size:11.5px;color:var(--muted)}
 a.mydaybn{display:block;margin:12px 0 0;padding:14px 18px;border-radius:12px;border:1.5px dashed var(--accent);text-decoration:none;color:var(--fg);background:var(--surface)}a.mydaybn b{display:block;color:var(--accent);font-size:16px}a.mydaybn span{font-size:13px;color:var(--muted)}a.mydaybn:hover{border-style:solid}
 .mdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:14px 0}.mdc{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--surface);display:flex;flex-direction:column;gap:4px;line-height:1.7}.mdc b{font-size:15px}.mdc em{font-style:normal;color:var(--accent);font-weight:700}.mdc small{color:var(--muted);margin-left:6px}.mdc.big{grid-column:1/-1;border-color:var(--accent)}.mdc.big b{font-size:19px}
+.oshigrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:0 14px;align-items:start}.oshigrid .oshi1{margin:7px 0}
+#gshare .gcol{transition:opacity .25s}#gshare.playing .gcol{opacity:.07}#gshare.playing .gcol.on{opacity:1}.gsp{margin:4px 0 6px;min-height:30px}#gsCap{font-size:13px}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -399,6 +401,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <p class="count-line" id="saSum"></p>
     <h2>選抜に占める期の割合</h2>
     <p class="count-line">表題曲の選抜を、加入した期で色分けした割合です。左の赤っぽい色ほど古い期、右の紫っぽい色ほど新しい期。灰色は他グループのメンバーなどです。帯に触れると内訳が出ます。</p>
+    <p class="gsp"><button type="button" class="pick1 ghost" id="gsPlay">▶ 1stから順に再生</button> <span id="gsCap" class="muted"></span></p>
     <div class="chart" id="gshare"></div>
     <div class="glegend" id="gshareLeg"></div>
     <h2>期ごとの集計</h2>
@@ -651,10 +654,10 @@ function drawGShare(){
  GS=S.map((s,i)=>{const c={};selNames(i).forEach(n=>{const g=genAt(n,i)||"他グループなど";(c[g]=c[g]||[]).push(n)});return c});
  const bw=(W-pl-pr)/N,y=v=>pt+(H-pt-pb)*(1-v);let g="";
  [0,.25,.5,.75,1].forEach(v=>g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+3}" text-anchor="end">${v*100}%</text>`);
- GS.forEach((c,i)=>{const tot=Object.values(c).reduce((a,b)=>a+b.length,0);if(!tot)return;let acc=0;const x=pl+i*bw+.5,w=Math.max(1,bw-1);
+ GS.forEach((c,i)=>{const tot=Object.values(c).reduce((a,b)=>a+b.length,0);if(!tot)return;let acc=0;const x=pl+i*bw+.5,w=Math.max(1,bw-1);g+=`<g class="gcol" data-c="${i}">`;
   Object.keys(c).sort((a,b)=>(GSO.indexOf(a)<0?999:GSO.indexOf(a))-(GSO.indexOf(b)<0?999:GSO.indexOf(b))).forEach(gn=>{const h=c[gn].length/tot;const hu=ghue2(gn);
    g+=`<rect x="${x}" y="${y(acc+h)}" width="${w}" height="${(H-pt-pb)*h}" style="fill:${hu==null?"var(--cell-in,#999)":`hsl(${hu} 62% 55%)`}"/>`;acc+=h});
-  g+=`<rect class="hit" data-g="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`});
+  g+=`</g><rect class="hit" data-g="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`});
  tickAt.filter(([k])=>k!=="i1").forEach(([kk,t])=>{const i=S.findIndex(s=>s.k===kk);g+=`<text x="${pl+(i+.5)*bw}" y="${H-8}" text-anchor="middle">${t}</text>`});
  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="作品ごとの選抜に占める期の割合">${g}</svg>`;
  const used=GSO.filter(gn=>GS.some(c=>c[gn]));
@@ -967,7 +970,7 @@ function renderOshi(){const el=document.getElementById("oshiBody");if(!el)return
  const ms=oshi.map(n=>CUR.find(m=>m.n===n)||M.find(m=>m.n===n)).filter(Boolean);
  if(!ms.length){el.innerHTML=`<h1>推しのページ</h1><p class="lead">まだ推しが登録されていません。メンバーの☆を押すと、ここにその人の出演予定・申し込み・誕生日・公式SNSがまとまります。</p><p><a class="pick1" href="#find">条件でメンバーを探す →</a> <a class="pick1 ghost" href="#members">メンバー一覧から選ぶ →</a></p>`;return}
  const td=jstToday();
- el.innerHTML=`<h1>推しのページ</h1><p class="muted">☆で登録した${ms.length}人の予定をまとめています。登録はこのブラウザだけに保存されます。</p>`+ms.map(m=>{
+ el.innerHTML=`<h1>推しのページ</h1><p class="muted">☆で登録した${ms.length}人の予定をまとめています。登録はこのブラウザだけに保存されます。</p><div class="oshigrid">`+ms.map(m=>{
   const shows=(DATA.allshows||[]).filter(x=>x.d>=td&&x.m.includes(m.n)).sort((a,b)=>(a.d+a.t).localeCompare(b.d+b.t));
   const sc=(DATA.sched||[]).filter(x=>x.d>=td&&x.m.includes(m.n)&&x.k!=="劇場休館");
   const dd=daysTo(m.b),l=mlink(m.n);
@@ -981,7 +984,7 @@ function renderOshi(){const el=document.getElementById("oshiBody");if(!el)return
    ${shows.length?`<ul class="olist">${shows.map(x=>`<li><b>${D2(x)} ${x.t}</b> 「${esc(x.st)}」公演 ${x.sl!=null?`<button type="button" class="slb mini" data-sl="${x.sl}">セットリスト</button>`:""}${tkHtml(x)}</li>`).join("")}</ul>`:`<p class="muted small">公式スケジュールに出演予定はまだありません</p>`}
    <h3>そのほかの予定 <small class="muted">${sc.length}件 ・ 2週間先まで</small></h3>
    ${sc.length?`<ul class="olist">${sc.map(x=>`<li><b>${D2(x)}${x.t?" "+x.t:""}</b> <small class="muted">${esc(x.k)}</small> ${esc(x.title.replace(/^【[^】]*】/,""))}</li>`).join("")}</ul>`:`<p class="muted small">テレビ・ラジオなどの予定は公式スケジュールにありません</p>`}
-  </section>`}).join("")+`<p><a class="pick1 ghost" href="#visit">初めての劇場ガイドを見る →</a></p>`;
+  </section>`}).join("")+`</div><p><a class="pick1 ghost" href="#visit">初めての劇場ガイドを見る →</a></p>`;
 }
 
 // ---- 初めての劇場ガイド ----
@@ -1125,6 +1128,13 @@ function mydayOut(){const out=document.getElementById("mdOut"),d=document.getEle
  out.innerHTML=`<div class="mdgrid">${cards.join("")}</div>${share?`<p><button type="button" class="pick1" id="mdCopy">この結果を文章でコピー</button> <span class="muted small" id="mdMsg"></span></p>`:""}<p class="muted small">在籍人数は、加入日(お披露目)から卒業・退団の日までを数えています。シングルは表題曲の発売日で判定しています。</p>`;
  const b=document.getElementById("mdCopy");if(b)b.onclick=()=>{const t=share+" #AKB48名鑑 "+(PAGES?"https://akb48-meikan.pages.dev/":"");(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById("mdMsg").textContent="コピーしました(日付そのものは文章に入れていません)"}).catch(()=>{document.getElementById("mdMsg").textContent=t})};
 }
+
+// 世代交代のタイムラプス: 1作ずつ色を点け、その作品で初めて選抜に入った人を流す
+document.getElementById("gsPlay").addEventListener("click",function(){const box=document.getElementById("gshare"),cap=document.getElementById("gsCap"),btn=this;
+ const cols=[...box.querySelectorAll(".gcol")];if(!cols.length)return;box.classList.add("playing");cols.forEach(c=>c.classList.remove("on"));btn.disabled=true;let k=0;
+ const t=setInterval(()=>{if(k>=cols.length){clearInterval(t);btn.disabled=false;setTimeout(()=>{box.classList.remove("playing");cap.textContent=""},1500);return}
+  const c=cols[k++],i=+c.dataset.c,s=S[i],f=(CH[i]&&CH[i].first)||[];c.classList.add("on");
+  cap.textContent=`${lab(s.k)}「${s.t||"タイトル未定"}」${s.d?" ("+s.d.slice(0,4)+")":""}${f.length?" ・ 初選抜: "+f.slice(0,6).join("・")+(f.length>6?` ほか${f.length-6}人`:""):""}`;},260);});
 const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
 const SEC={home:"home",guide:"home",news:"home",myday:"home",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};

@@ -24,6 +24,13 @@
 <p class="crumb"><a href="../../members/">メンバー名簿</a> › 3期</p>
 <div class="hero"><span class="av" style="--h:22">渡</span><div><h1>渡辺麻友</h1><p class="sub"><span class="tag ">卒業</span> 3期</p></div></div>
 <p class="newbie">AKB48をよく知らない方へ → <a href="../../#guide">はじめての方へ</a>(選抜・センター・期などの言葉もここで説明しています)</p>
+<section class="story"><h2>軌跡</h2><p>2006年12月9日、3期としてAKB48に加入。加入から7か月後、4th「BINGO!」で初めて表題曲の選抜に入る。30th「So long !」で初めてセンターに(加入から6年2か月)。在籍中に表題曲の選抜43回、センター6回、フロント(1列目・17作で集計)1回。連続選抜は最長16作。同期は18人で、そのうち今も在籍しているのは0人。2017年12月31日に卒業。在籍期間は11年でした。</p><button type="button" class="playbar" id="playBar">▶ 選抜の記録を1作ずつ再生</button><span class="playcap muted" id="playCap"></span></section><script>
+(function(){var b=document.getElementById("playBar");if(!b)return;var cap=document.getElementById("playCap");
+b.addEventListener("click",function(){var bar=document.querySelector(".bar");if(!bar)return;bar.scrollIntoView({block:"center",behavior:"smooth"});
+var cs=[].slice.call(bar.children);cs.forEach(function(c){c.classList.add("dim")});var i=0;b.disabled=true;
+var t=setInterval(function(){if(i>=cs.length){clearInterval(t);b.disabled=false;cap.textContent="";return}var c=cs[i++];c.classList.remove("dim");
+if(/\b(s|c|f)\b/.test(c.className)){c.classList.add("pop");cap.textContent=c.title}},90);});})();
+</script>
 <p class="links"></p>
 <div class="kpi kpi4"><div><b>43</b><span>表題曲の選抜(AKB48在籍中)</span></div><div><b>6</b><span>センター</span></div><div><b>4th</b><span>初選抜</span></div><div><b>121</b><span>参加した曲</span></div></div>
 <h2>プロフィール</h2><dl class="prof"><dt>在籍</dt><dd>3期 ・ 2006年12月9日〜2017年12月31日(卒業)</dd><dt>チーム</dt><dd>チームB → チームA → チームB</dd><dt>お披露目</dt><dd>「AKB48 1st Anniversary LIVE」(秋葉原UDX)でチームB候補生としてお披露目</dd><dt>ニックネーム</dt><dd>まゆゆ</dd><dt>生年月日</dt><dd>1994年3月26日</dd><dt>出身地</dt><dd>埼玉県</dd><dt>身長</dt><dd>156cm</dd></dl>
