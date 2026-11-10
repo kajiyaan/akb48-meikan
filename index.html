@@ -137,6 +137,8 @@ a.nml{color:inherit;text-decoration:underline;text-decoration-color:var(--line);
 .ms a{text-decoration:none;color:inherit}.show .ms a:hover{color:var(--accent)}
 .homenews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0 4px}.homenews .hn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}.homenews h3{margin:0 0 4px;font-size:14px}.homenews ul{list-style:none;padding:0;margin:0}.homenews li{font-size:13px;padding:3px 0;line-height:1.5}.homenews li b{margin-right:6px;font-family:var(--f-data);font-size:12px;color:var(--muted)}.homenews .more3{grid-column:1/-1;margin:0;font-size:13px}.homenews .more3 a{color:var(--accent);font-weight:700}
 .nwt .nk{display:inline-block;font-size:11px;padding:0 6px;border-radius:4px;background:var(--cell);color:var(--muted);margin-right:4px}a.srcl{font-size:11.5px;color:var(--muted)}
+a.mydaybn{display:block;margin:12px 0 0;padding:14px 18px;border-radius:12px;border:1.5px dashed var(--accent);text-decoration:none;color:var(--fg);background:var(--surface)}a.mydaybn b{display:block;color:var(--accent);font-size:16px}a.mydaybn span{font-size:13px;color:var(--muted)}a.mydaybn:hover{border-style:solid}
+.mdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:14px 0}.mdc{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--surface);display:flex;flex-direction:column;gap:4px;line-height:1.7}.mdc b{font-size:15px}.mdc em{font-style:normal;color:var(--accent);font-weight:700}.mdc small{color:var(--muted);margin-left:6px}.mdc.big{grid-column:1/-1;border-color:var(--accent)}.mdc.big b{font-size:19px}
 dialog.about::backdrop{background:rgba(0,0,0,.55)}
 dialog.about h2:first-of-type{margin-top:0}
 .aboutX{position:sticky;top:0;float:right;margin:-8px -12px 0 8px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line,#888);background:var(--bg);color:var(--fg);font-size:20px;line-height:1;cursor:pointer}
@@ -288,6 +290,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <a class="hello" id="hello" href="#guide"><b>AKB48をよく知らない方へ</b><span>どんなグループ? どこで会える? 3分でわかる「はじめての方へ」 →</span></a>
     <aside class="today" id="today" aria-label="今日のAKB48"></aside>
     <div class="homenews" id="homeNews"></div>
+    <a class="mydaybn" href="#myday"><b>あなたの日のAKB48</b><span>誕生日や好きになった日を入れると、その日のAKB48がわかります →</span></a>
     <div class="qcards">
       <a href="#find"><b>好きな人を見つける</b><span>出身地・誕生日・ペンライトの色で今のメンバーを探す</span></a>
       <a href="#visit"><b>劇場に行ってみる</b><span>チケットの申し込み方と、今申し込める公演</span></a>
@@ -302,6 +305,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
     <div id="findForm"></div>
     <div id="findRes"></div>
   </section>
+  <section id="v-myday" hidden><div class="prose" id="mydayBody"></div></section>
   <section id="v-news" hidden><div class="prose" id="newsBody"></div></section>
   <section id="v-oshi" hidden><div class="prose" id="oshiBody"></div></section>
   <section id="v-visit" hidden><div class="prose guide" id="visitBody"></div></section>
@@ -1069,16 +1073,68 @@ function countdowns(){const td=jstToday(),out=[];
  (NW.upcoming||[]).filter(x=>x.d>td&&!x.approx&&/ライブ|初日/.test(x.t)).slice(0,2).forEach(x=>out.push([x.d,x.t.replace(/\(.*?\)/g,"")]));
  const g=annivUpcoming(366,e=>e.k==="グループ")[0];if(g)out.push([g.occ,annivText(g.e,g.occ).replace(/<[^>]+>/g,"")]);
  return out.sort((a,b)=>a[0].localeCompare(b[0])).slice(0,4);}
-const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news"];
+
+// ===== あなたの日のAKB48(入れた日付は保存も送信もしない。URLにも残さない) =====
+const OPEN_D="2005-12-08";
+const inStint=(m,d)=>(m.st||[]).some(x=>x[0]&&x[0]<=d&&(!x[1]||d<=x[1]));
+const fmtD=d=>{const x=new Date(d+"T00:00:00");return `${x.getFullYear()}年${x.getMonth()+1}月${x.getDate()}日(${"日月火水木金土"[x.getDay()]})`};
+const dDiff=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+function renderMyday(){const el=document.getElementById("mydayBody");if(!el)return;
+ if(!el.dataset.done){el.dataset.done=1;
+  el.innerHTML=`<h1>あなたの日のAKB48</h1>
+  <p class="lead">誕生日や、AKB48を好きになった日を入れてみてください。その日、AKB48はどんな状態だったのかを、記録から見せます。</p>
+  <div class="mybd"><label>日付 <input type="date" id="mdD" min="1950-01-01"></label>
+   <select id="mdK" aria-label="どんな日"><option value="birth">わたしの誕生日</option><option value="fan">AKB48を好きになった日</option><option value="other">ほかの思い出の日</option></select>
+   <span class="muted small">入れた日付はこの画面の中だけで使い、保存も送信もしません。</span></div>
+  <div id="mdOut"></div>`;
+  el.addEventListener("input",mydayOut);}
+ mydayOut();}
+function mydayOut(){const out=document.getElementById("mdOut"),d=document.getElementById("mdD").value,k=document.getElementById("mdK").value;
+ if(!d){out.innerHTML=`<p class="muted">日付を入れると、ここに結果が出ます。</p>`;return}
+ const td=jstToday();if(d>td){out.innerHTML=`<p class="muted">今日より前の日付を入れてください。</p>`;return}
+ const who=k==="birth"?"あなたが生まれた日":k==="fan"?"あなたがAKB48を好きになった日":"その日";
+ const cards=[];let share="";
+ if(d<OPEN_D){const n=dDiff(d,OPEN_D);
+  cards.push(`<div class="mdc big"><b>${who}、AKB48はまだありませんでした</b><span>秋葉原にAKB48劇場ができる <em>${n.toLocaleString()}日前</em> です。</span></div>`);
+  if(k==="birth"){const y=+OPEN_D.slice(0,4)-+d.slice(0,4)-(OPEN_D.slice(5)<d.slice(5)?1:0);cards.push(`<div class="mdc"><b>劇場オープンの日、あなたは${y}歳</b><span>2005年12月8日に最初の劇場公演「PARTYが始まるよ」が始まりました。</span></div>`)}
+  share=`${who}は、AKB48劇場ができる${n.toLocaleString()}日前でした。`;
+ }else{
+  const sg=[...S].filter(s=>s.d&&s.d<=d).sort((a,b)=>a.d.localeCompare(b.d)),last=sg[sg.length-1],next=S.filter(s=>s.d&&s.d>d).sort((a,b)=>a.d.localeCompare(b.d))[0];
+  const st=STG.filter(s=>s.a&&s.a<=d&&(!s.b||d<=s.b));
+  const there=new Map();M.forEach(m=>{if(inStint(m,d))there.set(m.n,m)});
+  const nowAlso=CUR.filter(m=>there.has(m.n));
+  const gens=[...new Set([...there.values()].map(m=>(m.st||[]).find(x=>x[0]<=d&&(!x[1]||d<=x[1]))?.[2]||m.g))];
+  const newest=GO.filter(g=>gens.includes(g)&&/^[0-9.]+期$/.test(g)).pop()||GO.filter(g=>gens.includes(g)).pop();
+  const age=Math.floor(dDiff(OPEN_D,d)/365.2425);
+  cards.push(`<div class="mdc big"><b>${who}は、AKB48が始まって${dDiff(OPEN_D,d).toLocaleString()}日目</b><span>劇場オープンから${age}年${age?"あまり":""}。今日から数えると${dDiff(d,td).toLocaleString()}日前です。</span></div>`);
+  if(last){const sameDay=last.d===d;cards.push(`<div class="mdc"><b>${sameDay?"この日に発売!":"そのときの最新シングル"}</b><span>${lab(last.k)}「${esc(last.t||"")}」<small>${fmtD(last.d)}発売 ・ センター ${esc((last.c||[]).join("・")||"—")}</small></span>${next?`<span class="muted small">次の${lab(next.k)}「${esc(next.t||"タイトル未定")}」まで、あと${dDiff(d,next.d)}日でした</span>`:""}</div>`);
+   share=`${who}、AKB48の最新シングルは${lab(last.k)}「${last.t||""}」(センター ${(last.c||[]).join("・")})でした。`}
+  if(st.length)cards.push(`<div class="mdc"><b>劇場で上演中だった演目</b><span>${st.map(s=>`「${esc(s.t)}」<small>${esc(s.team||"")}</small>`).join("<br>")}</span></div>`);
+  cards.push(`<div class="mdc"><b>在籍していたメンバー ${there.size}人</b><span>いちばん新しい期は${esc(newest||"—")}。${nowAlso.length?`今のメンバー${CUR.length}人のうち、<em>${nowAlso.length}人</em>がもういました。`:`今のメンバーは、まだ誰も加入していませんでした。`}</span>${nowAlso.length&&nowAlso.length<=16?`<span class="small">${nowAlso.map(m=>esc(m.n)).join("・")}</span>`:""}</div>`);
+  const after=CUR.filter(m=>!there.has(m.n)&&(m.j||"")>d).length;
+  if(after)cards.push(`<div class="mdc"><b>そのあと加入したメンバー</b><span>今のメンバーのうち${after}人は、この日より後に加入しています。</span></div>`);
+  if(nowAlso.length)share+=` 今のメンバーのうち${nowAlso.length}人がもういました。`;
+ }
+ // 同じ月日に起きたこと(AKB48の歴史から)
+ const mdK=d.slice(5),ev=[];
+ S.forEach(s=>{if(s.d&&s.d.slice(5)===mdK)ev.push([s.d,`${lab(s.k)}「${s.t||""}」発売`])});
+ STG.forEach(s=>{if(s.a&&s.a.slice(5)===mdK)ev.push([s.a,`「${s.t}」公演 初日(${s.team||""})`])});
+ const bd=CUR.filter(m=>m.b&&m.b.slice(5)===mdK);
+ if(bd.length)ev.push(["",`${bd.map(m=>m.n).join("・")}の誕生日`]);
+ cards.push(`<div class="mdc"><b>${+mdK.slice(0,2)}月${+mdK.slice(3)}日はこんな日</b><span>${ev.length?ev.sort().map(([y,t])=>`${y?y.slice(0,4)+"年 ":""}${esc(t)}`).join("<br>"):"記録の中では、特別な出来事は見つかりませんでした。"}</span></div>`);
+ out.innerHTML=`<div class="mdgrid">${cards.join("")}</div>${share?`<p><button type="button" class="pick1" id="mdCopy">この結果を文章でコピー</button> <span class="muted small" id="mdMsg"></span></p>`:""}<p class="muted small">在籍人数は、加入日(お披露目)から卒業・退団の日までを数えています。シングルは表題曲の発売日で判定しています。</p>`;
+ const b=document.getElementById("mdCopy");if(b)b.onclick=()=>{const t=share+" #AKB48名鑑 "+(PAGES?"https://akb48-meikan.pages.dev/":"");(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById("mdMsg").textContent="コピーしました(日付そのものは文章に入れていません)"}).catch(()=>{document.getElementById("mdMsg").textContent=t})};
+}
+const VIEWS=["home","members","singles","gens","theater","guide","find","oshi","visit","news","myday"];
 // メニュー: 画面 → 大きな区分。区分ごとのサブメニュー(個別ページは公開版だけ)
-const SEC={home:"home",guide:"home",news:"home",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
-const SUBS={home:[["今日のAKB48","#home"],["ニュース","#news"],["はじめての方へ","#guide"]],
+const SEC={home:"home",guide:"home",news:"home",myday:"home",members:"members",find:"members",singles:"singles",theater:"theater",visit:"theater",gens:"records",oshi:"oshi"};
+const SUBS={home:[["今日のAKB48","#home"],["ニュース","#news"],["あなたの日","#myday"],["はじめての方へ","#guide"]],
  members:[["記録で見る","#members"],["条件で探す","#find"],["名簿(個人ページ)","members/",1]],
  singles:[["売上・選抜のグラフ","#singles"],["シングル一覧","singles/",1],["全楽曲","songs/",1]],
  theater:[["出演表","#theater"],["初めての劇場ガイド","#visit"]],
  records:[["期ごとのデータ","#gens"],["記録集","records/",1],["比較","compare/",1],["選抜総選挙","elections/",1],["年表","timeline/",1]],
  oshi:[]};
-const VTITLE={home:"",members:"メンバー(記録で見る)",find:"メンバーを探す",singles:"曲・シングル",theater:"劇場公演の出演表",visit:"初めての劇場ガイド",gens:"期ごとのデータ",guide:"はじめての方へ",oshi:"推しのページ",news:"ニュース"};
+const VTITLE={home:"",members:"メンバー(記録で見る)",find:"メンバーを探す",singles:"曲・シングル",theater:"劇場公演の出演表",visit:"初めての劇場ガイド",gens:"期ごとのデータ",guide:"はじめての方へ",oshi:"推しのページ",news:"ニュース",myday:"あなたの日のAKB48"};
 document.getElementById("homeLink").addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#home")location.hash="home";setTimeout(()=>scrollTo({top:0}),0)});
 // 「データについて」はポップアップ(dialog)で開く
 const ABOUT=document.getElementById("about");
@@ -1101,6 +1157,7 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
  if(v==="oshi")renderOshi();
  if(v==="visit")renderVisit();
  if(v==="news")renderNews();
+ if(v==="myday")renderMyday();
  if(v==="home")homeNews();
  if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}
  if(v==="gens"){const w=document.getElementById("gshare").clientWidth;if(w&&w!==gw){gw=w;drawGShare()}}}
