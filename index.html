@@ -152,7 +152,7 @@ h1 .beta{font-size:.42em;vertical-align:.55em;margin-left:.2em;letter-spacing:0;
 .hsw{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.hsw button{font:inherit;font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);cursor:pointer}.hsw button[aria-pressed=true]{border-color:var(--accent);color:var(--fg);font-weight:700}
 .hstick{background:var(--bg);padding:4px 0}@media(min-width:900px){.hstick{position:sticky;top:48px;z-index:5}}
 #hchart svg{width:100%;height:auto;display:block}#hchart text{font-size:11px;fill:var(--muted)}#hchart .phl{font-size:12px;font-weight:700;fill:var(--fg)}
-#hchart .ph{opacity:.13;cursor:zoom-in;transition:opacity .2s}#hchart .ph.act{opacity:.32}#hchart .hb{fill:var(--accent)}#hchart .hl{fill:none;stroke:var(--accent);stroke-width:2.5}#hchart .hp{fill:var(--accent)}#hchart .hj{fill:#7fd3f7}#hchart .hlv{fill:var(--muted);opacity:.6}#hchart .hos{fill:var(--center)}#hchart .hf{fill:var(--fg);opacity:.75;cursor:help}#hchart .hf:hover{opacity:1}
+#hchart .ph{opacity:.13;cursor:zoom-in;transition:opacity .2s}#hchart .ph.act{opacity:.32}#hchart .hb{fill:var(--accent)}#hchart .hl{fill:none;stroke:var(--accent);stroke-width:2.5}#hchart .hp{fill:var(--accent)}#hchart .hl2{fill:none;stroke:#7fd3f7;stroke-width:2;stroke-dasharray:5 3}#hchart .hp2{fill:#7fd3f7}#hchart .sm{opacity:.45}#hchart .hlg{font-size:11.5px;fill:var(--muted)}#hchart .hj{fill:#7fd3f7}#hchart .hlv{fill:var(--muted);opacity:.6}#hchart .hos{fill:var(--center)}#hchart .hf{fill:var(--fg);opacity:.75;cursor:help}#hchart .hf:hover{opacity:1}
 .hnote{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:4px 0 8px}.hf2{display:inline-block;width:0;height:0;border-left:7px solid var(--fg);border-top:5px solid transparent;border-bottom:5px solid transparent;opacity:.75}.hos2{display:inline-block;width:18px;height:5px;background:var(--center)}
 .hcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0 18px}.hcard{font:inherit;text-align:left;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--pc);border-radius:10px;padding:10px 14px;cursor:pointer;display:flex;flex-direction:column;gap:4px}.hcard:hover{border-color:var(--pc)}.hcard b{font-size:17px}.hcard small{color:var(--muted)}.hcard>span{font-size:13px;line-height:1.6}.hcard dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:4px 0;font-size:12.5px}.hcard dt{color:var(--muted)}.hcard dd{margin:0}.hcard em{font-style:normal;font-size:12px;color:var(--accent);margin-top:auto}
 .hsec{border-left:4px solid var(--pc);padding:2px 0 2px 14px;margin:14px 0}.hsec h3{margin:4px 0}
@@ -1248,7 +1248,15 @@ const PHASES=[
  {k:"大所帯期",a:"2014-01-01",b:"2019-12-31",c:"#ff9a2e",x:"チーム8やドラフト生が加わり、在籍が100人を超えた時期"},
  {k:"転換期",a:"2020-01-01",b:"2023-12-31",c:"#9c5cd6",x:"シングルが年1〜2作になり、初週は黄金期の3分の1以下に"},
  {k:"再出発期",a:"2024-01-01",b:null,c:"#ff5c9a",x:"少人数のグループになり、売上がふたたび上向いている時期"}];
-const HM={fw:"初週売上",mem:"在籍人数",flow:"1年の加入と卒業",el:"総選挙(1位の得票数)"};
+const HM={fw:"初週売上",mem:"在籍人数",flow:"1年の加入と卒業",el:"総選挙(1位の得票数)",gage:"卒業したときの年齢"};
+// 卒業(公式に「卒業」で離れた人)の、年ごとの平均年齢と平均在籍年数
+let GAGE=null;
+function gradList(){const by={};M.forEach(m=>(by[m.n]=by[m.n]||[]).push(m));const out=[];
+ Object.entries(by).forEach(([n,ms])=>{if(ms.some(m=>m.cur))return;const last=ms.slice().sort((a,b)=>(a.j||"").localeCompare(b.j||"")).pop();if((last.lt||"")!=="卒業")return;
+  const l=ms.flatMap(m=>(m.st||[]).map(x=>x[1])).filter(Boolean).sort().pop(),j=ms.flatMap(m=>(m.st||[]).map(x=>x[0])).filter(Boolean).sort()[0],b=(ms.find(m=>m.b)||{}).b;
+  if(l&&b)out.push({n,l,age:(new Date(l)-new Date(b))/315569520e2,stay:j?(new Date(l)-new Date(j))/315569520e2:null})});return out}
+function gageYears(){if(GAGE)return GAGE;const g=gradList(),by={};g.forEach(x=>(by[x.l.slice(0,4)]=by[x.l.slice(0,4)]||[]).push(x));
+ GAGE=Object.entries(by).map(([y,a])=>({y:+y,n:a.length,age:a.reduce((s,x)=>s+x.age,0)/a.length,stay:a.filter(x=>x.stay!=null).reduce((s,x)=>s+x.stay,0)/Math.max(1,a.filter(x=>x.stay!=null).length)})).sort((a,b)=>a.y-b.y);return GAGE}
 let HV={m:"fw",z:null};
 const t2x=(d,a,b,W,pl,pr)=>pl+(W-pl-pr)*((new Date(d)-new Date(a))/(new Date(b)-new Date(a)));
 function memSeries(){const out=[];let d=new Date("2005-12-01");const end=new Date(jstToday());
@@ -1257,7 +1265,8 @@ let MEMS=null;
 function phaseStats(p){const b=p.b||jstToday(),sg=S.filter(s=>s.d&&s.d>=p.a&&s.d<=b),fw=sg.map(s=>s.fw).filter(Boolean);
  MEMS=MEMS||memSeries();const mm=MEMS.filter(x=>x[0]>=p.a&&x[0]<=b).map(x=>x[1]);
  const cen=[...new Set(sg.flatMap(s=>s.c||[]))];
- return {n:sg.length,fw:fw.length?Math.round(fw.reduce((a,c)=>a+c,0)/fw.length):null,mx:fw.length?Math.max(...fw):null,mmin:mm.length?Math.min(...mm):null,mmax:mm.length?Math.max(...mm):null,cen,sg}}
+ const gl=gradList().filter(x=>x.l>=p.a&&x.l<=b),ga=gl.length?gl.reduce((s,x)=>s+x.age,0)/gl.length:null,gs=gl.filter(x=>x.stay!=null),gst=gs.length?gs.reduce((s,x)=>s+x.stay,0)/gs.length:null;
+ return {gn:gl.length,ga,gst,n:sg.length,fw:fw.length?Math.round(fw.reduce((a,c)=>a+c,0)/fw.length):null,mx:fw.length?Math.max(...fw):null,mmin:mm.length?Math.min(...mm):null,mmax:mm.length?Math.max(...mm):null,cen,sg}}
 function drawHist(){const el=document.getElementById("hchart");if(!el)return;MEMS=MEMS||memSeries();
  const W=Math.max(320,Math.min(1080,el.clientWidth||1000)),H=W<600?260:320,pl=W<600?42:52,pr=10,pt=26,pb=44;
  const A=HV.z?HV.z.a:"2005-10-01",B=HV.z?(HV.z.b||jstToday()):jstToday();const X=d=>t2x(d,A,B,W,pl,pr);
@@ -1265,21 +1274,26 @@ function drawHist(){const el=document.getElementById("hchart");if(!el)return;MEM
  if(HV.m==="fw"){pts=S.filter(s=>s.d&&s.fw&&s.d>=A&&s.d<=B).map(s=>[s.d,s.fw,s]);mx=Math.max(...pts.map(p=>p[1]),1)}
  if(HV.m==="mem"){pts=MEMS.filter(x=>x[0]>=A&&x[0]<=B);mx=Math.max(...pts.map(p=>p[1]),1)}
  if(HV.m==="el"){pts=(DATA.els||[]).filter(e=>e.d&&e.v1&&e.d>=A&&e.d<=B).map(e=>[e.d,e.v1,e]);mx=Math.max(...pts.map(p=>p[1]),1)}
+ let gy=[];if(HV.m==="gage"){gy=gageYears().filter(x=>x.y>=+A.slice(0,4)&&x.y<=+B.slice(0,4));mx=30}
  let flow=[];if(HV.m==="flow"){for(let y=2005;y<=+B.slice(0,4);y++){const j=M.reduce((a,m)=>a+(m.st||[]).filter(s=>s[0]&&s[0].startsWith(y+"")).length,0),l=M.reduce((a,m)=>a+(m.st||[]).filter(s=>s[1]&&s[1].startsWith(y+"")).length,0);flow.push([y,j,l])}mx=Math.max(...flow.map(f=>Math.max(f[1],f[2])),1)}
- const step=mx>1e6?4e5:mx>2e5?1e5:mx>5e4?2e4:mx>100?20:10;const top=Math.ceil(mx/step)*step;
+ const step=HV.m==="gage"?5:mx>1e6?4e5:mx>2e5?1e5:mx>5e4?2e4:mx>100?20:10;const top=Math.ceil(mx/step)*step;
  const midY=HV.m==="flow"?pt+(H-pt-pb)/2:H-pb;const Y=v=>HV.m==="flow"?midY-(H-pt-pb)/2*(v/top):pt+(H-pt-pb)*(1-v/top);
  let g="";
  // 時期の帯
  PHASES.forEach((p,i)=>{const a=p.a<A?A:p.a,b=(p.b||jstToday())>B?B:(p.b||jstToday());if(a>B||b<A)return;const x1=X(a),x2=X(b);
   g+=`<rect class="ph" data-ph="${i}" x="${x1}" y="${pt}" width="${Math.max(0,x2-x1)}" height="${H-pt-pb}" style="fill:${p.c}"/><text class="phl" x="${(x1+x2)/2}" y="${pt-8}" text-anchor="middle">${p.k}</text>`});
  // 目盛り
- const tk=HV.m==="flow"?[-top,-top/2,0,top/2,top]:[0,top/4,top/2,top*3/4,top];
+ const tk=HV.m==="flow"?[-top,-top/2,0,top/2,top]:HV.m==="gage"?[0,10,20,30]:[0,top/4,top/2,top*3/4,top];
  tk.forEach(v=>{const lab_=Math.abs(v)>=1e4?(Math.abs(v)/1e4).toLocaleString()+"万":Math.abs(v).toLocaleString();const yy=Y(v);g+=`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}"/><text x="${pl-6}" y="${yy+3}" text-anchor="end">${lab_}</text>`});
  const y0=+A.slice(0,4),y1=+B.slice(0,4),ys=Math.max(1,Math.ceil((y1-y0)/(W<600?5:10)));
  for(let y=y0+1;y<=y1;y+=ys)g+=`<text x="${X(y+"-01-01")}" y="${H-pb+16}" text-anchor="middle">${y}</text>`;
  // データ
  if(HV.m==="fw"||HV.m==="el"){const bw=Math.max(2,Math.min(14,(W-pl-pr)/Math.max(pts.length,1)*.6));pts.forEach(([d,v,o])=>{g+=`<rect class="hb" x="${X(d)-bw/2}" y="${Y(v)}" width="${bw}" height="${H-pb-Y(v)}" data-hd="${esc(HV.m==="fw"?`${lab(o.k)}「${o.t||""}」 初週 ${fmt(v)}枚 ・ センター ${(o.c||[]).join("・")}`:`第${o.no}回総選挙(${o.y}) 1位 ${o.n1} ${fmt(v)}票`)}"/>`})}
  if(HV.m==="mem"){g+=`<polyline class="hl" points="${pts.map(([d,v])=>X(d)+","+Y(v)).join(" ")}"/>`;pts.forEach(([d,v])=>g+=`<circle class="hp" cx="${X(d)}" cy="${Y(v)}" r="3" data-hd="${d.slice(0,7)} 在籍 ${v}人"/>`)}
+ if(HV.m==="gage"){const gx=y=>X(y+"-07-01");
+  g+=`<polyline class="hl" points="${gy.map(x=>gx(x.y)+","+Y(x.age)).join(" ")}"/><polyline class="hl2" points="${gy.map(x=>gx(x.y)+","+Y(x.stay)).join(" ")}"/>`;
+  gy.forEach(x=>{const sm=x.n<3;g+=`<circle class="hp${sm?" sm":""}" cx="${gx(x.y)}" cy="${Y(x.age)}" r="4" data-hd="${x.y}年に卒業 ${x.n}人 ・ 平均 ${x.age.toFixed(1)}歳 ・ 在籍 平均${x.stay.toFixed(1)}年${sm?"(人数が少ない年)":""}"/><circle class="hp2${sm?" sm":""}" cx="${gx(x.y)}" cy="${Y(x.stay)}" r="3.5" data-hd="${x.y}年に卒業した人の在籍 平均${x.stay.toFixed(1)}年"/>`});
+  g+=`<text class="hlg" x="${W-pr-4}" y="${pt+12}" text-anchor="end">● 卒業したときの平均年齢(歳)　● 平均の在籍年数(年)</text>`}
  if(HV.m==="flow"){const fx=y=>X(y+"-07-01"),bw=Math.max(3,(W-pl-pr)/(flow.length||1)*.55);flow.filter(f=>f[0]>=y0&&f[0]<=y1).forEach(([y,j,l])=>{g+=`<rect class="hj" x="${fx(y)-bw/2}" y="${Y(j)}" width="${bw}" height="${midY-Y(j)}" data-hd="${y}年 加入 ${j}人"/><rect class="hlv" x="${fx(y)-bw/2}" y="${midY}" width="${bw}" height="${Y(-l)-midY}" data-hd="${y}年 卒業・退団 ${l}人"/>`});g+=`<line x1="${pl}" x2="${W-pr}" y1="${midY}" y2="${midY}" stroke="currentColor" stroke-opacity=".4"/>`}
  // 推しの在籍期間
  oshi.forEach((n,k)=>{M.filter(m=>m.n===n).forEach(m=>(m.st||[]).forEach(st=>{if(!st[0])return;const a=st[0]<A?A:st[0],b=(st[1]||jstToday())>B?B:(st[1]||jstToday());if(a>B||b<A)return;g+=`<rect class="hos" x="${X(a)}" y="${H-pb+24+k*7}" width="${Math.max(2,X(b)-X(a))}" height="5" data-hd="★${esc(n)}の在籍 ${st[0]}〜${st[1]||"在籍中"}"/>`}))});
@@ -1302,7 +1316,7 @@ function renderHist(){const el=document.getElementById("histBody");if(!el)return
   ch.addEventListener("mousemove",tipf);ch.addEventListener("click",e=>{const p=e.target.closest("[data-ph]");if(p&&!e.target.closest("[data-hd]")){HV.z=PHASES[+p.dataset.ph];drawHist()}else tipf(e)});ch.addEventListener("mouseleave",()=>tip.hidden=true);
   // 時期カード
   document.getElementById("hcards").innerHTML=PHASES.map((p,i)=>{const s=phaseStats(p);return `<button type="button" class="hcard" data-pz="${i}" style="--pc:${p.c}"><b>${p.k}</b><small>${p.a.slice(0,4)}〜${p.b?p.b.slice(0,4):"いま"}</small><span>${esc(p.x)}</span>
-   <dl><dt>シングル</dt><dd>${s.n}作</dd><dt>初週の平均</dt><dd>${s.fw?Math.round(s.fw/1e4).toLocaleString()+"万枚":"—"}</dd><dt>在籍</dt><dd>${s.mmin!=null?(s.mmin===s.mmax?s.mmin:s.mmin+"〜"+s.mmax)+"人":"—"}</dd><dt>センター</dt><dd>${s.cen.length?s.cen.slice(0,5).map(esc).join("・")+(s.cen.length>5?` ほか${s.cen.length-5}人`:""):"—"}</dd></dl><em>グラフでこの時期を見る →</em></button>`}).join("");
+   <dl><dt>シングル</dt><dd>${s.n}作</dd><dt>初週の平均</dt><dd>${s.fw?Math.round(s.fw/1e4).toLocaleString()+"万枚":"—"}</dd><dt>在籍</dt><dd>${s.mmin!=null?(s.mmin===s.mmax?s.mmin:s.mmin+"〜"+s.mmax)+"人":"—"}</dd><dt>卒業の平均年齢</dt><dd>${s.ga!=null?`${s.ga.toFixed(1)}歳 ・ 在籍${s.gst.toFixed(1)}年 <small class="muted">(${s.gn}人)</small>`:"—"}</dd><dt>センター</dt><dd>${s.cen.length?s.cen.slice(0,5).map(esc).join("・")+(s.cen.length>5?` ほか${s.cen.length-5}人`:""):"—"}</dd></dl><em>グラフでこの時期を見る →</em></button>`}).join("");
   document.getElementById("hcards").addEventListener("click",e=>{const b=e.target.closest("[data-pz]");if(!b)return;HV.z=PHASES[+b.dataset.pz];drawHist();document.querySelector(".hstick").scrollIntoView({behavior:"smooth",block:"start"})});
   // 年表(時期ごと)
   document.getElementById("htl").innerHTML=PHASES.map((p,i)=>{const b=p.b||"9999";const ev=(DATA.mstn||[]).filter(e=>(e.d||"")>=p.a.slice(0,(e.d||"").length)&&(e.d||"")<=b.slice(0,(e.d||"").length));
