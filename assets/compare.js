@@ -14,7 +14,7 @@
   const ymd = d => d ? d.replaceAll("-", "/") : "—";
   const yrs = mo => mo ? `${Math.floor(mo / 12)}年${mo % 12}か月` : "—";  // stay は月数
   const age = (b, d) => { if (!b || !d) return "—"; const [y0, m0, d0] = b.split("-").map(Number), [y1, m1, d1] = d.split("-").map(Number); return `${y1 - y0 - ((m1 < m0 || (m1 === m0 && d1 < d0)) ? 1 : 0)}歳`; };
-  const link = n => `<a href="../members/${encodeURIComponent(n)}/">${esc(n)}</a>`;
+  const link = n => `<a href="../members/${(D.slug && D.slug[n]) || encodeURIComponent(n)}/">${esc(n)}</a>`;
   function render() {
     const a = ia.value.trim(), b = ib.value.trim();
     history.replaceState(null, "", `?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`);
