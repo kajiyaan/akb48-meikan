@@ -2,8 +2,8 @@
 :root{
   --bg:#f7f3f5;--surface:#ffffff;--fg:#231a20;--muted:#76666f;--line:#e4d9de;
   --accent:#c2185b;--accent-soft:#f8dbe6;--center:#b8860b;--cell:#f3eef0;--cell-in:#bfb0b8;
-  --f-display:"Dela Gothic One","Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
-  --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --f-display:"Dela Gothic One","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --f-body:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic","Noto Sans JP",Meiryo,system-ui,sans-serif;
   --f-data:"JetBrains Mono",ui-monospace,Consolas,monospace;
   color-scheme:light}
 @media (prefers-color-scheme: dark){:root{
