@@ -9,7 +9,7 @@ var prm=new URLSearchParams(location.search);["q","m","c","k","p"].forEach(funct
 // メンバー・センターは、名前・よみ(ひらがな/カタカナ)・ローマ字の一部でもその場で絞り込む
 var MEM=[];try{MEM=JSON.parse($("mvMem").textContent)}catch(e){}
 var hira=function(t){return nq(t).replace(/[ァ-ヶ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0x60)})};
-MEM.forEach(function(r){r.h=hira(r[0])+" "+hira(r[2])+" "+r[1].replace(/-/g,"")});
+MEM.forEach(function(r){r.h=hira(r[0])+" "+hira(r[2])+" "+r[1].replace(/-/g,"")+" "+hira(r[6]||"")});
 function who(v,col){v=(v||"").trim();if(!v)return null;var ex=MEM.filter(function(r){return r[col]&&(r[0]===v||r[1]===v)});if(ex.length)return ex;var q=hira(v).replace(/-/g,"");return MEM.filter(function(r){return r[col]&&r.h.indexOf(q)>=0})}
 var MW=null,CW=null;
 function visible(){return cards.filter(function(c){return !c.hidden})}
