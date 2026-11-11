@@ -185,3 +185,40 @@ h3.hsec2{border-left:4px solid var(--pc);padding-left:10px;margin-top:22px}
 .pls{display:inline-flex;align-items:center;gap:6px;font-weight:700}
 .pls i{display:inline-block;width:9px;height:22px;border-radius:5px 5px 3px 3px;background:var(--c);border:1px solid color-mix(in srgb,var(--fg) 25%,transparent);box-shadow:0 0 8px var(--c)}
 .plx{color:var(--muted)}
+
+/* MV */
+.mvmark{font-size:11px;font-weight:700;text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.mvlink{margin:4px 0 10px}
+.mvth{position:relative;display:block;width:100%;padding:0;border:0;background:#000;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/9}
+.mvth img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .2s}
+.mvth:hover img{transform:scale(1.04)}
+.mvplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:18px;display:grid;place-items:center;padding-left:3px}
+.mvlen{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);color:#fff;font:600 11px var(--f-data);padding:1px 5px;border-radius:4px}
+.mvbigs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:8px 0}
+.mvbig{margin:0}.mvbig figcaption{font-size:12.5px;color:var(--muted);margin-top:4px}
+.mvframe{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;display:block}
+.mvfilter{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 14px;margin:12px 0}
+.mvrow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:6px 0}
+.mvrow input[type=search]{flex:1 1 180px;font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+.mvrow select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);max-width:13em}
+.mvchips{margin:6px 0}
+.chip{font:inherit;font-size:13px;padding:3px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.mvtoday{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:10px 14px;background:var(--surface)}
+.mvtoday:empty{display:none}.mvtt{font-weight:700}
+.mvsec h2{border-left:5px solid var(--pc,var(--accent));padding-left:8px;flex-wrap:wrap}
+.mvgrid{list-style:none;padding:0;margin:8px 0 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.mvc{display:grid;gap:6px;align-content:start}
+.mvc.now .mvth{outline:3px solid var(--accent);outline-offset:2px}
+.mvi{display:grid;gap:2px;font-size:13px;line-height:1.5}.mvi b{font-size:14px}.mvi b a{color:var(--fg);text-decoration:none}.mvi b a:hover{text-decoration:underline}
+.mvi>span{color:var(--muted);font-size:12px}
+.mvalts{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.mvalt{font:inherit;font-size:11px;padding:0 7px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--accent);cursor:pointer}
+.mvplayer{position:sticky;top:64px;z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px;margin:10px 0;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.mvpbox{max-width:640px;margin:0 auto}.mvpbox iframe,#mvFrame{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block}
+.mvpbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:center;margin:6px 4px 0;font-size:13px}
+.mvpbar button{font:inherit;font-size:12.5px;padding:2px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.mvpbar button:disabled{opacity:.4}
+@media (max-width:560px){.mvgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mvplayer{top:56px}.mvpbox{max-width:none}}
+.pick1{font:inherit;font-size:13.5px;font-weight:700;padding:5px 14px;border-radius:999px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.pick1.ghost{background:none;color:var(--accent)}
