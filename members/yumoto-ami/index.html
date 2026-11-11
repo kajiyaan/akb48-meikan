@@ -31,11 +31,11 @@
 <p class="newbie">AKB48をよく知らない方へ → <a href="../../#guide">はじめての方へ</a>(選抜・センター・期などの言葉もここで説明しています)</p>
 <section class="story"><h2>軌跡</h2><p>2013年6月5日、15期としてAKB48に加入。加入から6か月後、34th「鈴懸の木の道で…」で初めて表題曲の選抜に入る。在籍中に表題曲の選抜1回。同期は12人で、そのうち今も在籍しているのは1人。2023年10月30日に卒業。在籍期間は10年4か月でした。</p><a href="#sel" class="playbar" id="playLink">▶ 選抜の記録を1作ずつ再生</a></section><script>
 document.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("playBar");if(!b)return;var cap=document.getElementById("playCap"),lk=document.getElementById("playLink");
-if(lk)lk.addEventListener("click",function(e){e.preventDefault();document.getElementById("sel").scrollIntoView({block:"start",behavior:"smooth"});setTimeout(function(){b.click()},500)});
+if(lk)lk.addEventListener("click",function(e){e.preventDefault();b.click()});
 b.addEventListener("click",function(){var bar=document.querySelector(".bar");if(!bar)return;
-var cs=[].slice.call(bar.children);cs.forEach(function(c){c.classList.add("dim");c.classList.remove("pop")});var i=0,n=0;b.disabled=true;cap.textContent="再生中…";
+bar.scrollIntoView({block:"center",behavior:"smooth"});var cs=[].slice.call(bar.children);cs.forEach(function(c){c.classList.add("dim");c.classList.remove("pop")});var i=0,n=0;b.disabled=true;cap.textContent="再生中…";
 function step(){if(i>=cs.length){b.disabled=false;b.textContent="▶ もう一度再生";cap.textContent="選抜 "+n+"回 ・ おわり";return}var c=cs[i++];c.classList.remove("dim");
-var hit=/(^| )(s|c|f)( |$)/.test(c.className);if(hit){n++;c.classList.add("pop");cap.textContent=n+"回目: "+c.title}setTimeout(step,hit?450:25)}step();});});
+var hit=/(^| )(s|c|f)( |$)/.test(c.className);if(hit){n++;c.classList.add("pop");cap.textContent=n+"回目: "+c.title}setTimeout(step,hit?1300:110)}setTimeout(step,700);});});
 </script>
 <p class="links"></p>
 <div class="kpi kpi4"><div><b>1</b><span>表題曲の選抜(AKB48在籍中)</span></div><div><b>0</b><span>センター</span></div><div><b>34th</b><span>初選抜</span></div><div><b>17</b><span>参加した曲</span></div></div>
