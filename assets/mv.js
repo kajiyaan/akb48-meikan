@@ -6,21 +6,29 @@ var st={q:"",m:"",c:"",k:"",p:""};
 var nq=function(t){return (t||"").normalize("NFKC").toLowerCase().replace(/\s/g,"")};
 var prm=new URLSearchParams(location.search);["q","m","c","k","p"].forEach(function(k){if(prm.get(k))st[k]=prm.get(k)});
 
+// メンバー・センターは、名前・よみ(ひらがな/カタカナ)・ローマ字の一部でもその場で絞り込む
+var MEM=[];try{MEM=JSON.parse($("mvMem").textContent)}catch(e){}
+var hira=function(t){return nq(t).replace(/[ァ-ヶ]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0x60)})};
+MEM.forEach(function(r){r.h=hira(r[0])+" "+hira(r[2])+" "+r[1].replace(/-/g,"")});
+function who(v,col){v=(v||"").trim();if(!v)return null;var ex=MEM.filter(function(r){return r[col]&&(r[0]===v||r[1]===v)});if(ex.length)return ex;var q=hira(v).replace(/-/g,"");return MEM.filter(function(r){return r[col]&&r.h.indexOf(q)>=0})}
+var MW=null,CW=null;
 function visible(){return cards.filter(function(c){return !c.hidden})}
 function apply(){
- var q=nq(st.q),n=0;
- cards.forEach(function(c){var ok=(!q||c.dataset.q.indexOf(q)>=0)&&(!st.m||c.dataset.ms.indexOf(" "+st.m+" ")>=0)&&(!st.c||c.dataset.c.indexOf(" "+st.c+" ")>=0)&&(!st.k||c.dataset.k===st.k)&&(!st.p||c.dataset.p===st.p);c.hidden=!ok;if(ok)n++});
+ var q=nq(st.q),n=0;MW=who(st.m,3);CW=who(st.c,4);
+ cards.forEach(function(c){var ok=(!q||c.dataset.q.indexOf(q)>=0)&&(!MW||MW.some(function(r){return c.dataset.ms.indexOf(" "+r[1]+" ")>=0}))&&(!CW||CW.some(function(r){return c.dataset.c.indexOf(" "+r[1]+" ")>=0}))&&(!st.k||c.dataset.k===st.k)&&(!st.p||c.dataset.p===st.p);c.hidden=!ok;if(ok)n++});
  secs.forEach(function(s){s.hidden=!s.querySelector(".mvc:not([hidden])")});
- var lab=[];if(st.m)lab.push($("mvM").selectedOptions[0].text.replace(/\(\d+\)$/,"")+"が歌う");if(st.c)lab.push("センター "+$("mvC").selectedOptions[0].text.replace(/\(\d+\)$/,""));
+ var nm=function(w){return w.length===1?w[0][0]:w.length?w.slice(0,3).map(function(r){return r[0]}).join("・")+(w.length>3?" ほか"+(w.length-3)+"人":""):"(該当なし)"};
+ var lab=[];if(MW)lab.push(nm(MW)+"が歌う");if(CW)lab.push("センター "+nm(CW));
  $("mvN").textContent=(lab.length?lab.join("・")+" ":"")+n+"曲";$("mvNone").hidden=n>0;
  var any=st.q||st.m||st.c||st.k||st.p;$("mvReset").hidden=!any;
- var u=new URLSearchParams();Object.keys(st).forEach(function(k){if(st[k])u.set(k,st[k])});history.replaceState(null,"",location.pathname+(u.toString()?"?"+u:""));
+ var u=new URLSearchParams();Object.keys(st).forEach(function(k){var v=st[k];if(k==="m"&&MW&&MW.length===1)v=MW[0][1];if(k==="c"&&CW&&CW.length===1)v=CW[0][1];if(v)u.set(k,v)});history.replaceState(null,"",location.pathname+(u.toString()?"?"+u:""));
 }
 function chips(id,key){var box=$(id);[].forEach.call(box.querySelectorAll("button"),function(b){b.classList.toggle("on",(b.dataset[key]||"")===st[key]);b.onclick=function(){st[key]=b.dataset[key]||"";chips(id,key);apply()}})}
-$("mvQ").value=st.q;$("mvM").value=st.m;$("mvC").value=st.c;if($("mvM").value!==st.m)st.m="";if($("mvC").value!==st.c)st.c="";
+var byslug=function(v){var r=MEM.filter(function(r){return r[1]===v})[0];return r?r[0]:v};
+st.m=byslug(st.m);st.c=byslug(st.c);$("mvQ").value=st.q;$("mvM").value=st.m;$("mvC").value=st.c;
 $("mvQ").addEventListener("input",function(){st.q=this.value;apply()});
-$("mvM").addEventListener("change",function(){st.m=this.value;apply()});
-$("mvC").addEventListener("change",function(){st.c=this.value;apply()});
+$("mvM").addEventListener("input",function(){st.m=this.value;apply()});
+$("mvC").addEventListener("input",function(){st.c=this.value;apply()});
 chips("mvK","k");chips("mvP","p");
 $("mvReset").addEventListener("click",function(e){e.preventDefault();st={q:"",m:"",c:"",k:"",p:""};$("mvQ").value="";$("mvM").value="";$("mvC").value="";chips("mvK","k");chips("mvP","p");apply()});
 
