@@ -174,3 +174,14 @@ svg.vchart{width:100%;height:auto;display:block;margin:8px 0}svg.vchart text{fon
 h3.hsec2{border-left:4px solid var(--pc);padding-left:10px;margin-top:22px}
 
 .unoff{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+
+/* ペンライトカラーで彩る個人ページ(お試し) */
+.pl .hero{padding:18px 16px 22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(120deg,color-mix(in srgb,var(--p1) 26%,var(--surface)),var(--surface) 50%,color-mix(in srgb,var(--p2) 26%,var(--surface)))}
+.pl .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--p1) 50%,var(--p2) 50%)}
+.pl .av{background:linear-gradient(135deg,var(--p1) 50%,var(--p2) 50%);text-shadow:0 1px 3px rgba(0,0,0,.65);box-shadow:0 0 0 3px var(--surface),0 0 14px color-mix(in srgb,var(--p1) 60%,transparent)}
+.pl h2::before{content:"";flex:none;width:6px;height:1.05em;border-radius:3px;background:linear-gradient(var(--p1) 50%,var(--p2) 50%)}
+.pl .kpi>div{border-top:3px solid var(--p1)}.pl .kpi>div:nth-child(even){border-top-color:var(--p2)}
+.pl section.story{border-left:4px solid var(--p1);border-right:4px solid var(--p2)}
+.pls{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.pls i{display:inline-block;width:9px;height:22px;border-radius:5px 5px 3px 3px;background:var(--c);border:1px solid color-mix(in srgb,var(--fg) 25%,transparent);box-shadow:0 0 8px var(--c)}
+.plx{color:var(--muted)}
