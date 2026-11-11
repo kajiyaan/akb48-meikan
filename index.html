@@ -18,7 +18,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=optional">
 <style>
 /* Layout: 劇場の座席表のような台帳。1人1行、インディーズ〜69thの71作をバーコード状に刻む */
 :root{
@@ -99,7 +99,7 @@ dialog.about{max-width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 48p
 dialog.setl{max-width:min(520px,calc(100vw - 32px))}ol.setlist{list-style:none;padding:0;margin:12px 0}ol.setlist li{display:flex;gap:12px;padding:5px 0;border-bottom:1px solid var(--line);align-items:baseline}ol.setlist li.sec{border:0;padding:12px 0 2px;font-weight:700;color:var(--muted);font-size:12.5px}ol.setlist a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}ol.setlist a:hover{color:var(--accent)}ol.setlist .no{min-width:62px;color:var(--muted);font-family:var(--f-data);font-size:12.5px}ol.setlist em{margin-left:auto;font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap}.slwarn{color:var(--accent);font-size:13px;font-weight:700}p.small{font-size:12px}
 #churn .ck{fill:var(--cell-in,#9a8f95)}#churn .cb{fill:#8fd3f4}#churn .cf{fill:var(--accent)}#churn .co{fill:var(--muted);opacity:.45}
 .glegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--muted);margin:6px 0 18px}.glegend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
-.today{margin:18px 0 6px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.today{min-height:230px;margin:18px 0 6px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
 .today .th{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:8px}.today .th b{font-size:16px}.today .th .muted{font-size:12.5px}
 .today .th a.guideBtn{margin-left:auto;font-size:13px;font-weight:700;color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:3px 12px;text-decoration:none}.today .th a.guideBtn:hover{background:var(--accent);color:#fff}
 .today dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:13.5px}.today dt{color:var(--muted);font-size:12.5px;white-space:nowrap;padding-top:1px}.today dd{margin:0}
@@ -136,7 +136,7 @@ a.hello.small{padding:8px 14px;background:none;border:1px solid var(--line);colo
 .qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0 6px}.qcards a{display:block;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface);text-decoration:none;color:var(--fg)}.qcards a:hover{border-color:var(--accent)}.qcards b{display:block;color:var(--accent);margin-bottom:2px}.qcards span{font-size:12.5px;color:var(--muted);line-height:1.6}
 a.nml{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}a.nml:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .ms a{text-decoration:none;color:inherit}.show .ms a:hover{color:var(--accent)}
-.homenews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0 4px}.homenews .hn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}.homenews h3{margin:0 0 4px;font-size:14px}.homenews ul{list-style:none;padding:0;margin:0}.homenews li{font-size:13px;padding:3px 0;line-height:1.5}.homenews li b{margin-right:6px;font-family:var(--f-data);font-size:12px;color:var(--muted)}.homenews .more3{grid-column:1/-1;margin:0;font-size:13px}.homenews .more3 a{color:var(--accent);font-weight:700}
+.homenews{min-height:150px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0 4px}.homenews .hn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}.homenews h3{margin:0 0 4px;font-size:14px}.homenews ul{list-style:none;padding:0;margin:0}.homenews li{font-size:13px;padding:3px 0;line-height:1.5}.homenews li b{margin-right:6px;font-family:var(--f-data);font-size:12px;color:var(--muted)}.homenews .more3{grid-column:1/-1;margin:0;font-size:13px}.homenews .more3 a{color:var(--accent);font-weight:700}
 .nwt .nk{display:inline-block;font-size:11px;padding:0 6px;border-radius:4px;background:var(--cell);color:var(--muted);margin-right:4px}a.srcl{font-size:11.5px;color:var(--muted)}
 a.mydaybn{display:block;margin:12px 0 0;padding:14px 18px;border-radius:12px;border:1.5px dashed var(--accent);text-decoration:none;color:var(--fg);background:var(--surface)}a.mydaybn b{display:block;color:var(--accent);font-size:16px}a.mydaybn span{font-size:13px;color:var(--muted)}a.mydaybn:hover{border-style:solid}
 .mdgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:14px 0}.mdc{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--surface);display:flex;flex-direction:column;gap:4px;line-height:1.7}.mdc b{font-size:15px}.mdc em{font-style:normal;color:var(--accent);font-weight:700}.mdc small{color:var(--muted);margin-left:6px}.mdc.big{grid-column:1/-1;border-color:var(--accent)}.mdc.big b{font-size:19px}
@@ -1353,7 +1353,7 @@ const SUBS={home:[["今日のAKB48","#home"],["ニュース","#news"],["あな�
  members:[["記録で見る","#members"],["条件で探す","#find"],["名簿(個人ページ)","members/",1]],
  singles:[["売上・選抜のグラフ","#singles"],["シングル一覧","singles/",1],["全楽曲","songs/",1]],
  theater:[["出演表","#theater"],["初めての劇場ガイド","#visit"]],
- records:[["AKB48の20年","#history"],["期ごとのデータ","#gens"],["記録集","records/",1],["比較","compare/",1],["選抜総選挙","elections/",1],["年表","timeline/",1]],
+ records:[["AKB48の20年","#history"],["期ごとのデータ","#gens"],["一覧","lists/",1],["記録集","records/",1],["比較","compare/",1],["選抜総選挙","elections/",1],["年表","timeline/",1]],
  oshi:[["推しのページ","#oshi"],["観覧ノート","#notes"]]};
 const VTITLE={home:"",members:"メンバー(記録で見る)",find:"メンバーを探す",singles:"曲・シングル",theater:"劇場公演の出演表",visit:"初めての劇場ガイド",gens:"期ごとのデータ",guide:"はじめての方へ",oshi:"推しのページ",news:"ニュース",myday:"あなたの日のAKB48",notes:"観覧ノート",history:"AKB48の20年"};
 document.getElementById("homeLink").addEventListener("click",e=>{e.preventDefault();if(location.hash!=="#home")location.hash="home";setTimeout(()=>scrollTo({top:0}),0)});
