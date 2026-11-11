@@ -121,7 +121,7 @@ dialog.setl{max-width:min(520px,calc(100vw - 32px))}ol.setlist{list-style:none;p
 .ochips{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0 0;font-size:13px}.ochips a{color:var(--accent)}
 ul.olist{list-style:none;padding:0;margin:4px 0}ul.olist li{padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px}ul.olist li .tk{margin:4px 0 0}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:10px 0}.steps div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface);font-size:13.5px;line-height:1.6}.steps b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;margin-right:6px;font-size:12px}
-table.vt{border-collapse:collapse;width:100%;font-size:13.5px;margin:8px 0}table.vt th,table.vt td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}table.vt th{color:var(--muted);font-weight:400}
+table.vt{border-collapse:collapse;width:100%;font-size:13.5px;margin:8px 0}table.vt th,table.vt td{white-space:normal}table.vt td:nth-child(1),table.vt td:nth-child(3){white-space:nowrap}@media(max-width:600px){table.vt td:nth-child(3){white-space:normal}}table.vt th,table.vt td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}table.vt th{color:var(--muted);font-weight:400}
 .vlink{margin:4px 0 10px;font-size:13.5px}.vlink a{color:var(--accent);font-weight:700}
 .mlg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:8px 0}.mlg>div{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}.mlg h3{margin:2px 0 6px;font-size:14.5px}
 ol.ml,ul.ml{margin:0;padding-left:1.4em}ol.ml li,ul.ml li{padding:4px 0;line-height:1.5}ul.ml{list-style:none;padding-left:0}.ml a{text-decoration:none;color:inherit}.ml a:hover b{color:var(--accent)}.ml a{display:block}.ml small{display:block;color:var(--muted);font-size:12px}
@@ -470,9 +470,9 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
       <li>インディーズ2作目「スカート、ひらり」と15th「桜の栞」は、歌唱メンバー全員の名前が載っていないため、選抜メンバーとして名前の出ている人だけを数えています。</li>
       <li>18th「Beginner」はバージョンが6つあり、センターを1人に決められないため、センターを空欄にしています。53rd「センチメンタルトレイン」は、センターが「不在」と記載されています。</li>
       <li>他グループに所属していたメンバーは、シングルの一覧で所属を小さく添えています。メンバー名鑑はAKB48に在籍した人だけです。</li>
-      <li>売上はオリコンの数字です。初週が取れたのは46作、累計が取れたのは38作で、ほかは空欄です。37th以降の累計は、オリコンの数字と確かめられないため載せていません。</li>
-      <li>在籍メンバーは、公式サイトのメンバー一覧(2026年10月7日時点)にもとづきます。69th(2027年2月24日発売、タイトル未定)の選抜は、2026年10月4日の発表にもとづきます。</li>
-      <li>卒業生の加入日は、期ごとのオーディションの最終審査の日などです。個人のお披露目の日とずれることがあります。</li>
+      <li>売上はオリコンの数字です。初週はORICON NEWSの週間ランキング記事など、累計はオリコンの年間ランキングなどから取りました。数字が確かめられない作品は空欄です。年間ランキング時点の累計は、その後の売上を含みません。</li>
+      <li>在籍メンバーは、公式サイトのメンバー一覧(2026年10月7日時点)にもとづきます。69th(2027年2月24日発売、タイトル未定)の選抜は、2026年10月4日の公式発表にもとづきます。発売前の作品も、選抜が発表された時点で選抜回数に数えています。</li>
+      <li>加入日は、お披露目の日を基本にしています。退団日は最終の在籍日です。AKB48に2回在籍した人は、在籍した期間ごとに分けて扱っています。</li>
       <li>研究生のうちに辞めた人は、Wikipediaの元研究生の表に載っている人だけです。初期の短い在籍の人などは、漏れている可能性があります。</li>
     </ul>
     <h2>出典</h2>
@@ -482,11 +482,11 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
       <li><a href="https://ja.wikipedia.org/wiki/AKB48%E3%81%AE%E5%8A%87%E5%A0%B4%E5%85%AC%E6%BC%94">Wikipedia: AKB48の劇場公演</a></li>
       <li><a href="https://en.wikipedia.org/wiki/AKB48_discography">Wikipedia: AKB48 discography</a>(売上)</li>
       <li><a href="https://www.akb48.co.jp/about/members">AKB48公式: メンバー一覧</a> / <a href="https://www.akb48.co.jp/about/schedule">AKB48公式: スケジュール</a></li>
-      <li><a href="https://entameclip.com/news/490599/">エンタメクリップ: 69thシングル選抜</a></li>
+      <li><a href="https://www.akb48.co.jp/news/detailpage/486379498/">AKB48公式: 69thシングルの発表</a></li>
     </ul>
   </dialog>
 
-  <footer>最終更新: 2026年11月6日<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの出典は<a href="#about" id="aboutOpen">こちら</a></footer>
+  <footer>最終更新: 2026年11月11日<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの出典は<a href="#about" id="aboutOpen">こちら</a><span id="ftLinks"></span></footer>
 </div>
 
 <script>
@@ -1034,11 +1034,11 @@ function renderVisit(){const el=document.getElementById("visitBody");if(!el)retu
 <h2>② チケットは抽選</h2>
 <div class="steps"><div><b>1</b>公式の「AKB48チケットセンター」の公演ページで申し込む(利用には登録が必要)</div><div><b>2</b>締切のあと当選発表</div><div><b>3</b>決められた期間内に入金して確定</div><div><b>4</b>当日、本人確認を受けて入場</div></div>
 <p>申し込める枠は、公演の案内では次のように分かれています。</p>
-<table class="vt"><thead><tr><th>枠</th><th>だれが申し込める</th><th>締切の目安</th></tr></thead><tbody>
+<div class="tbl"><table class="vt"><thead><tr><th>枠</th><th>だれが申し込める</th><th>締切の目安</th></tr></thead><tbody>
 <tr><td>会員枠など</td><td>「100発98中権利」、ファンクラブ「柱の会」会員、「AKB48グループ映像倉庫」会員</td><td>${b1!=null?`公演の約${b1}日前`:"—"}</td></tr>
 <tr><td>一般枠など</td><td>一般枠、ファミリーカップル枠、女性小中学生枠</td><td>${b2!=null?`公演の約${b2}日前`:"—"}</td></tr>
 <tr><td>ロビー観覧</td><td>お見送り会参加権付きのロビー観覧チケット(座席ではなくロビーで観覧するチケット)</td><td>${b3!=null?`公演の約${b3}日前`:"—"}</td></tr>
-</tbody></table>
+</tbody></table></div>
 <p class="muted small">締切の目安は、このサイトが集めた最近の公演の締切(枠ごとの中央値)です。料金は最近の公演で${pr.length?pr.map(p=>p+"円").join("・"):"—"}、ロビー観覧は1,800円でした。</p>
 <h2>③ 当日の注意</h2>
 <ul><li>入場のときに<b>顔写真付きの本人確認書類</b>が必要です。確認できないと入場できず、返金もされません。</li>
@@ -1360,6 +1360,7 @@ function openAbout(){if(!ABOUT.open){ABOUT.showModal();ABOUT.scrollTop=0}}
 document.getElementById("aboutOpen").addEventListener("click",e=>{e.preventDefault();openAbout()});
 ABOUT.querySelector(".aboutX").addEventListener("click",()=>ABOUT.close());
 ABOUT.addEventListener("click",e=>{if(e.target===ABOUT)ABOUT.close()});
+if(PAGES)document.getElementById("ftLinks").innerHTML=' ・ <a href="about/">このサイトについて・誤りの報告</a>';
 if(location.hash==="#about"){history.replaceState(null,"",location.pathname+location.search);setTimeout(openAbout,0)}
 function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):"home";
  VIEWS.forEach(x=>{document.getElementById("v-"+x).hidden=x!==v});
