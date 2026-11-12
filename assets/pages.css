@@ -277,3 +277,9 @@ input[type=range]{accent-color:var(--accent);width:min(420px,70%)}
 .pcards a b small{font-weight:400;color:var(--muted);margin-left:4px}.pcards .pm{color:var(--fg)!important;font-size:12.5px}
 .pairln{font-size:13.5px;margin:6px 0 10px}.pairchip{display:inline-block;border:1px solid var(--accent);border-radius:999px;padding:1px 10px;margin:2px 4px 2px 0;text-decoration:none;font-weight:700;font-size:12.5px}
 .pyomi{margin:-4px 0 6px;font-size:13px;color:var(--muted)}
+
+.linwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:6px;margin:8px 0 14px}
+.linsvg{min-width:760px;width:100%;height:auto;display:block}.linsvg .lg{stroke:var(--line);stroke-dasharray:2 4}.linsvg .lx{font:11px var(--f-data);fill:var(--muted)}
+.linsvg .ll{font:700 12px var(--f-body);fill:var(--fg)}.linsvg .lr{stroke:var(--line)}.linsvg .ln{font:600 11px var(--f-body);fill:var(--fg)}.linsvg .trunk{stroke:#ff5c9a;stroke-width:3;opacity:.5}
+.lincards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin:10px 0}
+.lincard{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;padding:10px 14px;background:var(--surface)}.lincard ul{list-style:none;padding:0;margin:6px 0 0}.lincard li{font-size:13.5px;padding:2px 0}.lincard li span{font:600 12px var(--f-data);color:var(--muted);display:inline-block;min-width:5.5em}.lincard small{color:var(--muted)}
