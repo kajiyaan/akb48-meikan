@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var s=location.search;if(/[?&]noana=1/.test(s))localStorage.setItem("akb-noana","1");if(/[?&]noana=0/.test(s))localStorage.removeItem("akb-noana");if(localStorage.getItem("akb-noana")!=="1")return;var u=/cloudflareinsights\.com/;var sb=navigator.sendBeacon&&navigator.sendBeacon.bind(navigator);if(sb)navigator.sendBeacon=function(a,b){return u.test(String(a))?true:sb(a,b)};var f=window.fetch;if(f)window.fetch=function(a,b){return u.test(String(a&&a.url||a))?Promise.resolve(new Response(null,{status:204})):f.apply(this,arguments)};var o=XMLHttpRequest.prototype.open,sd=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,a){this._na=u.test(String(a));return o.apply(this,arguments)};XMLHttpRequest.prototype.send=function(){if(this._na)return;return sd.apply(this,arguments)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>このサイトについて・誤りの報告 | AKB48 名鑑</title>
 <meta name="description" content="AKB48 名鑑（β版）の方針、データの決め方、出典、誤りの報告の方法。ファンが個人で作っている非公式のデータベースです。">
@@ -37,6 +38,11 @@
 <li>すべてのデータに出典を付けます。出典は各ページの下にあります。</li>
 <li>SNSの投稿を自動で集めることはしません。</li>
 </ul>
+<h2>アクセスの集計</h2>
+<p>このサイトは、どのページがよく見られているかを知るために Cloudflare Web Analytics を使っています。Cookie は使わず、個人を特定する情報は集めていません。</p>
+<p>このブラウザからのアクセスを集計に入れたくない場合は、下のボタンを押してください(このブラウザだけに記録されます)。</p>
+<p><button type="button" class="pick1" id="naBtn">このブラウザを集計から外す</button> <span class="muted small" id="naMsg"></span></p>
+<script>(function(){var b=document.getElementById("naBtn"),m=document.getElementById("naMsg");function show(){var on=false;try{on=localStorage.getItem("akb-noana")==="1"}catch(e){}b.textContent=on?"集計に戻す":"このブラウザを集計から外す";m.textContent=on?"今は集計から外れています。":""}b.onclick=function(){try{if(localStorage.getItem("akb-noana")==="1")localStorage.removeItem("akb-noana");else localStorage.setItem("akb-noana","1")}catch(e){}show()};show()})();</script>
 <h2>誤りの報告</h2>
 <p>データの間違いや古い情報を見つけたら、教えてください。確かめたうえで直します。</p>
 <p><a class="btn" href="https://forms.gle/h5fSAjUap47MMBA57" target="_blank" rel="noopener">誤りを報告する(Googleフォーム) ↗</a></p><p class="muted">名前やメールアドレスの入力は必要ありません。どのページの、どこが、どう違うかを書いてください。出典(公式サイトや記事のURL)があると、早く直せます。</p>
