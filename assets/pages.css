@@ -295,3 +295,4 @@ input[type=range]{accent-color:var(--accent);width:min(420px,70%)}
 @media (max-width:560px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .scr{grid-column:1/-1;width:100%;margin:6px 0 4px;padding:8px 12px;border:1px solid var(--accent);border-radius:10px;background:var(--surface);font-size:13px}.scr ul{list-style:none;padding:0;margin:4px 0}.scr li{display:block;padding:2px 0;border:0}.scr li b{font-family:var(--f-data);margin-right:6px}.scr small{color:var(--muted)}.scrh{margin:0;font-weight:700;color:var(--accent)}.scr details summary{cursor:pointer;color:var(--muted);font-size:12.5px}
 .works li{flex-wrap:wrap}
+.oshimark{margin:40px 0 0;text-align:right;font-size:12.5px;color:var(--muted)}.oshimark small{font-size:11px}
