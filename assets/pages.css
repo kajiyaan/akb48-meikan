@@ -272,3 +272,7 @@ input[type=range]{accent-color:var(--accent);width:min(420px,70%)}
 .calcard{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0;background:var(--surface)}.calcard h3{margin:0 0 4px}.calcard select{font:inherit;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}.calbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.calurl{word-break:break-all}.calln{margin:6px 0 12px}
 
 .wkh{font-size:15px;margin:14px 0 4px}.wkh small{color:var(--muted);font-weight:400;margin-left:6px}.works li b{font-weight:600}
+
+.pmems{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:12px 0}.pmem{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);display:grid;gap:2px;font-size:12.5px;color:var(--muted)}.pmem b{font-size:15px}.pmem a{text-decoration:none}
+.pcards a b small{font-weight:400;color:var(--muted);margin-left:4px}.pcards .pm{color:var(--fg)!important;font-size:12.5px}
+.pairln{font-size:13.5px;margin:6px 0 10px}.pairchip{display:inline-block;border:1px solid var(--accent);border-radius:999px;padding:1px 10px;margin:2px 4px 2px 0;text-decoration:none;font-weight:700;font-size:12.5px}
