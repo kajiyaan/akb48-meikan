@@ -308,3 +308,6 @@ details.fold>summary::after{content:"＋";font-size:18px;color:var(--p1,var(--mu
 details.fold[open]>summary::after{content:"－"}
 details.fold>summary:hover h2{text-decoration:underline}
 .foldb{padding-bottom:14px}
+details.fold>summary h2{font-family:var(--f-body);font-weight:700;font-size:17px;color:var(--fg);letter-spacing:.02em}
+details.fold>summary h2 small{font-weight:400}
+details.fold[open]>summary h2{color:var(--accent)}
