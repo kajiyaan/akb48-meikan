@@ -270,3 +270,5 @@ input[type=range]{accent-color:var(--accent);width:min(420px,70%)}
 @media (max-width:560px){.dots{gap:3px}.bdpick{top:56px}}
 
 .calcard{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0;background:var(--surface)}.calcard h3{margin:0 0 4px}.calcard select{font:inherit;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}.calbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.calurl{word-break:break-all}.calln{margin:6px 0 12px}
+
+.wkh{font-size:15px;margin:14px 0 4px}.wkh small{color:var(--muted);font-weight:400;margin-left:6px}.works li b{font-weight:600}
