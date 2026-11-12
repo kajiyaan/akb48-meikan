@@ -319,6 +319,8 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
       <a href="#oshi"><b>★推しを追いかける</b><span>推しの出演予定・申し込み・誕生日をまとめて見る</span></a>
       <a href="#history"><b>AKB48の20年</b><span>創成期から黄金期、転換期、再出発まで。グラフと年表でたどる</span></a>
       <a href="#guide"><b>まずはこの曲</b><span>再生回数と売上で選んだ代表曲から聴いてみる</span></a>
+      <a href="https://meikan48.com/fun/"><b>見て楽しむ・特集</b><span>100人の村、誕生日の暦、出身地の地図、劇場21周年、もうすぐ節目</span></a>
+      <a href="https://meikan48.com/calendar/"><b>予定表に入れる</b><span>公演・申込締切・推しの出演をスマホのカレンダーに自動で</span></a>
     </div>
   </section>
 
@@ -906,6 +908,10 @@ function renderToday(){
  {const an=annivUpcoming(0),soon=an.length?[]:annivUpcoming(7).slice(0,3);
   h+=`<dt>記念日</dt><dd>${an.length?an.slice(0,6).map(x=>`<span class="it">🎉 ${annivText(x.e,x.occ)}</span>`).join(""):soon.length?'<span class="muted">今日の記念日はありません</span> <span class="more2">・ もうすぐ: '+soon.map(x=>`${+x.occ.slice(5,7)}/${+x.occ.slice(8)} ${annivText(x.e,x.occ).replace(/<small[^]*?<\/small>/,"")}`).join(" ／ ")+"</span>":'<span class="muted">今日の記念日はありません</span>'}</dd>`;
   const cd=countdowns();if(cd.length)h+=`<dt>あと何日</dt><dd>${cd.map(([d,t])=>`<span class="it">${esc(t)} <b>あと${daysUntil(d)}日</b></span>`).join("")}</dd>`;}
+ {const R=[...CUR].sort((a,b)=>MSLUG(a.n).localeCompare(MSLUG(b.n)));
+  if(R.length){const k=Math.floor((Date.parse(td)-Date.parse("2026-11-13"))/864e5),m=R[((k%R.length)+R.length)%R.length];
+   const ns=AS.find(x=>x.m.includes(m.n)),y=m.j?Math.floor((Date.parse(td)-Date.parse(m.j))/31557600000):0;
+   h+=`<dt>今日のメンバー</dt><dd><span class="it">🌸 ${lk(m.n)} <small>${esc(m.g)}${m.j?` ・ 加入${y?y+"年目":"1年目"}`:""}${m.s&&m.s.length?` ・ 選抜${m.s.length}回`:""}${m.nk?` ・ 愛称「${esc(m.nk)}」`:""}</small></span>${ns?`<span class="more2">次の劇場出演 ${+ns.d.slice(5,7)}/${+ns.d.slice(8)}「${esc(ns.st)}」</span>`:""} <span class="more2 muted">・ 名簿順に毎日1人ずつ(${R.length}日で全員)</span></dd>`;}}
  h+=`<dt>${T("劇場公演")}</dt><dd>${tdShows.length?tdShows.map(showTxt).join(""):closed?'<span class="muted">今日は劇場の休館日です</span>':'<span class="muted">今日の公演はありません</span>'}${nx?` <span class="more2">・ 次は ${+nx.d.slice(5,7)}/${+nx.d.slice(8)} ${nx.t}「${esc(nx.st)}」公演</span>`:""} <a href="#theater" class="more2">出演表へ →</a> <a href="#visit" class="more2">初めての方へ →</a></dd>`;
  h+=`<dt>出演</dt><dd>${SC.length?SC.slice(0,6).map(scTxt).join("")+(SC.length>6?`<span class="more2"> ほか${SC.length-6}件</span>`:""):'<span class="muted">今日のテレビ・ラジオなどの予定は公式スケジュールにありません</span>'}</dd></dl>`;
  el.innerHTML=h;
