@@ -45,7 +45,7 @@ function upd(){document.querySelectorAll(".calcard").forEach(function(c){var u=u
 document.addEventListener("click",function(e){var b=e.target.closest('[data-k=c]');if(!b)return;var u=url(b.closest(".calcard"));(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.textContent="コピーしました"}).catch(function(){b.textContent="下のURLを長押しでコピー"})});
 var s=document.getElementById("calM"),q=new URLSearchParams(location.search).get("m");try{var o=JSON.parse(localStorage.getItem("akb-oshi")||"[]")}catch(e){o=[]}
 if(q&&[].some.call(s.options,function(x){return x.value===q}))s.value=q;s.addEventListener("change",upd);upd()})();</script>
-<footer><a href="../about/">このサイトについて・誤りの報告</a> ・ <a href="../guide/">はじめての方へ</a> ・ <a href="../visit/">初めての劇場ガイド</a> ・ <a href="../news/">ニュース</a> ・ <a href="../#oshi">★推しのページ</a><br>最終更新: 2026-11-12<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの一部は Wikipedia の記事をもとに集計・改変して作っています(<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="license noopener">CC BY-SA 4.0</a>)。その部分は同じ条件で利用できます。くわしくは<a href="../about/">このサイトについて</a>。</footer>
+<footer><a href="../about/">このサイトについて・誤りの報告</a> ・ <a href="../guide/">はじめての方へ</a> ・ <a href="../visit/">初めての劇場ガイド</a> ・ <a href="../news/">ニュース</a> ・ <a href="../#oshi">★推しのページ</a><br>最終更新: 2026-11-13<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの一部は Wikipedia の記事をもとに集計・改変して作っています(<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="license noopener">CC BY-SA 4.0</a>)。その部分は同じ条件で利用できます。くわしくは<a href="../about/">このサイトについて</a>。</footer>
 </div>
 </body>
 </html>
