@@ -355,3 +355,13 @@ ul.progs li.prog{display:grid;gap:2px;padding:9px 0;border-bottom:1px solid var(
 .srch{margin-left:8px;font-size:12.5px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:2px 10px;white-space:nowrap}
 .sq{width:100%;max-width:560px;font:inherit;font-size:16px;padding:10px 14px;border:1.5px solid var(--accent);border-radius:12px;background:var(--surface);color:var(--fg)}
 ul.sres li{padding:4px 0}
+
+.anote{margin:6px 0;padding:6px 10px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent);font-size:13px;border-radius:0 8px 8px 0}
+.tstag2{display:inline-block;padding:1px 9px;border-radius:999px;font-size:12px;font-weight:700;background:color-mix(in srgb,var(--accent) 22%,transparent)}
+.tspick select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg)}
+.tsbig{max-width:520px;margin:10px 0 18px}.tsbig .tsv2{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;margin:8px 0;border-radius:12px;overflow:hidden;background:#000;cursor:pointer}
+.tsbig .tsv2 img{width:100%;height:100%;object-fit:cover}.tsbig .tsv2 span{position:absolute;inset:0;display:grid;place-items:center;font-size:42px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.tsbig iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;margin:8px 0}
+.fagrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}.faic{display:grid;justify-items:center;gap:6px;text-decoration:none;color:var(--fg)}.faic img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#fff}
+.fagrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.faar{display:grid;gap:6px;text-decoration:none;color:var(--fg)}.faar img{width:100%;height:auto;border-radius:12px}
+.k3{margin:14px 0}
