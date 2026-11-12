@@ -276,3 +276,4 @@ input[type=range]{accent-color:var(--accent);width:min(420px,70%)}
 .pmems{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:12px 0}.pmem{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);display:grid;gap:2px;font-size:12.5px;color:var(--muted)}.pmem b{font-size:15px}.pmem a{text-decoration:none}
 .pcards a b small{font-weight:400;color:var(--muted);margin-left:4px}.pcards .pm{color:var(--fg)!important;font-size:12.5px}
 .pairln{font-size:13.5px;margin:6px 0 10px}.pairchip{display:inline-block;border:1px solid var(--accent);border-radius:999px;padding:1px 10px;margin:2px 4px 2px 0;text-decoration:none;font-weight:700;font-size:12.5px}
+.pyomi{margin:-4px 0 6px;font-size:13px;color:var(--muted)}
