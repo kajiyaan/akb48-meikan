@@ -1,0 +1,858 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//meikan48.com//AKB48 meikan//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:岩立沙穂(AKB48)の予定(名鑑)
+X-WR-CALDESC:岩立沙穂さんの劇場出演・申込締切・公式ス
+ ケジュールの出演予定と誕生日。AKB48 名鑑(非公式)が
+ 毎日更新します。
+X-WR-TIMEZONE:Asia/Tokyo
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:show-1474d3228c21@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261002T093000Z
+DTEND:20261002T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・永野芹佳・倉野
+ 尾成美・千葉恵里・黒須遥香・徳永羚海・太田有紀・
+ 橋本恵理子・畠山希美・平田侑希・水島美結・工藤華
+ 純・成田香姫奈・川村結衣・森川優\nチケット: https://a
+ kb48.zaiko.io/ja/e/2026-1002-1830\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1002-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-41534e08b217@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20260925T063000Z
+DTEND:20260925T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 10/2「ここからだ」
+DESCRIPTION:10月2日 18:30「ここからだ」公演の申し込み(会
+ 員枠など)の締切です。\n出演: 岩立沙穂・橋本陽菜・
+ 永野芹佳・倉野尾成美・千葉恵里・黒須遥香・徳永羚
+ 海・太田有紀・橋本恵理子・畠山希美・平田侑希・水
+ 島美結・工藤華純・成田香姫奈・川村結衣・森川優\n
+ 申し込み: https://akb48.zaiko.io/ja/e/2026-1002-1830
+URL:https://akb48.zaiko.io/ja/e/2026-1002-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 10/2「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-1c38f0c0243b@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20260927T063000Z
+DTEND:20260927T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 10/2「ここからだ」
+DESCRIPTION:10月2日 18:30「ここからだ」公演の申し込み(一
+ 般枠など)の締切です。\n出演: 岩立沙穂・橋本陽菜・
+ 永野芹佳・倉野尾成美・千葉恵里・黒須遥香・徳永羚
+ 海・太田有紀・橋本恵理子・畠山希美・平田侑希・水
+ 島美結・工藤華純・成田香姫奈・川村結衣・森川優\n
+ 申し込み: https://akb48.zaiko.io/ja/e/2026-1002-1830
+URL:https://akb48.zaiko.io/ja/e/2026-1002-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 10/2「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-503d8d643666@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20260929T063000Z
+DTEND:20260929T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 10/2「ここからだ」
+DESCRIPTION:10月2日 18:30「ここからだ」公演の申し込み(ロ
+ ビー観覧)の締切です。\n出演: 岩立沙穂・橋本陽菜・
+ 永野芹佳・倉野尾成美・千葉恵里・黒須遥香・徳永羚
+ 海・太田有紀・橋本恵理子・畠山希美・平田侑希・水
+ 島美結・工藤華純・成田香姫奈・川村結衣・森川優\n
+ 申し込み: https://akb48.zaiko.io/ja/e/2026-1002-1830
+URL:https://akb48.zaiko.io/ja/e/2026-1002-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 10/2「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3509d22082ee@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261010T040000Z
+DTEND:20261010T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・徳永羚海・太田
+ 有紀・橋本恵理子・布袋百椛・正鋳真優・森川優\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1010-reset-1300\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-7f70f0182116@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261003T063000Z
+DTEND:20261003T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 10/10「RESET」
+DESCRIPTION:10月10日 13:00「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+URL:https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-1db4e1596904@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261005T063000Z
+DTEND:20261005T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 10/10「RESET」
+DESCRIPTION:10月10日 13:00「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+URL:https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-f15f171ab3ad@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261007T063000Z
+DTEND:20261007T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 10/10「RESET」
+DESCRIPTION:10月10日 13:00「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+URL:https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-cfbae8eefc8d@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261010T083000Z
+DTEND:20261010T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・徳永羚海・太田
+ 有紀・橋本恵理子・布袋百椛・正鋳真優・森川優\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1010-1730\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1010-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-4a2b6e67f3c1@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261003T063000Z
+DTEND:20261003T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 10/10「RESET」
+DESCRIPTION:10月10日 17:30「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-1730
+URL:https://akb48.zaiko.io/ja/e/2026-1010-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-17470beacef2@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261005T063000Z
+DTEND:20261005T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 10/10「RESET」
+DESCRIPTION:10月10日 17:30「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-1730
+URL:https://akb48.zaiko.io/ja/e/2026-1010-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-87e53c1129a3@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261007T063000Z
+DTEND:20261007T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 10/10「RESET」
+DESCRIPTION:10月10日 17:30「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・橋本陽菜・徳永羚
+ 海・太田有紀・橋本恵理子・布袋百椛・正鋳真優・森
+ 川優\n申し込み: https://akb48.zaiko.io/ja/e/2026-1010-1730
+URL:https://akb48.zaiko.io/ja/e/2026-1010-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 10/10「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-93fe99e208ec@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261020T093000Z
+DTEND:20261020T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・橋本陽菜・永野
+ 芹佳・行天優莉奈・久保姫菜乃・迫由芽実・森川優\n
+ チケット: https://akb48.zaiko.io/ja/e/e2026-1020-1830\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/e2026-1020-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-ae0e67136b53@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261013T063000Z
+DTEND:20261013T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 10/20「RESET」
+DESCRIPTION:10月20日 18:30「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・福岡聖菜・橋本陽
+ 菜・永野芹佳・行天優莉奈・久保姫菜乃・迫由芽実・
+ 森川優\n申し込み: https://akb48.zaiko.io/ja/e/e2026-1020-1830
+URL:https://akb48.zaiko.io/ja/e/e2026-1020-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 10/20「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-ccae90580bbe@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261015T063000Z
+DTEND:20261015T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 10/20「RESET」
+DESCRIPTION:10月20日 18:30「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・福岡聖菜・橋本陽
+ 菜・永野芹佳・行天優莉奈・久保姫菜乃・迫由芽実・
+ 森川優\n申し込み: https://akb48.zaiko.io/ja/e/e2026-1020-1830
+URL:https://akb48.zaiko.io/ja/e/e2026-1020-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 10/20「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-2668a496dce2@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261017T063000Z
+DTEND:20261017T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 10/20「RESET」
+DESCRIPTION:10月20日 18:30「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・福岡聖菜・橋本陽
+ 菜・永野芹佳・行天優莉奈・久保姫菜乃・迫由芽実・
+ 森川優\n申し込み: https://akb48.zaiko.io/ja/e/e2026-1020-1830
+URL:https://akb48.zaiko.io/ja/e/e2026-1020-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 10/20「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-09627f56bb9b@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261026T093000Z
+DTEND:20261026T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・髙橋彩音・橋本
+ 陽菜・黒須遥香・布袋百椛・正鋳真優・水島美結\nチ
+ ケット: https://akb48.zaiko.io/ja/e/reset-2026-1026\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1026
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-1bce78bceb6f@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261019T063000Z
+DTEND:20261019T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 10/26「RESET」
+DESCRIPTION:10月26日 18:30「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・福岡聖菜・髙橋彩
+ 音・橋本陽菜・黒須遥香・布袋百椛・正鋳真優・水島
+ 美結\n申し込み: https://akb48.zaiko.io/ja/e/reset-2026-1026
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1026
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 10/26「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-df16cb75bf67@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261021T063000Z
+DTEND:20261021T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 10/26「RESET」
+DESCRIPTION:10月26日 18:30「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・福岡聖菜・髙橋彩
+ 音・橋本陽菜・黒須遥香・布袋百椛・正鋳真優・水島
+ 美結\n申し込み: https://akb48.zaiko.io/ja/e/reset-2026-1026
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1026
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 10/26「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-74b982ff4ed0@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261023T063000Z
+DTEND:20261023T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 10/26「RESET」
+DESCRIPTION:10月26日 18:30「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・福岡聖菜・髙橋彩
+ 音・橋本陽菜・黒須遥香・布袋百椛・正鋳真優・水島
+ 美結\n申し込み: https://akb48.zaiko.io/ja/e/reset-2026-1026
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1026
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 10/26「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-d24a747cddba@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261105T093000Z
+DTEND:20261105T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・迫由芽実・髙
+ 橋彩音・徳永羚海・長友彩海・平田侑希・福岡聖菜・
+ 正鋳真優・山内瑞葵・山口結愛・山根涼羽・大賀彩姫
+ ・丸山ひなた・渡邉葵心\nチケット: https://akb48.zaiko.io/j
+ a/e/2026ko-nov5-1830\n\nAKB48 名鑑(非公式)が公式スケジュー
+ ルから作成。出演は変わることがあります。最新は公
+ 式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-1811b97c7294@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261029T063000Z
+DTEND:20261029T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/5「ここからだ」
+DESCRIPTION:11月5日 18:30「ここからだ」公演の申し込み(会
+ 員枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・迫由芽実・髙橋彩音・徳永羚海・長友彩海・平田侑
+ 希・福岡聖菜・正鋳真優・山内瑞葵・山口結愛・山根
+ 涼羽・大賀彩姫・丸山ひなた・渡邉葵心\n申し込み: htt
+ ps://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+URL:https://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/5「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-9a9d97627138@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261031T063000Z
+DTEND:20261031T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/5「ここからだ」
+DESCRIPTION:11月5日 18:30「ここからだ」公演の申し込み(一
+ 般枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・迫由芽実・髙橋彩音・徳永羚海・長友彩海・平田侑
+ 希・福岡聖菜・正鋳真優・山内瑞葵・山口結愛・山根
+ 涼羽・大賀彩姫・丸山ひなた・渡邉葵心\n申し込み: htt
+ ps://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+URL:https://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/5「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-ad0a154a2359@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261102T063000Z
+DTEND:20261102T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/5「ここからだ」
+DESCRIPTION:11月5日 18:30「ここからだ」公演の申し込み(ロ
+ ビー観覧)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・迫由芽実・髙橋彩音・徳永羚海・長友彩海・平田侑
+ 希・福岡聖菜・正鋳真優・山内瑞葵・山口結愛・山根
+ 涼羽・大賀彩姫・丸山ひなた・渡邉葵心\n申し込み: htt
+ ps://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+URL:https://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/5「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-585efef1668c@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261106T093000Z
+DTEND:20261106T113000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・大賀彩姫・近
+ 藤沙樹・丸山ひなた・田中沙友利・牧戸愛茉・渡邉葵
+ 心\nチケット: https://akb48.zaiko.io/ja/e/2026e-1106-1830\n\nAKB48 
+ 名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026e-1106-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-dfbdc0d228dd@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261030T063000Z
+DTEND:20261030T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/6「手をつなぎな
+ がら」
+DESCRIPTION:11月6日 18:30「手をつなぎながら」公演の申し
+ 込み(会員枠など)の締切です。\n出演: 岩立沙穂・奥本
+ カイリ・大賀彩姫・近藤沙樹・丸山ひなた・田中沙友
+ 利・牧戸愛茉・渡邉葵心\n申し込み: https://akb48.zaiko.io/j
+ a/e/2026e-1106-1830
+URL:https://akb48.zaiko.io/ja/e/2026e-1106-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/6「手をつな
+ ぎながら」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-1dfad7e76fad@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261101T063000Z
+DTEND:20261101T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/6「手をつなぎな
+ がら」
+DESCRIPTION:11月6日 18:30「手をつなぎながら」公演の申し
+ 込み(一般枠など)の締切です。\n出演: 岩立沙穂・奥本
+ カイリ・大賀彩姫・近藤沙樹・丸山ひなた・田中沙友
+ 利・牧戸愛茉・渡邉葵心\n申し込み: https://akb48.zaiko.io/j
+ a/e/2026e-1106-1830
+URL:https://akb48.zaiko.io/ja/e/2026e-1106-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/6「手をつな
+ ぎながら」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-ed21d2b3b289@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261103T063000Z
+DTEND:20261103T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/6「手をつなぎな
+ がら」
+DESCRIPTION:11月6日 18:30「手をつなぎながら」公演の申し
+ 込み(ロビー観覧)の締切です。\n出演: 岩立沙穂・奥本
+ カイリ・大賀彩姫・近藤沙樹・丸山ひなた・田中沙友
+ 利・牧戸愛茉・渡邉葵心\n申し込み: https://akb48.zaiko.io/j
+ a/e/2026e-1106-1830
+URL:https://akb48.zaiko.io/ja/e/2026e-1106-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/6「手をつな
+ ぎながら」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-580b3a619661@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261108T040000Z
+DTEND:20261108T060000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・川村結衣・工
+ 藤華純・下尾みう・長友彩海・成田香姫奈・橋本恵理
+ 子・橋本陽菜・平田侑希・正鋳真優・八木愛月・山根
+ 涼羽・大賀彩姫・田中沙友利・森川優\nチケット: https:
+ //akb48.zaiko.io/ja/e/2026ra-nov8-1300\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-3963ceae0574@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261101T063000Z
+DTEND:20261101T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/8「ここからだ」
+DESCRIPTION:11月8日 13:00「ここからだ」公演の申し込み(会
+ 員枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+URL:https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-f15cbdbc1cff@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261103T063000Z
+DTEND:20261103T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/8「ここからだ」
+DESCRIPTION:11月8日 13:00「ここからだ」公演の申し込み(一
+ 般枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+URL:https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-92e259f0bb06@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261105T063000Z
+DTEND:20261105T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/8「ここからだ」
+DESCRIPTION:11月8日 13:00「ここからだ」公演の申し込み(ロ
+ ビー観覧)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+URL:https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-9306e51981d8@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261108T083000Z
+DTEND:20261108T103000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・川村結衣・工
+ 藤華純・下尾みう・長友彩海・成田香姫奈・橋本恵理
+ 子・橋本陽菜・平田侑希・正鋳真優・八木愛月・山根
+ 涼羽・大賀彩姫・田中沙友利・森川優\nチケット: https:
+ //akb48.zaiko.io/ja/e/2026kk-1108-1730\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-2f2701840bab@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261101T063000Z
+DTEND:20261101T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/8「ここからだ」
+DESCRIPTION:11月8日 17:30「ここからだ」公演の申し込み(会
+ 員枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+URL:https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-7bc07ee9e113@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261103T063000Z
+DTEND:20261103T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/8「ここからだ」
+DESCRIPTION:11月8日 17:30「ここからだ」公演の申し込み(一
+ 般枠など)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+URL:https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-dbff87c6b0a7@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261105T063000Z
+DTEND:20261105T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/8「ここからだ」
+DESCRIPTION:11月8日 17:30「ここからだ」公演の申し込み(ロ
+ ビー観覧)の締切です。\n出演: 岩立沙穂・奥本カイリ
+ ・川村結衣・工藤華純・下尾みう・長友彩海・成田香
+ 姫奈・橋本恵理子・橋本陽菜・平田侑希・正鋳真優・
+ 八木愛月・山根涼羽・大賀彩姫・田中沙友利・森川優\
+ n申し込み: https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+URL:https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/8「ここから
+ だ」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-6ec4c5f5e1f2@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261111T100000Z
+DTEND:20261111T120000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・太田有紀・行天優莉奈・黒
+ 須遥香・下尾みう・髙橋彩音・山根涼羽・丸山ひなた\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-nov11-1900\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov11-1900
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-83f589f874f5@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261104T063000Z
+DTEND:20261104T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/11「RESET」
+DESCRIPTION:11月11日 19:00「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・太田有紀・行天優
+ 莉奈・黒須遥香・下尾みう・髙橋彩音・山根涼羽・丸
+ 山ひなた\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov11-1900
+URL:https://akb48.zaiko.io/ja/e/2026-nov11-1900
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/11「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-ec83d6546411@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261106T063000Z
+DTEND:20261106T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/11「RESET」
+DESCRIPTION:11月11日 19:00「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・太田有紀・行天優
+ 莉奈・黒須遥香・下尾みう・髙橋彩音・山根涼羽・丸
+ 山ひなた\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov11-1900
+URL:https://akb48.zaiko.io/ja/e/2026-nov11-1900
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/11「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-83e5dc43d106@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261108T063000Z
+DTEND:20261108T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/11「RESET」
+DESCRIPTION:11月11日 19:00「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・太田有紀・行天優
+ 莉奈・黒須遥香・下尾みう・髙橋彩音・山根涼羽・丸
+ 山ひなた\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov11-1900
+URL:https://akb48.zaiko.io/ja/e/2026-nov11-1900
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/11「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-e79cef4889c5@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261116T093000Z
+DTEND:20261116T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・久保姫菜乃・橋本恵理子・
+ 橋本陽菜・畠山希美・平田侑希・武藤小麟・山口結愛\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-nov16-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov16-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-8c63ec09cc09@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261109T063000Z
+DTEND:20261109T070000Z
+SUMMARY:【申込締切 16:00】会員枠など 11/16「RESET」
+DESCRIPTION:11月16日 18:30「RESET」公演の申し込み(会員枠な
+ ど)の締切です。\n出演: 岩立沙穂・久保姫菜乃・橋本
+ 恵理子・橋本陽菜・畠山希美・平田侑希・武藤小麟・
+ 山口結愛\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov16-1830
+URL:https://akb48.zaiko.io/ja/e/2026-nov16-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】会員枠など 11/16「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-932bd5e391dd@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261111T063000Z
+DTEND:20261111T070000Z
+SUMMARY:【申込締切 16:00】一般枠など 11/16「RESET」
+DESCRIPTION:11月16日 18:30「RESET」公演の申し込み(一般枠な
+ ど)の締切です。\n出演: 岩立沙穂・久保姫菜乃・橋本
+ 恵理子・橋本陽菜・畠山希美・平田侑希・武藤小麟・
+ 山口結愛\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov16-1830
+URL:https://akb48.zaiko.io/ja/e/2026-nov16-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】一般枠など 11/16「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-4f7f67b17c7f@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261113T063000Z
+DTEND:20261113T070000Z
+SUMMARY:【申込締切 16:00】ロビー観覧 11/16「RESET」
+DESCRIPTION:11月16日 18:30「RESET」公演の申し込み(ロビー観
+ 覧)の締切です。\n出演: 岩立沙穂・久保姫菜乃・橋本
+ 恵理子・橋本陽菜・畠山希美・平田侑希・武藤小麟・
+ 山口結愛\n申し込み: https://akb48.zaiko.io/ja/e/2026-nov16-1830
+URL:https://akb48.zaiko.io/ja/e/2026-nov16-1830
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申込締切 16:00】ロビー観覧 11/16「RESET」
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:show-7db04866ff86@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261128T050000Z
+DTEND:20261128T070000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・久保姫菜乃・迫由芽実・橋
+ 本陽菜・布袋百椛・正鋳真優・丸山ひなた・森川優\n
+ チケット: https://akb48.zaiko.io/ja/e/2026-nov28-1400\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov28-1400
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-a63efb545f31@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART;VALUE=DATE:20261121
+SUMMARY:[握手会・写真会] 【2ショット写真会】AKB48～studi
+ o recordings コレクション～Team A 7th Stage 「M.T.に捧ぐ」（
+ Standard Edition）
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・小栗有以・行天
+ 優莉奈・倉野尾成美・坂川陽香・下尾みう・髙橋彩音
+ ・徳永羚海・永野芹佳・橋本陽菜・千葉恵里・黒須遥
+ 香・長友彩海・武藤小麟・山内瑞葵・山根涼羽・太田
+ 有紀・佐藤綺星・橋本恵理子・畠山希美・平田侑希・
+ 布袋百椛・正鋳真優・水島美結・山﨑空・秋山由奈・
+ 新井彩永・工藤華純・久保姫菜乃・迫由芽実・成田香
+ 姫奈・八木愛月・山口結愛・伊藤百花・奥本カイリ・
+ 川村結衣・大賀彩姫・近藤沙樹・丸山ひなた・髙橋舞
+ 桜・田中沙友利・牧戸愛茉・森川優・渡邉葵心
+END:VEVENT
+BEGIN:VEVENT
+UID:sc-b4f5d3b84d20@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART;VALUE=DATE:20261122
+SUMMARY:[握手会・写真会] 【2ショット写真会】AKB48～studi
+ o recordings コレクション～Team A 7th Stage 「M.T.に捧ぐ」（
+ Standard Edition）
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・小栗有以・行天
+ 優莉奈・倉野尾成美・坂川陽香・下尾みう・髙橋彩音
+ ・徳永羚海・永野芹佳・橋本陽菜・千葉恵里・黒須遥
+ 香・長友彩海・武藤小麟・山内瑞葵・山根涼羽・太田
+ 有紀・佐藤綺星・橋本恵理子・畠山希美・平田侑希・
+ 布袋百椛・正鋳真優・水島美結・山﨑空・秋山由奈・
+ 新井彩永・工藤華純・久保姫菜乃・迫由芽実・成田香
+ 姫奈・八木愛月・山口結愛・伊藤百花・奥本カイリ・
+ 川村結衣・大賀彩姫・近藤沙樹・丸山ひなた・髙橋舞
+ 桜・田中沙友利・牧戸愛茉・森川優・渡邉葵心
+END:VEVENT
+BEGIN:VEVENT
+UID:bd-iwatate-saho@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART;VALUE=DATE:20261004
+RRULE:FREQ=YEARLY
+SUMMARY:🎂 岩立沙穂の誕生日
+END:VEVENT
+END:VCALENDAR

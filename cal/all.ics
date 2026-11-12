@@ -1,0 +1,1069 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//meikan48.com//AKB48 meikan//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:AKB48 劇場公演(名鑑)
+X-WR-CALDESC:AKB48劇場の公演予定。AKB48 名鑑(非公式)が公
+ 式スケジュールから毎日更新します。
+X-WR-TIMEZONE:Asia/Tokyo
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:show-de90813d5ff3@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261001T093000Z
+DTEND:20261001T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・髙橋彩音・永野芹佳・下尾
+ みう・黒須遥香・武藤小麟・山根涼羽・水島美結\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1001-1830\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1001-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-1474d3228c21@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261002T093000Z
+DTEND:20261002T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・永野芹佳・倉野
+ 尾成美・千葉恵里・黒須遥香・徳永羚海・太田有紀・
+ 橋本恵理子・畠山希美・平田侑希・水島美結・工藤華
+ 純・成田香姫奈・川村結衣・森川優\nチケット: https://a
+ kb48.zaiko.io/ja/e/2026-1002-1830\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1002-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-5db652bf0988@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261003T040000Z
+DTEND:20261003T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 橋本陽菜・下尾みう・行天優莉奈・山
+ 内瑞葵・坂川陽香・太田有紀・正鋳真優・丸山ひなた\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1003-1300\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1003-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-ac90a55d99d3@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261003T083000Z
+DTEND:20261003T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 橋本陽菜・下尾みう・行天優莉奈・山
+ 内瑞葵・坂川陽香・太田有紀・正鋳真優・丸山ひなた\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1003-1730\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1003-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-b96cf301139c@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261005T093000Z
+DTEND:20261005T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・黒須遥香・長友彩海・迫由
+ 芽実・成田香姫奈・大賀彩姫・近藤沙樹・丸山ひなた\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1005-1830\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1005-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-45c5ed592712@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261006T093000Z
+DTEND:20261006T113000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 倉野尾成美・太田有紀・正鋳真優・新
+ 井彩永・久保姫菜乃・迫由芽実・山口結愛・近藤沙樹\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1006-1830\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1006-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-fe7eec02edf8@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261007T100000Z
+DTEND:20261007T120000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・永野芹佳・武藤小麟・山根
+ 涼羽・迫由芽実・山口結愛・川村結衣・丸山ひなた\n
+ チケット: https://akb48.zaiko.io/ja/e/reset-2026-1007\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1007
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-163ee230fc66@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261008T093000Z
+DTEND:20261008T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 福岡聖菜・髙橋彩音・永野芹佳・千葉
+ 恵里・黒須遥香・長友彩海・武藤小麟・山内瑞葵・山
+ 根涼羽・徳永羚海・布袋百椛・正鋳真優・工藤華純・
+ 久保姫菜乃・川村結衣・大賀彩姫\nチケット: https://akb4
+ 8.zaiko.io/ja/e/2026-1006-1008\n\nAKB48 名鑑(非公式)が公式スケ
+ ジュールから作成。出演は変わることがあります。最
+ 新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1006-1008
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-fc3b8f752e5c@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261009T093000Z
+DTEND:20261009T113000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 福岡聖菜・黒須遥香・山内瑞葵・秋山
+ 由奈・工藤華純・成田香姫奈・奥本カイリ・田中沙友
+ 利\nチケット: https://akb48.zaiko.io/ja/e/2026-1009-popstar\n\nAKB48
+  名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1009-popstar
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3509d22082ee@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261010T040000Z
+DTEND:20261010T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・徳永羚海・太田
+ 有紀・橋本恵理子・布袋百椛・正鋳真優・森川優\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1010-reset-1300\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1010-reset-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-cfbae8eefc8d@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261010T083000Z
+DTEND:20261010T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・橋本陽菜・徳永羚海・太田
+ 有紀・橋本恵理子・布袋百椛・正鋳真優・森川優\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1010-1730\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1010-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-78d096db8bde@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261011T040000Z
+DTEND:20261011T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・下尾みう・山内瑞葵・太田
+ 有紀・佐藤綺星・畠山希美・秋山由奈・八木愛月\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1011-1300\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1011-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-524c56cb9962@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261011T083000Z
+DTEND:20261011T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・下尾みう・山内瑞葵・太田
+ 有紀・佐藤綺星・畠山希美・秋山由奈・八木愛月\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-1011-1730\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1011-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-a35e4ca06a38@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261012T040000Z
+DTEND:20261012T060000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 黒須遥香・奥本カイリ・川村結衣・大
+ 賀彩姫・近藤沙樹・丸山ひなた・田中沙友利・牧戸愛
+ 茉\nチケット: https://akb48.zaiko.io/ja/e/2026-1012-1300\n\nAKB48 
+ 名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1012-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-25105110e748@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261012T083000Z
+DTEND:20261012T103000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 黒須遥香・奥本カイリ・川村結衣・大
+ 賀彩姫・近藤沙樹・丸山ひなた・田中沙友利・牧戸愛
+ 茉\nチケット: https://akb48.zaiko.io/ja/e/2026-1012-1730\n\nAKB48 
+ 名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1012-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-80c7e2b50990@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261013T093000Z
+DTEND:20261013T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 髙橋彩音・下尾みう・行天優莉奈・長
+ 友彩海・坂川陽香・畠山希美・布袋百椛・正鋳真優・
+ 水島美結・秋山由奈・新井彩永・工藤華純・迫由芽実
+ ・山口結愛・大賀彩姫・丸山ひなた\nチケット: https://a
+ kb48.zaiko.io/ja/e/2026-1013-1830\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1013-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-7ecdc411243a@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261014T100000Z
+DTEND:20261014T120000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 迫由芽実・伊藤百花・奥本カイリ・近
+ 藤沙樹・髙橋舞桜・田中沙友利・森川優・渡邉葵心\n
+ チケット: https://akb48.zaiko.io/ja/e/2026-1014-1900\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1014-1900
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-05c5abc05267@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261015T093000Z
+DTEND:20261015T113000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 福岡聖菜・下尾みう・倉野尾成美・山
+ 内瑞葵・坂川陽香・太田有紀・佐藤綺星・成田香姫奈
+ ・近藤沙樹\nチケット: https://akb48.zaiko.io/ja/e/2026-1015-1830
+ \n\nAKB48 名鑑(非公式)が公式スケジュールから作成。出
+ 演は変わることがあります。最新は公式でご確認くだ
+ さい。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1015-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-6d2b8e0b8d5e@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261016T093000Z
+DTEND:20261016T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 橋本陽菜・永野芹佳・行天優莉奈・倉
+ 野尾成美・黒須遥香・武藤小麟・山根涼羽・佐藤綺星
+ ・橋本恵理子・布袋百椛・秋山由奈・工藤華純・八木
+ 愛月・川村結衣・大賀彩姫・田中沙友利\nチケット: htt
+ ps://akb48.zaiko.io/ja/e/2026-1016-1830\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1016-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-a071813e59b0@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261017T040000Z
+DTEND:20261017T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 永野芹佳・長友彩海・徳永羚海・橋本
+ 恵理子・平田侑希・水島美結・久保姫菜乃・八木愛月\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1017-1300e\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1017-1300e
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-e61e414453b8@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261017T083000Z
+DTEND:20261017T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 永野芹佳・長友彩海・徳永羚海・橋本
+ 恵理子・平田侑希・水島美結・久保姫菜乃・八木愛月\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1017-a1730\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1017-a1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3d6c2c673c9e@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261018T040000Z
+DTEND:20261018T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 千葉恵里・長友彩海・武藤小麟・山根
+ 涼羽・坂川陽香・畠山希美・新井彩永・山口結愛\nチ
+ ケット: https://akb48.zaiko.io/ja/e/r2026-1018-1300\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/r2026-1018-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-46bfcc915f07@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261018T083000Z
+DTEND:20261018T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 千葉恵里・長友彩海・武藤小麟・山根
+ 涼羽・坂川陽香・畠山希美・新井彩永・山口結愛\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026t-1018-1730\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026t-1018-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-f56225cfd866@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261019T093000Z
+DTEND:20261019T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 小栗有以・永野芹佳・行天優莉奈・山
+ 根涼羽・徳永羚海・坂川陽香・佐藤綺星・平田侑希・
+ 正鋳真優・水島美結・新井彩永・久保姫菜乃・迫由芽
+ 実・山口結愛・奥本カイリ・丸山ひなた\nチケット: htt
+ ps://akb48.zaiko.io/ja/e/s2026-1019-1830\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/s2026-1019-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-93fe99e208ec@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261020T093000Z
+DTEND:20261020T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・橋本陽菜・永野
+ 芹佳・行天優莉奈・久保姫菜乃・迫由芽実・森川優\n
+ チケット: https://akb48.zaiko.io/ja/e/e2026-1020-1830\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/e2026-1020-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-8b76144bbe01@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261021T093000Z
+DTEND:20261021T113000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・大賀彩姫・近藤沙樹・丸
+ 山ひなた・髙橋舞桜・田中沙友利・牧戸愛茉・渡邉葵
+ 心\nチケット: https://akb48.zaiko.io/ja/e/2026w-1021-1830\n\nAKB48 
+ 名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026w-1021-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-d5d4fbc77127@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261023T093000Z
+DTEND:20261023T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 永野芹佳・佐藤綺星・畠山希美・新井
+ 彩永・工藤華純・八木愛月・川村結衣・大賀彩姫\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026-reset-1023-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-reset-1023-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-2076db7a83ec@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261024T040000Z
+DTEND:20261024T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・下尾みう・武藤小麟・坂川
+ 陽香・太田有紀・佐藤綺星・畠山希美・森川優\nチケ
+ ット: https://akb48.zaiko.io/ja/e/reset-2026-1024-1300\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1024-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3734cb2076d9@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261024T083000Z
+DTEND:20261024T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 福岡聖菜・下尾みう・武藤小麟・坂川
+ 陽香・太田有紀・佐藤綺星・畠山希美・森川優\nチケ
+ ット: https://akb48.zaiko.io/ja/e/reset-2026-1024-1730\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1024-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-83fcbfe1b0f8@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261025T040000Z
+DTEND:20261025T060000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・大賀彩姫・近藤沙樹・髙
+ 橋舞桜・田中沙友利・牧戸愛茉・森川優・渡邉葵心\n
+ チケット: https://akb48.zaiko.io/ja/e/te2026-1025-1300\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/te2026-1025-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-5bd3e7de6e82@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261025T083000Z
+DTEND:20261025T103000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・大賀彩姫・近藤沙樹・髙
+ 橋舞桜・田中沙友利・牧戸愛茉・森川優・渡邉葵心\n
+ チケット: https://akb48.zaiko.io/ja/e/te2026-1025-1730\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/te2026-1025-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-09627f56bb9b@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261026T093000Z
+DTEND:20261026T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・福岡聖菜・髙橋彩音・橋本
+ 陽菜・黒須遥香・布袋百椛・正鋳真優・水島美結\nチ
+ ケット: https://akb48.zaiko.io/ja/e/reset-2026-1026\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/reset-2026-1026
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-8520aa4061eb@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261027T093000Z
+DTEND:20261027T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 髙橋彩音・永野芹佳・下尾みう・倉野
+ 尾成美・山内瑞葵・太田有紀・佐藤綺星・平田侑希・
+ 正鋳真優・秋山由奈・新井彩永・八木愛月・丸山ひな
+ た・牧戸愛茉・森川優・渡邉葵心\nチケット: https://akb4
+ 8.zaiko.io/ja/e/ko2026-1027-1830\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/ko2026-1027-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-221e5f80bade@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261029T093000Z
+DTEND:20261029T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 奥本カイリ・小栗有以・川村結衣・行
+ 天優莉奈・工藤華純・倉野尾成美・坂川陽香・徳永羚
+ 海・長友彩海・永野芹佳・橋本陽菜・福岡聖菜・布袋
+ 百椛・武藤小麟・山根涼羽・近藤沙樹\nチケット: https:
+ //akb48.zaiko.io/ja/e/k2026-1029-1830\n\nAKB48 名鑑(非公式)が公式
+ スケジュールから作成。出演は変わることがあります
+ 。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/k2026-1029-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-8c17db6e0182@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261030T093000Z
+DTEND:20261030T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 新井彩永・太田有紀・工藤華純・佐藤
+ 綺星・千葉恵里・畠山希美・八木愛月・山内瑞葵\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026r-1030-1830\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026r-1030-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-1396dbea4359@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261031T083000Z
+DTEND:20261031T103000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 秋山由奈・伊藤百花・小栗有以・倉野
+ 尾成美・坂川陽香・髙橋彩音・山口結愛・山﨑空\nチ
+ ケット: https://akb48.zaiko.io/ja/e/p2026-1031\n\nAKB48 名鑑(非公
+ 式)が公式スケジュールから作成。出演は変わることが
+ あります。最新は公式でご確認ください。\nhttps://meikan
+ 48.com/
+URL:https://akb48.zaiko.io/ja/e/p2026-1031
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-0b5ec0c3f2db@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261101T040000Z
+DTEND:20261101T060000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 太田有紀・工藤華純・髙橋彩音・千葉
+ 恵里・橋本陽菜・平田侑希・布袋百椛・丸山ひなた\n
+ チケット: https://akb48.zaiko.io/ja/e/2026-nov1-1300\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov1-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-7230f1d306fb@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261101T083000Z
+DTEND:20261101T103000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 太田有紀・工藤華純・髙橋彩音・千葉
+ 恵里・橋本陽菜・平田侑希・布袋百椛・丸山ひなた\n
+ チケット: https://akb48.zaiko.io/ja/e/2026-nov1-1730\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov1-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-b8fc36c1e21f@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261102T093000Z
+DTEND:20261102T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 奥本カイリ・小栗有以・行天優莉奈・
+ 工藤華純・倉野尾成美・黒須遥香・徳永羚海・長友彩
+ 海・成田香姫奈・平田侑希・水島美結・武藤小麟・山
+ 内瑞葵・山根涼羽・大賀彩姫・丸山ひなた\nチケット: 
+ https://akb48.zaiko.io/ja/e/2026a-nov2-1830\n\nAKB48 名鑑(非公式)が
+ 公式スケジュールから作成。出演は変わることがあり
+ ます。最新は公式でご確認ください。\nhttps://meikan48.com
+ /
+URL:https://akb48.zaiko.io/ja/e/2026a-nov2-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-24ca54f4968d@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261103T040000Z
+DTEND:20261103T060000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 秋山由奈・新井彩永・太田有紀・川村
+ 結衣・久保姫菜乃・坂川陽香・下尾みう・千葉恵里・
+ 永野芹佳・橋本恵理子・畠山希美・正鋳真優・近藤沙
+ 樹・田中沙友利・森川優・渡邉葵心\nチケット: https://a
+ kb48.zaiko.io/ja/e/2026k-1103-1300\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026k-1103-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-2f72c9b199df@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261103T083000Z
+DTEND:20261103T103000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 秋山由奈・新井彩永・太田有紀・川村
+ 結衣・久保姫菜乃・倉野尾成美・坂川陽香・下尾みう
+ ・千葉恵里・永野芹佳・橋本恵理子・畠山希美・近藤
+ 沙樹・田中沙友利・森川優・渡邉葵心\nチケット: https:
+ //akb48.zaiko.io/ja/e/kokokara-1103-1730\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/kokokara-1103-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-cf52ea7f6654@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261104T100000Z
+DTEND:20261104T120000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 秋山由奈・工藤華純・倉野尾成美・迫
+ 由芽実・下尾みう・福岡聖菜・山内瑞葵・田中沙友利\
+ nチケット: https://akb48.zaiko.io/ja/e/2026w-1104-1900\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026w-1104-1900
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-d24a747cddba@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261105T093000Z
+DTEND:20261105T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・迫由芽実・髙
+ 橋彩音・徳永羚海・長友彩海・平田侑希・福岡聖菜・
+ 正鋳真優・山内瑞葵・山口結愛・山根涼羽・大賀彩姫
+ ・丸山ひなた・渡邉葵心\nチケット: https://akb48.zaiko.io/j
+ a/e/2026ko-nov5-1830\n\nAKB48 名鑑(非公式)が公式スケジュー
+ ルから作成。出演は変わることがあります。最新は公
+ 式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026ko-nov5-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-585efef1668c@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261106T093000Z
+DTEND:20261106T113000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・大賀彩姫・近
+ 藤沙樹・丸山ひなた・田中沙友利・牧戸愛茉・渡邉葵
+ 心\nチケット: https://akb48.zaiko.io/ja/e/2026e-1106-1830\n\nAKB48 
+ 名鑑(非公式)が公式スケジュールから作成。出演は変
+ わることがあります。最新は公式でご確認ください。\
+ nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026e-1106-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3b21241cde31@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261107T033000Z
+DTEND:20261107T053000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 工藤華純・黒須遥香・徳永羚海・永野
+ 芹佳・福岡聖菜・武藤小麟・山口結愛・森川優\nチケ
+ ット: https://akb48.zaiko.io/ja/e/2026t-nov7-1230\n\nAKB48 名鑑(非
+ 公式)が公式スケジュールから作成。出演は変わること
+ があります。最新は公式でご確認ください。\nhttps://mei
+ kan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026t-nov7-1230
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-580b3a619661@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261108T040000Z
+DTEND:20261108T060000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・川村結衣・工
+ 藤華純・下尾みう・長友彩海・成田香姫奈・橋本恵理
+ 子・橋本陽菜・平田侑希・正鋳真優・八木愛月・山根
+ 涼羽・大賀彩姫・田中沙友利・森川優\nチケット: https:
+ //akb48.zaiko.io/ja/e/2026ra-nov8-1300\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026ra-nov8-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-9306e51981d8@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261108T083000Z
+DTEND:20261108T103000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 岩立沙穂・奥本カイリ・川村結衣・工
+ 藤華純・下尾みう・長友彩海・成田香姫奈・橋本恵理
+ 子・橋本陽菜・平田侑希・正鋳真優・八木愛月・山根
+ 涼羽・大賀彩姫・田中沙友利・森川優\nチケット: https:
+ //akb48.zaiko.io/ja/e/2026kk-1108-1730\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026kk-1108-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-135406735c58@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261109T093000Z
+DTEND:20261109T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 伊藤百花・小栗有以・行天優莉奈・坂
+ 川陽香・佐藤綺星・千葉恵里・徳永羚海・永野芹佳・
+ 橋本陽菜・畠山希美・布袋百椛・正鋳真優・水島美結
+ ・武藤小麟・山﨑空・近藤沙樹\nチケット: https://akb48.z
+ aiko.io/ja/e/2026d-1109-1830\n\nAKB48 名鑑(非公式)が公式スケジ
+ ュールから作成。出演は変わることがあります。最新
+ は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026d-1109-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-178683b60ae6@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261110T093000Z
+DTEND:20261110T113000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 新井彩永・久保姫菜乃・倉野尾成美・
+ 迫由芽実・髙橋彩音・山内瑞葵・山口結愛・山﨑空\n
+ チケット: https://akb48.zaiko.io/ja/e/ku2026-1110-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/ku2026-1110-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-6ec4c5f5e1f2@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261111T100000Z
+DTEND:20261111T120000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・太田有紀・行天優莉奈・黒
+ 須遥香・下尾みう・髙橋彩音・山根涼羽・丸山ひなた\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-nov11-1900\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov11-1900
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-e4a2db493c42@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261112T093000Z
+DTEND:20261112T113000Z
+SUMMARY:AKB48「そこに未来はある」公演
+DESCRIPTION:出演: 秋山由奈・太田有紀・川村結衣・工藤
+ 華純・久保姫菜乃・迫由芽実・佐藤綺星・橋本恵理子
+ ・畠山希美・平田侑希・布袋百椛・正鋳真優・水島美
+ 結・八木愛月・山口結愛・山﨑空\nチケット: https://akb4
+ 8.zaiko.io/ja/e/2026j-1112-1830\n\nAKB48 名鑑(非公式)が公式スケ
+ ジュールから作成。出演は変わることがあります。最
+ 新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026j-1112-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-841e9247bc15@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261113T093000Z
+DTEND:20261113T113000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 伊藤百花・奥本カイリ・小栗有以・倉
+ 野尾成美・黒須遥香・佐藤綺星・髙橋彩音・近藤沙樹\
+ nチケット: https://akb48.zaiko.io/ja/e/2026t-1113-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026t-1113-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-619e288d3097@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261114T040000Z
+DTEND:20261114T060000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 秋山由奈・太田有紀・工藤華純・迫由
+ 芽実・成田香姫奈・福岡聖菜・正鋳真優\nチケット: htt
+ ps://akb48.zaiko.io/ja/e/2026s-1114-1300\n\nAKB48 名鑑(非公式)が公
+ 式スケジュールから作成。出演は変わることがありま
+ す。最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026s-1114-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-9737d1f3cde0@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261114T083000Z
+DTEND:20261114T103000Z
+SUMMARY:AKB48「夢のポップスター」公演
+DESCRIPTION:出演: 秋山由奈・太田有紀・工藤華純・迫由
+ 芽実・下尾みう・成田香姫奈・福岡聖菜・正鋳真優\n
+ チケット: https://akb48.zaiko.io/ja/e/y2026-1114-1700\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/y2026-1114-1700
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-e79cef4889c5@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261116T093000Z
+DTEND:20261116T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・久保姫菜乃・橋本恵理子・
+ 橋本陽菜・畠山希美・平田侑希・武藤小麟・山口結愛\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-nov16-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov16-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-d86e2f2ef004@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261117T093000Z
+DTEND:20261117T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 秋山由奈・黒須遥香・迫由芽実・千葉
+ 恵里・徳永羚海・八木愛月・山内瑞葵・山根涼羽\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026e-1117-1830\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026e-1117-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-e813ba2dfc38@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261118T100000Z
+DTEND:20261118T120000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 新井彩永・行天優莉奈・黒須遥香・永
+ 野芹佳・橋本恵理子・水島美結・山根涼羽・大賀彩姫\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-nov18-1900\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov18-1900
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-896a3c26ba86@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261120T093000Z
+DTEND:20261120T113000Z
+SUMMARY:AKB48「ここからだ」公演
+DESCRIPTION:出演: 秋山由奈・太田有紀・川村結衣・工藤
+ 華純・倉野尾成美・迫由芽実・佐藤綺星・髙橋彩音・
+ 徳永羚海・永野芹佳・橋本陽菜・平田侑希・正鋳真優
+ ・水島美結・山内瑞葵・山口結愛\nチケット: https://akb4
+ 8.zaiko.io/ja/e/ko2026-1120-1830\n\nAKB48 名鑑(非公式)が公式ス
+ ケジュールから作成。出演は変わることがあります。
+ 最新は公式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/ko2026-1120-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-1c81807186a9@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261123T040000Z
+DTEND:20261123T060000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・正鋳真優・大賀彩姫・丸
+ 山ひなた・髙橋舞桜・田中沙友利・森川優・渡邉葵心\
+ nチケット: https://akb48.zaiko.io/ja/e/2026te-1123-1300\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026te-1123-1300
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-0da2cd541883@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261123T083000Z
+DTEND:20261123T103000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・正鋳真優・大賀彩姫・丸
+ 山ひなた・髙橋舞桜・田中沙友利・森川優・渡邉葵心\
+ nチケット: https://akb48.zaiko.io/ja/e/2026wo-1123-1730\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026wo-1123-1730
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-a82f8a72c025@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261126T093000Z
+DTEND:20261126T113000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・正鋳真優・大賀彩姫・丸
+ 山ひなた・髙橋舞桜・田中沙友利・森川優・渡邉葵心\
+ nチケット: https://akb48.zaiko.io/ja/e/2026ew-1126-1830\n\nAKB48 名
+ 鑑(非公式)が公式スケジュールから作成。出演は変わ
+ ることがあります。最新は公式でご確認ください。\nht
+ tps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026ew-1126-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-5c38e3291435@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261127T093000Z
+DTEND:20261127T113000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 太田有紀・黒須遥香・橋本陽菜・畠山
+ 希美・平田侑希・武藤小麟・山口結愛・山根涼羽\nチ
+ ケット: https://akb48.zaiko.io/ja/e/2026re-nov27-1830\n\nAKB48 名鑑(
+ 非公式)が公式スケジュールから作成。出演は変わるこ
+ とがあります。最新は公式でご確認ください。\nhttps://
+ meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026re-nov27-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-7db04866ff86@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261128T050000Z
+DTEND:20261128T070000Z
+SUMMARY:AKB48「RESET」公演
+DESCRIPTION:出演: 岩立沙穂・久保姫菜乃・迫由芽実・橋
+ 本陽菜・布袋百椛・正鋳真優・丸山ひなた・森川優\n
+ チケット: https://akb48.zaiko.io/ja/e/2026-nov28-1400\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-nov28-1400
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-3accc363931a@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261129T093000Z
+DTEND:20261129T113000Z
+SUMMARY:AKB48「M.T.に捧ぐ」公演
+DESCRIPTION:出演: 秋山由奈・新井彩永・伊藤百花・小栗
+ 有以・行天優莉奈・倉野尾成美・坂川陽香・下尾みう
+ ・長友彩海・成田香姫奈・福岡聖菜・八木愛月・山内
+ 瑞葵・山﨑空・近藤沙樹\nチケット: https://akb48.zaiko.io/j
+ a/e/mt2026-1128-1830\n\nAKB48 名鑑(非公式)が公式スケジュー
+ ルから作成。出演は変わることがあります。最新は公
+ 式でご確認ください。\nhttps://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/mt2026-1128-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+BEGIN:VEVENT
+UID:show-8e1638de4e34@meikan48.com
+DTSTAMP:20261112T015537Z
+DTSTART:20261130T093000Z
+DTEND:20261130T113000Z
+SUMMARY:AKB48「手をつなぎながら」公演
+DESCRIPTION:出演: 奥本カイリ・黒須遥香・迫由芽実・正
+ 鋳真優・丸山ひなた・髙橋舞桜・田中沙友利・森川優\
+ nチケット: https://akb48.zaiko.io/ja/e/2026-1130-1830\n\nAKB48 名鑑
+ (非公式)が公式スケジュールから作成。出演は変わる
+ ことがあります。最新は公式でご確認ください。\nhttps
+ ://meikan48.com/
+URL:https://akb48.zaiko.io/ja/e/2026-1130-1830
+LOCATION:AKB48劇場(東京都千代田区外神田4-3-3 ドン・キホ
+ ーテ秋葉原8F)
+END:VEVENT
+END:VCALENDAR

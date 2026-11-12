@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var s=location.search;if(/[?&]noana=1/.test(s))localStorage.setItem("akb-noana","1");if(/[?&]noana=0/.test(s))localStorage.removeItem("akb-noana");if(localStorage.getItem("akb-noana")!=="1")return;var u=/cloudflareinsights\.com/;var sb=navigator.sendBeacon&&navigator.sendBeacon.bind(navigator);if(sb)navigator.sendBeacon=function(a,b){return u.test(String(a))?true:sb(a,b)};var f=window.fetch;if(f)window.fetch=function(a,b){return u.test(String(a&&a.url||a))?Promise.resolve(new Response(null,{status:204})):f.apply(this,arguments)};var o=XMLHttpRequest.prototype.open,sd=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,a){this._na=u.test(String(a));return o.apply(this,arguments)};XMLHttpRequest.prototype.send=function(){if(this._na)return;return sd.apply(this,arguments)}}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AKB48の劇場公演・申込締切・推しの出演をカレンダーに自動で入れる | AKB48 名鑑</title>
+<meta name="description" content="AKB48劇場の公演予定、チケットの申込締切、メンバーごとの出演予定を、GoogleカレンダーやiPhoneのカレンダーに購読で自動追加。">
+<link rel="canonical" href="https://meikan48.com/calendar/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AKB48 名鑑", "item": "https://meikan48.com/"}, {"@type": "ListItem", "position": 2, "name": "AKB48の劇場公演・申込締切・推しの出演をカレンダーに自動で入れる", "item": "https://meikan48.com/calendar/"}]}]}</script>
+<script>(function(){var h=location.hostname;if(/\.pages\.dev$/.test(h)||h==="www.meikan48.com")location.replace("https://meikan48.com"+location.pathname+location.search+location.hash)})();</script>
+<meta property="og:title" content="AKB48の劇場公演・申込締切・推しの出演をカレンダーに自動で入れる | AKB48 名鑑">
+<meta property="og:description" content="AKB48劇場の公演予定、チケットの申込締切、メンバーごとの出演予定を、GoogleカレンダーやiPhoneのカレンダーに購読で自動追加。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meikan48.com/calendar/">
+<meta property="og:image" content="https://meikan48.com/og/site.png">
+<meta property="og:site_name" content="AKB48 名鑑（β版）">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@500;700&display=optional">
+<link rel="stylesheet" href="../assets/pages.css?v=52124342">
+</head>
+<body>
+<div class="wrap">
+<header class="site"><a class="brand" href="../#home">AKB48 名鑑（β版）</a><span class="unoff">非公式ファンサイト</span>
+<nav class="tabs2"><a href="../#home">ホーム</a><a href="../#members">メンバー</a><a href="../#singles">曲・シングル</a><a href="../#theater" aria-current="page">劇場</a><a href="../#gens">記録・分析</a><a href="../#oshi">★推し</a></nav><nav class="subnav2"><a href="../#theater">出演表</a><a href="../visit/">初めての劇場ガイド</a><a href="../calendar/" aria-current="page">予定表に入れる</a><a href="../theater-21st/">劇場21周年</a></nav></header>
+<h1>AKB48の予定をスマホの予定表に入れる</h1>
+<p class="lead">劇場公演・申し込みの締切・推しの出演を、Googleカレンダーや iPhone のカレンダーに<b>自動で</b>入れられます。一度登録すれば、名鑑の毎日の更新に合わせて予定表も新しくなります。</p>
+<div class="calcard" data-path="cal/m/"><h3>① 推しの予定</h3><p>選んだメンバーの劇場出演・その公演の申込締切・テレビやイベントなどの出演(公式スケジュール)・誕生日。<br><label>メンバー <select id="calM"><option value="akiyama-yuna">秋山由奈</option><option value="arai-sae">新井彩永</option><option value="chiba-erii">千葉恵里</option><option value="fukuoka-seina">福岡聖菜</option><option value="gyoten-yurina">行天優莉奈</option><option value="hasegawa-momoka">長谷川百々花</option><option value="hashimoto-eriko">橋本恵理子</option><option value="hashimoto-haruna">橋本陽菜</option><option value="hatakeyama-nozomi">畠山希美</option><option value="hirata-yuki">平田侑希</option><option value="hotei-moka">布袋百椛</option><option value="ito-momoka">伊藤百花</option><option value="iwatate-saho">岩立沙穂</option><option value="kawamura-yui">川村結衣</option><option value="kondo-saki">近藤沙樹</option><option value="kubo-hinano">久保姫菜乃</option><option value="kudo-kasumi">工藤華純</option><option value="kuranoo-narumi">倉野尾成美</option><option value="kurosu-haruka">黒須遥香</option><option value="maeda-izumi">前田衣澄</option><option value="makito-ema">牧戸愛茉</option><option value="maruyama-hinata">丸山ひなた</option><option value="masai-mayuu">正鋳真優</option><option value="mizushima-miyuu">水島美結</option><option value="morikawa-yu">森川優</option><option value="muto-orin">武藤小麟</option><option value="nagano-serika">永野芹佳</option><option value="nagatomo-ayami">長友彩海</option><option value="narita-kohina">成田香姫奈</option><option value="oga-saki">大賀彩姫</option><option value="oguri-yui">小栗有以</option><option value="okumoto-kairi">奥本カイリ</option><option value="oonishi-yuna">大西ゆな</option><option value="ota-yuki">太田有紀</option><option value="sakagawa-hiyuka">坂川陽香</option><option value="sako-yumemi">迫由芽実</option><option value="sato-airi">佐藤綺星</option><option value="shitao-miu">下尾みう</option><option value="takahashi-ayane">髙橋彩音</option><option value="takahashi-mao">髙橋舞桜</option><option value="tanaka-sayuri">田中沙友利</option><option value="tokunaga-remi">徳永羚海</option><option value="watanabe-kiko">渡邉葵心</option><option value="yagi-azuki">八木愛月</option><option value="yamaguchi-yui">山口結愛</option><option value="yamane-suzuha">山根涼羽</option><option value="yamauchi-mizuki">山内瑞葵</option><option value="yamauchi-rinoa">山内利乃明</option><option value="yamazaki-sora">山﨑空</option></select></label></p><p class="calbtns"><a class="btn" data-k="g" target="_blank" rel="noopener">Googleカレンダーに追加</a> <a class="btn" data-k="w">iPhone・Macのカレンダーに追加</a> <button type="button" class="pick1 ghost" data-k="c">URLをコピー</button></p><p class="muted small calurl"></p></div>
+<div class="calcard" data-path="cal/all.ics"><h3>② 劇場公演すべて</h3><p>AKB48劇場の全公演と出演メンバー。</p><p class="calbtns"><a class="btn" data-k="g" target="_blank" rel="noopener">Googleカレンダーに追加</a> <a class="btn" data-k="w">iPhone・Macのカレンダーに追加</a> <button type="button" class="pick1 ghost" data-k="c">URLをコピー</button></p><p class="muted small calurl"></p></div>
+<div class="calcard" data-path="cal/deadlines.ics"><h3>③ 申し込みの締切</h3><p>全公演の、会員枠・一般枠・ロビー観覧の申込締切(締切の3時間前にお知らせ)。</p><p class="calbtns"><a class="btn" data-k="g" target="_blank" rel="noopener">Googleカレンダーに追加</a> <a class="btn" data-k="w">iPhone・Macのカレンダーに追加</a> <button type="button" class="pick1 ghost" data-k="c">URLをコピー</button></p><p class="muted small calurl"></p></div>
+<h2>使い方</h2>
+<ul class="plain">
+<li><b>Androidやパソコン(Googleカレンダー)</b>: 「Googleカレンダーに追加」を押して、出てきた画面で「追加」を押します。</li>
+<li><b>iPhone・Mac</b>: 「iPhone・Macのカレンダーに追加」を押して、「照会」(購読)を押します。</li>
+<li>うまくいかないときは、「URLをコピー」して、カレンダーの「URLで追加」「照会カレンダーを追加」に貼り付けてください。</li>
+<li>やめるときは、カレンダーのアプリからその予定表を削除してください。</li>
+</ul>
+<p class="muted small">予定は公式スケジュールから作っています。出演の変更や中止があることがあります。行く前に必ず公式でご確認ください。予定表のアプリが新しい予定を読み込むまで、数時間〜1日かかることがあります(Googleカレンダーは特に遅めです)。名鑑の側では、あなたが登録したことはわかりません。</p>
+<script>(function(){var B="https://meikan48.com/";function url(c){var p=c.dataset.path;if(p==="cal/m/")p+=document.getElementById("calM").value+".ics";return B+p}
+function upd(){document.querySelectorAll(".calcard").forEach(function(c){var u=url(c),w=u.replace(/^https:/,"webcal:");c.querySelector('[data-k=g]').href="https://calendar.google.com/calendar/render?cid="+encodeURIComponent(w);c.querySelector('[data-k=w]').href=w;c.querySelector(".calurl").textContent=u})}
+document.addEventListener("click",function(e){var b=e.target.closest('[data-k=c]');if(!b)return;var u=url(b.closest(".calcard"));(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.textContent="コピーしました"}).catch(function(){b.textContent="下のURLを長押しでコピー"})});
+var s=document.getElementById("calM"),q=new URLSearchParams(location.search).get("m");try{var o=JSON.parse(localStorage.getItem("akb-oshi")||"[]")}catch(e){o=[]}
+if(q&&[].some.call(s.options,function(x){return x.value===q}))s.value=q;s.addEventListener("change",upd);upd()})();</script>
+<footer><a href="../about/">このサイトについて・誤りの報告</a> ・ <a href="../guide/">はじめての方へ</a> ・ <a href="../visit/">初めての劇場ガイド</a> ・ <a href="../news/">ニュース</a> ・ <a href="../#oshi">★推しのページ</a><br>最終更新: 2026-11-12<br>このページはファンが個人で作った非公式のものです。AKB48、運営会社、公式サイトとは関係ありません。<br>データの一部は Wikipedia の記事をもとに集計・改変して作っています(<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="license noopener">CC BY-SA 4.0</a>)。その部分は同じ条件で利用できます。くわしくは<a href="../about/">このサイトについて</a>。</footer>
+</div>
+</body>
+</html>
