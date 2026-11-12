@@ -329,3 +329,8 @@ details.fold[open]>summary h2{color:var(--accent)}
 .pairart{margin:14px 0 16px}
 .pairart img{width:100%;height:auto;border-radius:14px;display:block}
 .pairart figcaption{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
+
+.feature-hero.hasart{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
+.feature-hero.hasart .pairart{margin:0;width:min(400px,42vw)}
+.feature-hero.hasart .pairart img{border-radius:12px}
+@media (max-width:640px){.feature-hero.hasart{grid-template-columns:1fr}.feature-hero.hasart .pairart{width:100%}}
