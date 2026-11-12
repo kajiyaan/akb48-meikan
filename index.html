@@ -290,6 +290,7 @@ footer{margin-top:40px;font-size:12px;color:var(--muted);border-top:1px solid va
 .ytng{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
 .ytc{display:grid;gap:3px;text-decoration:none;color:var(--fg);font-size:12.5px;line-height:1.45}.ytc img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;background:#000}.ytc small{color:var(--muted);font-size:11px}.ytc:hover span{text-decoration:underline}
 @media (max-width:560px){.ytng{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.oshiwk{margin:10px 0 16px;padding:10px 14px;border:1px solid var(--line);border-radius:14px}.oshiwk h2{margin:2px 0 6px;font-size:17px}
 .tsong{margin:18px 0 6px;padding:12px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 14%,transparent),transparent 70%)}
 .tsong .tsh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 8px;font-size:12px;letter-spacing:.06em;color:var(--accent);font-weight:700}
 .tsong .tsh small{color:var(--muted);font-weight:400;letter-spacing:0}
@@ -1031,7 +1032,13 @@ function renderOshi(){const el=document.getElementById("oshiBody");if(!el)return
  const ms=oshi.map(n=>CUR.find(m=>m.n===n)||M.find(m=>m.n===n)).filter(Boolean);
  if(!ms.length){el.innerHTML=`<h1>推しのページ</h1><p class="lead">まだ推しが登録されていません。メンバーの☆を押すと、ここにその人の出演予定・申し込み・誕生日・公式SNSがまとまります。</p><p><a class="pick1" href="#find">条件でメンバーを探す →</a> <a class="pick1 ghost" href="#members">メンバー一覧から選ぶ →</a></p>`;return}
  const td=jstToday();
- el.innerHTML=`<h1>推しのページ</h1><p class="muted">☆で登録した${ms.length}人の予定をまとめています。登録はこのブラウザだけに保存されます。</p><div class="oshigrid">`+ms.map(m=>{
+ const wk=(()=>{const hi=new Date(new Date(td+"T00:00:00").getTime()+6*864e5).toISOString().slice(0,10),ns=ms.map(m=>m.n),R=[];
+  (DATA.allshows||[]).forEach(x=>{if(x.d>=td&&x.d<=hi){const w=x.m.filter(n=>ns.includes(n));if(w.length)R.push({d:x.d,t:x.t||"",e:"🎭",ti:`「${x.st}」公演`,w})}});
+  (DATA.sched||[]).forEach(x=>{if(x.d>=td&&x.d<=hi&&x.k!=="劇場休館"){const w=x.m.filter(n=>ns.includes(n));if(w.length)R.push({d:x.d,t:x.t||"",e:({"テレビ":"📺","ラジオ":"📻","配信":"📱","雑誌":"📖","イベント":"🎪"})[x.k]||"📅",ti:x.title.replace(/^【[^】]*】/,""),w})}});
+  R.sort((a,b)=>(a.d+(a.t||"99")).localeCompare(b.d+(b.t||"99")));
+  if(!R.length)return"";const D3=s=>{const d=new Date(s+"T00:00:00");return `${d.getMonth()+1}/${d.getDate()}(${"日月火水木金土"[d.getDay()]})`};
+  return `<section class="oshiwk"><h2>今週の推し <small class="muted">これから7日間 ・ ${R.length}件</small></h2><ul class="olist">${R.map(x=>`<li><b>${D3(x.d)}${x.t?" "+x.t:""}</b> ${x.e} ${esc(x.ti)} <small class="muted">${x.w.map(esc).join("・")}</small></li>`).join("")}</ul></section>`})();
+ el.innerHTML=`<h1>推しのページ</h1><p class="muted">☆で登録した${ms.length}人の予定をまとめています。登録はこのブラウザだけに保存されます。</p>${wk}<div class="oshigrid">`+ms.map(m=>{
   const shows=(DATA.allshows||[]).filter(x=>x.d>=td&&x.m.includes(m.n)).sort((a,b)=>(a.d+a.t).localeCompare(b.d+b.t));
   const sc=(DATA.sched||[]).filter(x=>x.d>=td&&x.m.includes(m.n)&&x.k!=="劇場休館");
   const dd=daysTo(m.b),l=mlink(m.n);
