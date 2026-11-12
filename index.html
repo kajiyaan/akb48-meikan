@@ -1396,7 +1396,7 @@ function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.sl
  if(v==="home")homeNews();
  if(v==="singles"){const w=document.getElementById("chart").clientWidth;if(w&&w!==cw){cw=w;chart()}}
  if(v==="gens"){const w=document.getElementById("gshare").clientWidth;if(w&&w!==gw){gw=w;drawGShare()}}}
-window.addEventListener("hashchange",()=>{route();if(document.body.dataset.view==="home"){scrollTo({top:0});return}const nv=document.querySelector("nav.tabs"),y=nv.getBoundingClientRect().top+scrollY-2;scrollTo({top:Math.max(0,y)});});
+window.addEventListener("hashchange",()=>{route();scrollTo({top:0});});
 let gw=0;let cw=0;addEventListener("resize",()=>{const w=document.getElementById("chart").clientWidth;if(w&&Math.abs(w-cw)>40){cw=w;chart()}});
 document.getElementById("mlS").innerHTML=mlHtml();
 render(true);chart();renderSingles();renderGens();renderRet();renderShows();renderStages();renderToday();route();
