@@ -365,3 +365,6 @@ ul.sres li{padding:4px 0}
 .fagrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}.faic{display:grid;justify-items:center;gap:6px;text-decoration:none;color:var(--fg)}.faic img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#fff}
 .fagrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}.faar{display:grid;gap:6px;text-decoration:none;color:var(--fg)}.faar img{width:100%;height:auto;border-radius:12px}
 .k3{margin:14px 0}
+
+.ribbon{display:block;margin:0 -16px 8px;padding:7px 16px;text-align:center;font-size:13px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(90deg,#e8336f,#ff6fae,#f7b733)}
+.ribbon:hover{text-decoration:underline}
