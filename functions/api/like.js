@@ -1,7 +1,7 @@
 // いいねボタンの数を数える Cloudflare Pages Functions(build で functions/api/like.js にコピーされる)
 // 保存するのは「ページのパスごとの数」だけ。連打よけに「IPアドレス+ページ+日付」を元に戻せない形(ハッシュ)にして1日だけ覚える
 // D1 データベースを LIKES_DB という名前でサイトに結び付けて使う。結び付けていないときは 503 を返す(ボタンは出ない)
-const OK_PATH = /^\/(kouhaku|gens|fun|today-song|history|theater-21st|week|fanart|timeline|newcomers|theater-songs|theater-month|year|records|milestones|guide|visit|tv|radio)\/([a-z0-9\-]+\/){0,2}$/;
+const OK_PATH = /^\/(kouhaku|16ki-10th|gens|fun|today-song|history|theater-21st|week|fanart|timeline|newcomers|theater-songs|theater-month|year|records|milestones|guide|visit|tv|radio)\/([a-z0-9\-]+\/){0,2}$/;
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 
 async function ready(db) {

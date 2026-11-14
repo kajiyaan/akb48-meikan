@@ -437,3 +437,15 @@ ol.khlist li.khgap{border-top:2px dashed var(--accent);margin-top:6px}ol.khlist 
 .likeb.on{background:var(--accent);color:#fff;cursor:default}
 .likeb.pop{animation:likepop .4s ease}
 @keyframes likepop{50%{transform:scale(1.15)}}
+.g16hero{background:linear-gradient(135deg,#ff7eb3,#ff5fa2 35%,#a66cff 75%,#6fc3ff)}
+.g16live{margin:14px 0 20px;padding:14px 18px;border:2px solid #ff5fa2;border-radius:16px;background:color-mix(in srgb,#ff5fa2 9%,transparent)}
+.g16live b{font-size:17px}.g16live p{margin:6px 0}
+.g16cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:10px 0 18px}
+.g16c{display:block;border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;color:inherit;background:var(--cell)}
+.g16c:hover{border-color:var(--accent)}
+.g16c img{float:right;border-radius:50%;margin:0 0 6px 8px}
+.g16c b{display:block;font-size:19px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;color:var(--accent)}
+.g16c small{color:var(--muted);font-size:12.5px}
+.g16c dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:10px 0 0;font-size:13px;clear:both}
+.g16c dt{color:var(--muted)}.g16c dd{margin:0}
+.g16og a em{font-style:normal;color:var(--muted);font-size:11.5px;margin-left:4px}
