@@ -426,3 +426,7 @@ ol.khlist li.khgap{border-top:2px dashed var(--accent);margin-top:6px}ol.khlist 
 .gdera details{font-size:13.5px}
 .gdera h4{margin:12px 0 4px;font-size:14px}
 .gdev li{font-size:13.5px;margin:6px 0;line-height:1.6}
+.khogl{list-style:none;padding:0;margin:8px 0}
+.khogl li{margin:10px 0;line-height:1.75}
+.khogl li b{font-size:15.5px;margin-right:6px}
+.khogl li small{display:inline-block;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 8px;margin-right:6px;vertical-align:1px}
